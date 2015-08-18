@@ -33,7 +33,7 @@ import javax.xml.bind.annotation.XmlType;
     "field"
 })
 public class AdditionalFields
-    implements Serializable, DataObject
+    implements Serializable, IDataObject
 {
 
     private final static long serialVersionUID = 105L;

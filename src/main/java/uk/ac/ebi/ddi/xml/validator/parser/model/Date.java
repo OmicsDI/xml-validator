@@ -29,7 +29,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "dateType")
 public class Date
-    implements Serializable, DataObject
+    implements Serializable, IDataObject
 {
 
     private final static long serialVersionUID = 105L;

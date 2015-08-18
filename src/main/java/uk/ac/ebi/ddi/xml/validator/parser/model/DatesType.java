@@ -34,7 +34,7 @@ import javax.xml.bind.annotation.XmlType;
     "date"
 })
 public class DatesType
-    implements Serializable, DataObject
+    implements Serializable, IDataObject
 {
 
     private final static long serialVersionUID = 105L;

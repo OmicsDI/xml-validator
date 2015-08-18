@@ -57,7 +57,7 @@ import javax.xml.bind.annotation.XmlValue;
 
 })
 public class Entry
-    implements Serializable, DataObject
+    implements Serializable, IDataObject
 {
 
     private final static long serialVersionUID = 105L;
@@ -323,7 +323,7 @@ public class Entry
         "value"
     })
     public static class Name
-        implements Serializable, DataObject
+        implements Serializable, IDataObject
     {
 
         private final static long serialVersionUID = 105L;

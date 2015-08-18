@@ -37,7 +37,7 @@ import javax.xml.bind.annotation.XmlType;
 
 })
 public class Database
-    implements Serializable, DataObject
+    implements Serializable, IDataObject
 {
 
     private final static long serialVersionUID = 105L;

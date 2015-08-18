@@ -39,7 +39,7 @@ import javax.xml.bind.annotation.XmlValue;
     "value"
 })
 public class Field
-    implements Serializable, DataObject
+    implements Serializable, IDataObject
 {
 
     private final static long serialVersionUID = 105L;

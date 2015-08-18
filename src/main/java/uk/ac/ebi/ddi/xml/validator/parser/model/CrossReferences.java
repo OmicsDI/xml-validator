@@ -33,7 +33,7 @@ import javax.xml.bind.annotation.XmlType;
     "ref"
 })
 public class CrossReferences
-    implements Serializable, DataObject
+    implements Serializable, IDataObject
 {
 
     private final static long serialVersionUID = 105L;

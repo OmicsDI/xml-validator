@@ -3,7 +3,7 @@ package uk.ac.ebi.ddi.xml.validator.parser.unmarshaller;
 import org.apache.log4j.Logger;
 import org.xml.sax.InputSource;
 import uk.ac.ebi.ddi.xml.validator.parser.model.DataElement;
-import uk.ac.ebi.ddi.xml.validator.parser.model.DataObject;
+import uk.ac.ebi.ddi.xml.validator.parser.model.IDataObject;
 import uk.ac.ebi.ddi.xml.validator.parser.model.ModelConstants;
 
 import javax.xml.bind.JAXBContext;
@@ -66,7 +66,7 @@ public class OmicsUnmarshallerFactory {
          * @return T    return an instance of class type.
          */
 		@Override
-		public synchronized <T extends DataObject> T unmarshal(String xmlSnippet, DataElement element)
+		public synchronized <T extends IDataObject> T unmarshal(String xmlSnippet, DataElement element)
 				throws Exception {
 			
 			T retval;

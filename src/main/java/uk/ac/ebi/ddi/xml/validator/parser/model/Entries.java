@@ -34,7 +34,7 @@ import javax.xml.bind.annotation.XmlType;
     "entry"
 })
 public class Entries
-    implements Serializable, DataObject
+    implements Serializable, IDataObject
 {
 
     private final static long serialVersionUID = 105L;
@@ -68,6 +68,12 @@ public class Entries
             entry = new ArrayList<Entry>();
         }
         return this.entry;
+    }
+
+    public void addEntry(Entry entry){
+        if(this.entry == null)
+            this.entry = new ArrayList<Entry>();
+        this.entry.add(entry);
     }
 
 }

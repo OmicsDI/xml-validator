@@ -1,5 +1,6 @@
 package uk.ac.ebi.ddi.xml.validator;
 
+import org.xml.sax.SAXException;
 import psidev.psi.tools.xxindex.StandardXpathAccess;
 import psidev.psi.tools.xxindex.index.IndexElement;
 import psidev.psi.tools.xxindex.index.XpathIndex;
@@ -9,10 +10,16 @@ import uk.ac.ebi.ddi.xml.validator.parser.model.Entry;
 import uk.ac.ebi.ddi.xml.validator.parser.unmarshaller.OmicsDataUnmarshaller;
 import uk.ac.ebi.ddi.xml.validator.parser.unmarshaller.OmicsUnmarshallerFactory;
 
+import javax.xml.transform.Source;
+import javax.xml.transform.stream.StreamSource;
+import javax.xml.validation.Schema;
+import javax.xml.validation.SchemaFactory;
+import javax.xml.validation.Validator;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.RandomAccessFile;
+import java.net.URL;
 import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -211,9 +218,9 @@ public class OmicsXMLFile {
 
         // unmarshall the object
         try {
-            Entry mzDataSpectrum = unmarshaller.unmarshal(xml, DataElement.ENTRY);
+            Entry entry = unmarshaller.unmarshal(xml, DataElement.ENTRY);
 
-            return mzDataSpectrum;
+            return entry;
         } catch (Exception e) {
             throw new DDIException("Failed to unmarshal an Entry", e);
         }
@@ -341,5 +348,45 @@ public class OmicsXMLFile {
         } catch (IOException e) {
             throw new DDIException("Failed to read from mzData file.", e);
         }
+    }
+
+    public static boolean isSchemaValid(File xmlFile) {
+        boolean retval;
+
+        // 1. Lookup a factory for the W3C XML Schema language
+        SchemaFactory factory = SchemaFactory.newInstance("http://www.w3.org/2001/XMLSchema");
+
+        // 2. Compile the schema.
+        URL schemaLocation;
+        schemaLocation = OmicsXMLFile.class.getClassLoader().getResource("omicsdi.xsd");
+
+        Schema schema;
+        try {
+            schema = factory.newSchema(schemaLocation);
+        } catch (SAXException e) {
+            e.printStackTrace();
+            throw new IllegalStateException("Could not compile Schema for file: " + schemaLocation);
+        }
+
+        // 3. Get a validator from the schema.
+        Validator validator = schema.newValidator();
+
+        // 4. Parse the document you want to check.
+        Source source = new StreamSource(xmlFile);
+
+        // 5. Check the document (throws an Exception if not valid)
+        try {
+            validator.validate(source);
+            retval = true;
+        } catch (SAXException ex) {
+            System.out.println(xmlFile.getName() + " is not valid because ");
+            System.out.println(ex.getMessage());
+            retval = false;
+        } catch (IOException e) {
+            e.printStackTrace();
+            throw new IllegalStateException("Could not validate file because of file read problems for source: " + xmlFile.getAbsolutePath());
+        }
+
+        return retval;
     }
 }

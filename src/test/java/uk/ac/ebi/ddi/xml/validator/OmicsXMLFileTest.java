@@ -4,12 +4,17 @@ import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import uk.ac.ebi.ddi.xml.validator.exception.DDIException;
+import uk.ac.ebi.ddi.xml.validator.parser.marshaller.OmicsDataMarshaller;
+import uk.ac.ebi.ddi.xml.validator.parser.model.Database;
+import uk.ac.ebi.ddi.xml.validator.parser.model.Entries;
 import uk.ac.ebi.ddi.xml.validator.parser.model.Entry;
 
 import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.net.URL;
 
-import static org.junit.Assert.*;
 
 public class OmicsXMLFileTest {
 
@@ -48,6 +53,39 @@ public class OmicsXMLFileTest {
     public void testGetEntryIds() throws Exception {
 
         Assert.assertEquals(reader.getEntryIds().size(),1);
+
+    }
+
+    @Test
+    public void marshall() throws DDIException {
+
+        ///// ///// ///// ///// WRITE BACK ///// ///// ///// /////
+        // now try to write it back to a temporary file
+        FileWriter fw;
+        File tmpFile;
+        try {
+            tmpFile = File.createTempFile("tmpMzML", ".xml");
+            tmpFile.deleteOnExit();
+            fw = new FileWriter(tmpFile);
+        } catch (IOException e) {
+            e.printStackTrace();
+            throw new IllegalStateException("Could not create or write to temporary file for marshalling.");
+        }
+        OmicsDataMarshaller mm = new OmicsDataMarshaller();
+
+        Entry entry = reader.getEntryById("PRD000123");
+
+        Database database = new Database();
+        database.setDescription("new description");
+        database.setEntryCount(10);
+        database.setRelease("2010");
+        Entries entries = new Entries();
+        entries.addEntry(entry);
+        database.setEntries(entries);
+        mm.marshall(database, fw);
+
+        OmicsXMLFile.isSchemaValid(tmpFile);
+
 
     }
 }
