@@ -380,6 +380,27 @@ public class Entry
             this.boost = value;
         }
 
+        @Override
+        public String toString() {
+            return "Name{" +
+                    "value='" + value + '\'' +
+                    ", boost=" + boost +
+                    '}';
+        }
     }
 
+    @Override
+    public String toString() {
+        return "Entry{" +
+                "name=" + name +
+                ", description='" + description + '\'' +
+                ", authors='" + authors + '\'' +
+                ", keywords='" + keywords + '\'' +
+                ", dates=" + dates +
+                ", crossReferences=" + crossReferences +
+                ", additionalFields=" + additionalFields +
+                ", id='" + id + '\'' +
+                ", acc='" + acc + '\'' +
+                '}';
+    }
 }

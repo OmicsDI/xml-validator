@@ -86,4 +86,11 @@ public class Date
         this.value = value;
     }
 
+    @Override
+    public String toString() {
+        return "Date{" +
+                "type='" + type + '\'' +
+                ", value='" + value + '\'' +
+                '}';
+    }
 }

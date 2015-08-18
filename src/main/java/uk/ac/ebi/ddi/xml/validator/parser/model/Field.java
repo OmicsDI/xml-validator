@@ -122,4 +122,12 @@ public class Field
         this.boost = value;
     }
 
+    @Override
+    public String toString() {
+        return "Field{" +
+                "value='" + value + '\'' +
+                ", name='" + name + '\'' +
+                ", boost=" + boost +
+                '}';
+    }
 }
