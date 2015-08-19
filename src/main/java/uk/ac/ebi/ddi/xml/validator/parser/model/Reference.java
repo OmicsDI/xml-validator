@@ -36,9 +36,7 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "refType")
-public class Reference
-    implements Serializable, IDataObject
-{
+public class Reference implements Serializable, IDataObject {
 
     private final static long serialVersionUID = 105L;
     @XmlAttribute(name = "dbname", required = true)

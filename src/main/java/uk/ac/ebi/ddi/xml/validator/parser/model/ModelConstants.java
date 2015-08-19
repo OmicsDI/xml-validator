@@ -6,10 +6,8 @@ import java.util.Map;
 
 public class ModelConstants {
     public static final String MODEL_PKG = "uk.ac.ebi.ddi.xml.validator.parser.model";
-    public static final String OMICSXML_NAMESPACE = "";
     public static final String JAXB_ENCODING_PROPERTY = "jaxb.encoding";
     public static final String JAXB_FORMATTING_PROPERTY = "jaxb.formatted.output";
-    public static final String JAXB_SCHEMALOCATION_PROPERTY = "jaxb.schemaLocation";
     public static final String JAXB_FRAGMENT_PROPERTY = "jaxb.fragment";
 
     private static Map<Class, QName> indexClass = new HashMap<Class, QName>();

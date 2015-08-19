@@ -71,6 +71,7 @@ public class OmicsXMLFileTest {
             e.printStackTrace();
             throw new IllegalStateException("Could not create or write to temporary file for marshalling.");
         }
+
         OmicsDataMarshaller mm = new OmicsDataMarshaller();
 
         Entry entry = reader.getEntryById("PRD000123");
