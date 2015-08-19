@@ -69,4 +69,8 @@ public class AdditionalFields
         return this.field;
     }
 
+    public boolean isEmpty() {
+        field = getField();
+        return field.isEmpty();
+    }
 }

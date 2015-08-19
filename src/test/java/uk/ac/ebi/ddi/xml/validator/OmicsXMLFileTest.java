@@ -5,6 +5,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import uk.ac.ebi.ddi.xml.validator.exception.DDIException;
+import uk.ac.ebi.ddi.xml.validator.parser.OmicsXMLFile;
 import uk.ac.ebi.ddi.xml.validator.parser.marshaller.OmicsDataMarshaller;
 import uk.ac.ebi.ddi.xml.validator.parser.model.Database;
 import uk.ac.ebi.ddi.xml.validator.parser.model.Entries;

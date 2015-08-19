@@ -1,4 +1,4 @@
-package uk.ac.ebi.ddi.xml.validator;
+package uk.ac.ebi.ddi.xml.validator.parser;
 
 import org.xml.sax.SAXException;
 import psidev.psi.tools.xxindex.StandardXpathAccess;
@@ -9,16 +9,15 @@ import uk.ac.ebi.ddi.xml.validator.parser.model.DataElement;
 import uk.ac.ebi.ddi.xml.validator.parser.model.Entry;
 import uk.ac.ebi.ddi.xml.validator.parser.unmarshaller.OmicsDataUnmarshaller;
 import uk.ac.ebi.ddi.xml.validator.parser.unmarshaller.OmicsUnmarshallerFactory;
+import uk.ac.ebi.ddi.xml.validator.utils.Tuple;
+import uk.ac.ebi.ddi.xml.validator.utils.Utils;
 
 import javax.xml.transform.Source;
 import javax.xml.transform.stream.StreamSource;
 import javax.xml.validation.Schema;
 import javax.xml.validation.SchemaFactory;
 import javax.xml.validation.Validator;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.RandomAccessFile;
+import java.io.*;
 import java.net.URL;
 import java.util.*;
 import java.util.regex.Matcher;
@@ -33,6 +32,7 @@ import java.util.regex.Pattern;
  */
 public class OmicsXMLFile {
 
+    private static Pattern OmicsXMLFilePatter = Pattern.compile(".*(<database>).*");;
     /**
      * The mzXML source file.
      */
@@ -398,5 +398,92 @@ public class OmicsXMLFile {
         }
 
         return retval;
+    }
+
+    public static boolean hasFileHeader(File file) {
+        if(file.getAbsolutePath().toLowerCase().endsWith(".xml")){
+            BufferedReader reader = null;
+            try {
+                reader = new BufferedReader(new FileReader(file));
+                // read the first ten lines
+                StringBuilder content = new StringBuilder();
+                for (int i = 0; i < 20; i++) {
+                    content.append(reader.readLine());
+                }
+                // check file type
+                Matcher matcher = OmicsXMLFilePatter.matcher(content);
+                return matcher.find();
+            } catch (Exception e) {
+                new DDIException("Failed to read file", e);
+            } finally {
+                if (reader != null) {
+                    try {
+                        reader.close();
+                    } catch (IOException e) {
+                        // do nothing here
+                    }
+                }
+            }
+        }
+        return false;
+    }
+
+    /**
+     * Return Error as a Tuple with the Code of the Error and the message.
+     * @param file the file to be validated
+     * @return the list of errors
+     */
+    public static List<Tuple> validateSchema(File file) {
+        List<Tuple> errors = new ArrayList<Tuple>();
+        // 1. Lookup a factory for the W3C XML Schema language
+        SchemaFactory factory = SchemaFactory.newInstance("http://www.w3.org/2001/XMLSchema");
+
+        // 2. Compile the schema.
+        URL schemaLocation;
+        schemaLocation = OmicsXMLFile.class.getClassLoader().getResource("omicsdi.xsd");
+
+        Schema schema;
+        try {
+            schema = factory.newSchema(schemaLocation);
+        } catch (SAXException e) {
+            e.printStackTrace();
+            throw new IllegalStateException("Could not compile Schema for file: " + schemaLocation);
+        }
+
+        // 3. Get a validator from the schema.
+        Validator validator = schema.newValidator();
+
+        // 4. Parse the document you want to check.
+        Source source = new StreamSource(file);
+
+        // 5. Check the document (throws an Exception if not valid)
+        try {
+            validator.validate(source);
+        } catch (SAXException ex) {
+            errors.add(new Tuple("Error", ex.getMessage()));
+        } catch (IOException e) {
+            errors.add(new Tuple("Error", e.getMessage()));
+
+        }
+        return errors;
+    }
+
+    public static List<Tuple> validateSemantic(File file) {
+        List<Tuple> errors = new ArrayList<Tuple>();
+        try {
+            OmicsXMLFile reader = new OmicsXMLFile(file);
+            List<String> Ids    = reader.getEntryIds();
+            // Retrive all the entries and retrieve the warning sematic validation
+            for(String id: Ids){
+                List<Tuple> error = Utils.validateSemantic(reader.getEntryById(id));
+                errors.addAll(error);
+            }
+        } catch (DDIException e) {
+            errors.add(new Tuple("Error", e.getMessage()));
+
+        }
+        return errors;
+
+
     }
 }

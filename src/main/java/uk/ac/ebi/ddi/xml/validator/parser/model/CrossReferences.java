@@ -68,4 +68,8 @@ public class CrossReferences
         return this.ref;
     }
 
+    public boolean isEmpty() {
+        ref = getRef();
+        return ref.isEmpty();
+    }
 }

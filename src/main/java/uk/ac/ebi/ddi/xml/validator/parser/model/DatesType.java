@@ -70,4 +70,9 @@ public class DatesType
         return this.date;
     }
 
+    public boolean isEmpty(){
+        date = getDate();
+        return date.isEmpty();
+    }
+
 }
