@@ -25,6 +25,9 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
+ * This class reads an XML file for DDI and generate a set of data structures to handle the underlying data structures, objects
+ * IT also provide classes for validation using the DDI Schema, etc. Finally it provides a set of utilities to write Omics XML files.
+ *
  * @author Yasset Perez-Riverol (ypriverol@gmail.com)
  * @date 18/08/2015
  */
@@ -201,6 +204,12 @@ public class OmicsXMLFile {
         return accessFile;
     }
 
+    /**
+     * This function return the information of an element using the the id in the XML, for example PXD00001
+     * @param id the id value in the file
+     * @return Entry
+     * @throws DDIException
+     */
     public Entry getEntryById(String id) throws DDIException {
         // make sure the spectrum exists
 
@@ -226,32 +235,33 @@ public class OmicsXMLFile {
         }
     }
 
-    public Entry getEntryByIndex(Integer id) throws DDIException {
+    /**
+     * THis function return an entry using the index element in the file for example first element (index = 0), second element (index = 1)
+     * @param index the index in the List of file elements
+     * @return Entry
+     * @throws DDIException
+     */
+    public Entry getEntryByIndex(Integer index) throws DDIException {
         // make sure the spectrum exists
 
-        if (!idToIndexElementMap.containsKey(id))
-            throw new DDIException("Entry with id '" + id + "' does not exist.");
+        if (idToIndexElementMap.size() < index || index < 0)
+            throw new DDIException("Entry with id '" + index + "' does not exist.");
 
         // get the index element
-        IndexElement indexElement = idToIndexElementMap.get(id);
 
-        if (indexElement == null)
+        String id = entryIds.get(index);
+
+        if (id == null)
             throw new DDIException("Fail during the indexin");
 
-        // get the snipplet
-        String xml = readSnipplet(indexElement);
-
-        // unmarshall the object
         try {
-            Entry mzDataSpectrum = unmarshaller.unmarshal(xml, DataElement.ENTRY);
+            Entry entry =getEntryById(id);
 
-            return mzDataSpectrum;
+            return entry;
         } catch (Exception e) {
             throw new DDIException("Failed to unmarshal an Entry", e);
         }
     }
-
-
 
     /**
      * Return all the entry Ids from the XML
@@ -277,8 +287,8 @@ public class OmicsXMLFile {
     }
 
     /**
-     * Iterator over all spectra in the mzData file
-     * and returns mzData Spectrum objects.
+     * Iterator over all spectra in the omics DDI file
+     * and returns Entry  objects.
      * @author jg
      *
      */

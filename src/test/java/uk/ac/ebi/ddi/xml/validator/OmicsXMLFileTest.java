@@ -59,8 +59,6 @@ public class OmicsXMLFileTest {
     @Test
     public void marshall() throws DDIException {
 
-        ///// ///// ///// ///// WRITE BACK ///// ///// ///// /////
-        // now try to write it back to a temporary file
         FileWriter fw;
         File tmpFile;
         try {
@@ -87,6 +85,19 @@ public class OmicsXMLFileTest {
 
         OmicsXMLFile.isSchemaValid(tmpFile);
 
+
+    }
+
+    @Test
+    public void testGetEntryByIndex() throws Exception {
+
+        int index = 0;
+
+        Entry entry = reader.getEntryByIndex(index);
+
+        Assert.assertEquals(entry.getName().getValue(), "Large scale qualitative and quantitative profiling of tyrosine phosphorylation using a combination of phosphopeptide immuno-affinity purification and stable isotope dimethyl labeling");
+
+        System.out.println(entry.toString());
 
     }
 }
