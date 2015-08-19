@@ -14,7 +14,7 @@ public enum Field {
     OMICS("omics_type", FieldType.MANDATORY, FieldCategory.ADDITIONAL),
     LINK("full_dataset_link", FieldType.MANDATORY, FieldCategory.ADDITIONAL),
     SUBMITTER("submitter", FieldType.MANDATORY, FieldCategory.ADDITIONAL),
-    SUBMITTER_EMAIL("submitter_email", FieldType.MANDATORY, FieldCategory.ADDITIONAL),
+    SUBMITTER_EMAIL("submitter_email", FieldType.SUGGESTED, FieldCategory.ADDITIONAL),
     TAXONOMY("TAXONOMY", FieldType.SUGGESTED, FieldCategory.CROSSREF),
     PUBMED("pubmed", FieldType.SUGGESTED, FieldCategory.CROSSREF),
     INSTRUMENT("instrument_platform", FieldType.SUGGESTED, FieldCategory.ADDITIONAL),
