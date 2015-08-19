@@ -3,10 +3,9 @@ package uk.ac.ebi.ddi.xml.validator.parser.marshaller;
 import com.ctc.wstx.api.EmptyElementHandler;
 import com.ctc.wstx.api.WstxOutputProperties;
 import com.ctc.wstx.stax.WstxOutputFactory;
-import com.sun.xml.internal.txw2.output.IndentingXMLStreamWriter;
 import org.apache.log4j.Logger;
 
-import org.codehaus.stax2.XMLInputFactory2;
+
 import org.codehaus.stax2.XMLOutputFactory2;
 import uk.ac.ebi.ddi.xml.validator.parser.model.Database;
 import uk.ac.ebi.ddi.xml.validator.parser.model.IDataObject;
@@ -17,15 +16,14 @@ import javax.xml.bind.JAXBElement;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 import javax.xml.namespace.QName;
-import javax.xml.stream.XMLOutputFactory;
+
 import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamWriter;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.io.StringWriter;
 import java.io.Writer;
-import java.util.HashSet;
-import java.util.Set;
+
 
 
 public class OmicsDataMarshaller {
@@ -51,7 +49,6 @@ public class OmicsDataMarshaller {
         try {
             MarshallerFactory marshallerFactory  = MarshallerFactory.getInstance();
             Marshaller marshaller = marshallerFactory.initializeMarshaller();
-//            marshaller.setProperty(WstxOutputProperties.P_OUTPUT_EMPTY_ELEMENT_HANDLER, new EmptyElementHandler.SetEmptyElementHandler(marshallerFactory.emptyElements));
 
             // Set JAXB_FRAGMENT_PROPERTY to true for all objects that do not have
             // a @XmlRootElement annotation
@@ -80,8 +77,8 @@ public class OmicsDataMarshaller {
             //XMLOutputFactory factory = XMLOutputFactory.newFactory();
             XMLStreamWriter xmlStreamWriter = factory.createXMLStreamWriter(out);
 
-            IndentingXMLStreamWriter writer = new IndentingXMLStreamWriter(new EscapingXMLStreamWriter(xmlStreamWriter));
-            marshaller.marshal( new JAXBElement(aQName, object.getClass(), object), writer );
+        //    IndentingXMLStreamWriter writer = new IndentingXMLStreamWriter(new EscapingXMLStreamWriter(xmlStreamWriter));
+            marshaller.marshal( new JAXBElement(aQName, object.getClass(), object), xmlStreamWriter );
 
         } catch (JAXBException e) {
             logger.error("MzMLMarshaller.marshall", e);
