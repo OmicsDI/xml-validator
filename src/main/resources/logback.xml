@@ -5,7 +5,7 @@
     </contextListener>
 
     <appender name="FILE" class="ch.qos.logback.core.FileAppender">
-        <file>log/ddi-validator-indexer.log</file>
+        <file>log/ddi-indexer-validator.log</file>
 
         <encoder>
             <pattern>%msg%n</pattern>
