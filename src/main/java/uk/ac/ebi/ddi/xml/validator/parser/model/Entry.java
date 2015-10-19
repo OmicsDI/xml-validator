@@ -2,6 +2,8 @@
 package uk.ac.ebi.ddi.xml.validator.parser.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
@@ -402,5 +404,35 @@ public class Entry
                 ", id='" + id + '\'' +
                 ", acc='" + acc + '\'' +
                 '}';
+    }
+
+    /**
+     * Return the unique value of the present key
+     * @param key
+     * @return
+     */
+    public String getAdditionalFieldValue(String key){
+        String value = null;
+        if(additionalFields != null && !additionalFields.isEmpty()){
+            for(Field field: additionalFields.getField())
+                if(field != null && field.getName() != null && field.getName().equalsIgnoreCase(key))
+                    value = field.getValue();
+        }
+        return value;
+    }
+
+    /**
+     * Return of a key all the values in the Entry fot the given key
+     * @param key the key of the Field
+     * @return a list with all the values for the corresponding key
+     */
+    public List<String> getAdditionalFieldValues(String key){
+        List<String> value = new ArrayList<String>();
+        if(additionalFields != null && !additionalFields.isEmpty()){
+            for(Field field: additionalFields.getField())
+                if(field != null && field.getName() != null && field.getName().equalsIgnoreCase(key))
+                    value.add(field.getValue());
+        }
+        return value;
     }
 }
