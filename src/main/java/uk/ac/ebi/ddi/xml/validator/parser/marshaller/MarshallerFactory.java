@@ -13,7 +13,9 @@ import java.util.Set;
 public class MarshallerFactory extends WstxOutputFactory{
 
     private static final Logger logger = Logger.getLogger(MarshallerFactory.class);
+
     private static MarshallerFactory instance = new MarshallerFactory();
+
     private static JAXBContext jc = null;
 
     public  Set<String> emptyElements = new HashSet<String>();
@@ -37,7 +39,7 @@ public class MarshallerFactory extends WstxOutputFactory{
 
             Marshaller marshaller = jc.createMarshaller();
             marshaller.setProperty(ModelConstants.JAXB_ENCODING_PROPERTY, "UTF-8");
-            marshaller.setProperty(ModelConstants.JAXB_FORMATTING_PROPERTY, true);
+            marshaller.setProperty(ModelConstants.JAXB_FORMATTING_PROPERTY, false);
 
             // Register a listener that calls before/afterMarshalOperation on ParamAlternative/-List objects.
             // See: ParamAlternative.beforeMarshalOperation and ParamAlternativeList.beforeMarshalOperation

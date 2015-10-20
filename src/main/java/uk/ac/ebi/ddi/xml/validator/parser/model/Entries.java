@@ -42,6 +42,20 @@ public class Entries
     protected List<Entry> entry;
 
     /**
+     * Default constructor
+     */
+    public Entries() {
+    }
+
+    /**
+     * Constructor with all the entries by default
+     * @param entry
+     */
+    public Entries(List<Entry> entry) {
+        this.entry = entry;
+    }
+
+    /**
      * Gets the value of the entry property.
      * 
      * <p>
@@ -63,6 +77,7 @@ public class Entries
      * 
      * 
      */
+
     public List<Entry> getEntry() {
         if (entry == null) {
             entry = new ArrayList<Entry>();

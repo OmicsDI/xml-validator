@@ -3,6 +3,7 @@ package uk.ac.ebi.ddi.xml.validator.parser.marshaller;
 import com.ctc.wstx.api.EmptyElementHandler;
 import com.ctc.wstx.api.WstxOutputProperties;
 import com.ctc.wstx.stax.WstxOutputFactory;
+import com.sun.xml.txw2.output.IndentingXMLStreamWriter;
 import org.apache.log4j.Logger;
 
 
@@ -17,8 +18,10 @@ import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 import javax.xml.namespace.QName;
 
+import javax.xml.stream.XMLOutputFactory;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamWriter;
+import javax.xml.transform.OutputKeys;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.io.StringWriter;
@@ -48,6 +51,7 @@ public class OmicsDataMarshaller {
 
         try {
             MarshallerFactory marshallerFactory  = MarshallerFactory.getInstance();
+
             Marshaller marshaller = marshallerFactory.initializeMarshaller();
 
             // Set JAXB_FRAGMENT_PROPERTY to true for all objects that do not have
@@ -55,6 +59,7 @@ public class OmicsDataMarshaller {
             // ToDo: add handling of omicsDI (-> add flag to control treatment as fragment or not)
             if (!(object instanceof Database)) {
                 marshaller.setProperty(ModelConstants.JAXB_FRAGMENT_PROPERTY, true);
+                marshaller.setProperty(ModelConstants.JAXB_FORMATTING_PROPERTY, false);
                 if (logger.isDebugEnabled()) logger.debug("Object '" + object.getClass().getName() +
                                                           "' will be treated as root element.");
             } else {
@@ -64,35 +69,27 @@ public class OmicsDataMarshaller {
 
             QName aQName = ModelConstants.getQNameForClass(object.getClass());
 
-            // before marshalling out, wrap in a Custom XMLStreamWriter
-            // to fix a JAXB bug: http://java.net/jira/browse/JAXB-614
-            // also wrapping in IndentingXMLStreamWriter to generate formatted XML
-            //XMLStreamWriter xmlStreamWriter = XMLOutputFactory.newInstance().createXMLStreamWriter(out);
             System.setProperty("javax.xml.stream.XMLOutputFactory", "com.sun.xml.internal.stream.XMLOutputFactoryImpl");
 
-//            XMLOutputFactory factory = XMLOutputFactory.newFactory("com.sun.xml.internal.stream.XMLOutputFactoryImpl", null);
             XMLOutputFactory2 factory = new WstxOutputFactory();
 
             factory.setProperty(WstxOutputProperties.P_OUTPUT_EMPTY_ELEMENT_HANDLER, new EmptyElementHandler.SetEmptyElementHandler(marshallerFactory.emptyElements));
-            //XMLOutputFactory factory = XMLOutputFactory.newFactory();
+
             XMLStreamWriter xmlStreamWriter = factory.createXMLStreamWriter(out);
 
-        //    IndentingXMLStreamWriter writer = new IndentingXMLStreamWriter(new EscapingXMLStreamWriter(xmlStreamWriter));
+            xmlStreamWriter = new IndentingXMLStreamWriter(xmlStreamWriter);
+
             marshaller.marshal( new JAXBElement(aQName, object.getClass(), object), xmlStreamWriter );
 
         } catch (JAXBException e) {
-            logger.error("MzMLMarshaller.marshall", e);
+            logger.error("Marshaller.marshall", e);
             throw new IllegalStateException("Error while marshalling object:" + object.toString());
         } catch (XMLStreamException e) {
-            logger.error("MzMLMarshaller.marshall", e);
+            logger.error("Marshaller.marshall", e);
             throw new IllegalStateException("Error while marshalling object:" + object.toString());
         }
 
     }
-
-    // ToDo: default marshaller can only cope with mzML or sub-elements 
-    // ToDo: ?? new marshal method to create indexedmzML (with parameter specifying the elements to index)
-
     
 
 }

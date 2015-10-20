@@ -3,11 +3,7 @@ package uk.ac.ebi.ddi.xml.validator.parser.marshaller;
 import it.unimi.dsi.fastutil.chars.CharOpenHashSet;
 
 /**
- * Created with IntelliJ IDEA.
- * User: rcote
- * Date: 04/04/13
- * Time: 14:39
- * To change this template use File | Settings | File Templates.
+ * @author ypriverol
  */
 public class EscapingXMLUtilities {
 
