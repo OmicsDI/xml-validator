@@ -73,4 +73,8 @@ public class AdditionalFields
         field = getField();
         return field.isEmpty();
     }
+
+    public void setField(List<Field> field) {
+        this.field = field;
+    }
 }

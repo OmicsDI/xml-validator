@@ -52,7 +52,7 @@ public class OmicsDataMarshaller {
 
             // Set JAXB_FRAGMENT_PROPERTY to true for all objects that do not have
             // a @XmlRootElement annotation
-            // ToDo: add handling of indexedmzML (-> add flag to control treatment as fragment or not)
+            // ToDo: add handling of omicsDI (-> add flag to control treatment as fragment or not)
             if (!(object instanceof Database)) {
                 marshaller.setProperty(ModelConstants.JAXB_FRAGMENT_PROPERTY, true);
                 if (logger.isDebugEnabled()) logger.debug("Object '" + object.getClass().getName() +

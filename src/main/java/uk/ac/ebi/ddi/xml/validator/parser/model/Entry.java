@@ -435,4 +435,17 @@ public class Entry
         }
         return value;
     }
+
+    public void addAdditionalField(String name, String enrichedTitle) {
+        List<Field> fields = additionalFields.getField();
+        if(name != null && enrichedTitle != null){
+            if(fields == null)
+                fields = new ArrayList<>();
+            Field field = new Field();
+            field.setName(name);
+            field.setValue(enrichedTitle);
+            fields.add(field);
+        }
+        additionalFields.setField(fields);
+    }
 }

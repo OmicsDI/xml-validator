@@ -6,7 +6,9 @@ import psidev.psi.tools.xxindex.index.IndexElement;
 import psidev.psi.tools.xxindex.index.XpathIndex;
 import uk.ac.ebi.ddi.xml.validator.exception.DDIException;
 import uk.ac.ebi.ddi.xml.validator.parser.model.DataElement;
+import uk.ac.ebi.ddi.xml.validator.parser.model.Database;
 import uk.ac.ebi.ddi.xml.validator.parser.model.Entry;
+import uk.ac.ebi.ddi.xml.validator.parser.model.SummaryDatabase;
 import uk.ac.ebi.ddi.xml.validator.parser.unmarshaller.OmicsDataUnmarshaller;
 import uk.ac.ebi.ddi.xml.validator.parser.unmarshaller.OmicsUnmarshallerFactory;
 import uk.ac.ebi.ddi.xml.validator.utils.Tuple;
@@ -32,7 +34,7 @@ import java.util.regex.Pattern;
  */
 public class OmicsXMLFile {
 
-    private static Pattern OmicsXMLFilePatter = Pattern.compile(".*(<database>).*");;
+    private static Pattern OmicsXMLFilePatter = Pattern.compile(".*(<database>).*");
     /**
      * The mzXML source file.
      */
@@ -64,7 +66,11 @@ public class OmicsXMLFile {
      */
     private StandardXpathAccess xpathAccess;
 
+
     private ArrayList<String> entryIds;
+
+
+    private SummaryDatabase database = null;
 
     /**
      * Pattern used to extract xml attribute name
@@ -82,8 +88,34 @@ public class OmicsXMLFile {
         // create the unmarshaller
         unmarshaller = OmicsUnmarshallerFactory.getInstance().initializeUnmarshaller();
 
-        // initialize the spectra maps
+        //Inizialize attributes for each Entry
+        initializeAttributeMaps();
+
+        // initialize the entry maps
         initializeEntryMaps();
+
+    }
+
+    private void initializeAttributeMaps() throws DDIException {
+        List<IndexElement> databases = index.getElements(DataElement.DATABASE.getXpath());
+        if(databases != null && !databases.isEmpty() && databases.size() == 1){
+            String xml = readSnipplet(databases.get(0));
+
+            try {
+                Database entry = unmarshaller.unmarshal(xml, DataElement.DATABASE);
+                database = new SummaryDatabase();
+                database.setDescription(entry.getDescription());
+                database.setName(entry.getName());
+                database.setRelease(entry.getRelease());
+                database.setEntryCount(entry.getEntryCount());
+                database.setReleaseDate(entry.getReleaseDate());
+
+            } catch (Exception e) {
+                throw new DDIException("Failed to unmarshal an Entry", e);
+            }
+
+        }
+
 
     }
 
@@ -483,7 +515,28 @@ public class OmicsXMLFile {
 
         }
         return errors;
-
-
     }
+
+    public String getName() {
+        return (database != null)? database.getName():null;
+    }
+
+    public String getDescription() {
+        return (database != null)? database.getDescription():null;
+    }
+
+    public String getRelease() {
+        return (database != null)?database.getRelease():null;
+    }
+
+    public String getReleaseDate() {
+        return (database != null)?database.getReleaseDate():null;
+    }
+
+    public Integer getEntryCount() {
+        return (database != null)?database.getEntryCount():null;
+    }
+
+
+
 }

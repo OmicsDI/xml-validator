@@ -9,7 +9,8 @@ import java.util.Set;
  */
 public enum DataElement {
 
-    ENTRY(		"/database/entries/entry", Entry.class);
+    ENTRY(		"/database/entries/entry", Entry.class),
+    DATABASE("/database/", Database.class);
 
     private final String xpath;
 
