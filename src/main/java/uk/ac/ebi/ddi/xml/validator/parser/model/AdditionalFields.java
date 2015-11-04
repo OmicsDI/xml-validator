@@ -77,4 +77,11 @@ public class AdditionalFields
     public void setField(List<Field> field) {
         this.field = field;
     }
+
+    @Override
+    public String toString() {
+        return "AdditionalFields{" +
+                "field=" + field +
+                '}';
+    }
 }

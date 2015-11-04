@@ -72,4 +72,19 @@ public class CrossReferences
         ref = getRef();
         return ref.isEmpty();
     }
+
+    @Override
+    public String toString() {
+        return "CrossReferences{" +
+                "ref=" + ref +
+                '}';
+    }
+
+    /**
+     * Set a new list of references
+     * @param ref
+     */
+    public void setRef(List<Reference> ref) {
+        this.ref = ref;
+    }
 }

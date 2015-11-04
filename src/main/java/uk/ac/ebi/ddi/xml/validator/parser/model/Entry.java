@@ -295,7 +295,6 @@ public class Entry
         this.acc = value;
     }
 
-
     /**
      * <p>Java class for anonymous complex type.
      * 
@@ -447,5 +446,41 @@ public class Entry
             fields.add(field);
         }
         additionalFields.setField(fields);
+    }
+
+    /**
+     * Return a list of values for specific cross-reference database
+     * @param key the cross-reference database
+     * @return the list of values
+     */
+    public List<String> getCrossReferenceFieldValue(String key) {
+        List<String> values = new ArrayList<>();
+        if(crossReferences != null && !crossReferences.isEmpty()){
+            for(Reference ref: crossReferences.getRef()){
+                if(ref != null && ref.getDbname() != null && ref.getDbname().equalsIgnoreCase(key)){
+                    values.add(ref.getDbkey());
+                }
+            }
+        }
+        return values;
+    }
+
+    /**
+     * Add a new cross-reference key/value to the corss-references list
+     * @param key the key of the corss-reference: for example pubmed
+     * @param value the values of the cross-reference for example a pubmedID
+     */
+    public void addCrossReferenceValue(String key, String value) {
+
+        List<Reference> fields = crossReferences.getRef();
+        if(key != null && value != null){
+            if(fields == null)
+                fields = new ArrayList<>();
+            Reference field = new Reference();
+            field.setDbkey(value);
+            field.setDbname(key);
+            fields.add(field);
+        }
+        crossReferences.setRef(fields);
     }
 }

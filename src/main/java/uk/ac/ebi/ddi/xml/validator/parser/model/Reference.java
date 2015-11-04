@@ -118,4 +118,12 @@ public class Reference implements Serializable, IDataObject {
         this.boost = value;
     }
 
+    @Override
+    public String toString() {
+        return "Reference{" +
+                "dbname='" + dbname + '\'' +
+                ", dbkey='" + dbkey + '\'' +
+                ", boost=" + boost +
+                '}';
+    }
 }
