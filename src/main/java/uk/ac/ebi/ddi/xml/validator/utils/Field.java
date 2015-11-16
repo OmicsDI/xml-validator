@@ -20,7 +20,11 @@ public enum Field {
     INSTRUMENT("instrument_platform", FieldType.SUGGESTED, FieldCategory.ADDITIONAL),
     DATA("data_protocol", FieldType.SUGGESTED, FieldCategory.ADDITIONAL),
     SAMPLE("sample_protocol", FieldType.SUGGESTED, FieldCategory.ADDITIONAL),
-    ENRICH_SYNONYMS("synonyms", FieldType.OPTIONAL, FieldCategory.ADDITIONAL);
+    ENRICH_TITLE("name_synonyms", FieldType.OPTIONAL, FieldCategory.ADDITIONAL),
+    ENRICH_ABSTRACT("description_synonyms", FieldType.OPTIONAL, FieldCategory.ADDITIONAL),
+    ENRICH_SAMPLE("sample_synonyms", FieldType.OPTIONAL, FieldCategory.ADDITIONAL),
+    ENRICH_DATA("sample_synonyms", FieldType.OPTIONAL, FieldCategory.ADDITIONAL),
+    ENRICH_PUBLICATION("publication_synonyms", FieldType.OPTIONAL, FieldCategory.ADDITIONAL);
 
     private final String name;
     private final FieldType type;

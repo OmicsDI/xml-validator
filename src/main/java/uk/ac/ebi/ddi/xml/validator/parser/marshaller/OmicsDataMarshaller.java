@@ -60,9 +60,25 @@ public class OmicsDataMarshaller {
             if (!(object instanceof Database)) {
                 marshaller.setProperty(ModelConstants.JAXB_FRAGMENT_PROPERTY, true);
                 marshaller.setProperty(ModelConstants.JAXB_FORMATTING_PROPERTY, false);
-                if (logger.isDebugEnabled()) logger.debug("Object '" + object.getClass().getName() +
+                String encoding = (String) marshaller.getProperty(Marshaller.JAXB_ENCODING);
+
+                marshaller.setProperty("com.sun.xml.bind.xmlDeclaration", Boolean.FALSE);
+
+                // Specify the new header
+                marshaller.setProperty("com.sun.xml.bind.xmlHeaders", "<?xml version=\"1.1\" encoding=\"" + encoding + "\">");
+
+                if (logger.isDebugEnabled())
+                    logger.debug("Object '" + object.getClass().getName() +
                                                           "' will be treated as root element.");
             } else {
+
+//                String encoding = (String) marshaller.getProperty(Marshaller.JAXB_ENCODING);
+//
+//                marshaller.setProperty("com.sun.xml.bind.xmlDeclaration", Boolean.FALSE);
+//
+//                // Specify the new header
+//                marshaller.setProperty("com.sun.xml.bind.xmlHeaders", "<?xml version=\"1.1\" encoding=\"" + encoding + "\">");
+
                 if (logger.isDebugEnabled()) logger.debug("Object '" + object.getClass().getName() +
                                                           "' will be treated as fragment.");
             }
@@ -78,6 +94,8 @@ public class OmicsDataMarshaller {
             XMLStreamWriter xmlStreamWriter = factory.createXMLStreamWriter(out);
 
             xmlStreamWriter = new IndentingXMLStreamWriter(xmlStreamWriter);
+
+//            xmlStreamWriter.writeStartDocument("1.1");
 
             marshaller.marshal( new JAXBElement(aQName, object.getClass(), object), xmlStreamWriter );
 

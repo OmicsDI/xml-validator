@@ -26,7 +26,7 @@ public class OmicsXMLFileTest {
     @Before
     public void setUp() throws Exception {
 
-        URL fileURL = OmicsXMLFileTest.class.getClassLoader().getResource("PRIDE_EBEYE_PRD000123.xml");
+        URL fileURL = OmicsXMLFileTest.class.getClassLoader().getResource("PRIDE_EBEYE_PXD002837.xml");
 
         file = new File(fileURL.toURI());
 

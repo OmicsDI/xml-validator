@@ -1,0 +1,135 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<database>
+  <name>PRIDE Archive</name>
+  <description/>
+  <release>3</release>
+  <release_date>2015-11-09</release_date>
+  <entry_count>1</entry_count>
+  <entries>
+    <entry id="PXD002837">
+      <name>Snake Venom LC/MSE</name>
+      <description>Protein expression is a major link in the genotype-phenotype relationship, and processes affecting protein abundances, such as rates of transcription and translation, could contribute to phenotypic evolution if they generate heritable variation. Recent work has suggested that mRNA abundances do not accurately predict final protein abundances, which would imply that post-transcriptional regulatory processes contribute significantly to phenotypes. Post-transcriptional processes also appear to buffer changes in transcriptional patterns as species diverge, suggesting that the transcriptional changes have little or no effect on the phenotypes under study. We tested for concordance between mRNA and protein expression levels in snake venoms by means of mRNA-seq and quantitative mass spectrometry for 11 snakes representing 10 species, six genera, and three families. In contrast to most previous work, we found high correlations between venom-gland transcriptomes and venom proteomes for ten of our 11 comparisons. We tested for protein-level buffering of transcriptional changes during species divergence by comparing the difference between transcript abundance and protein abundance for three pairs of species and one intraspecific pair. We found no evidence for buffering during divergence of our three species pairs but did find evidence for protein-level buffering for our single intraspecific comparison, suggesting that buffering, if present, was a transient phenomenon in venom divergence. Our results demonstrated that post-transcriptional mechanisms did not contribute significantly to phenotypic evolution in venoms and suggest a more prominent and direct role for cis-regulatory evolution in phenotypic variation, particularly for snake venoms.</description>
+      <cross_references>
+        <ref dbkey="8720" dbname="TAXONOMY"/>
+        <ref dbkey="8759" dbname="TAXONOMY"/>
+        <ref dbkey="8715" dbname="TAXONOMY"/>
+        <ref dbkey="35024" dbname="TAXONOMY"/>
+        <ref dbkey="8756" dbname="TAXONOMY"/>
+        <ref dbkey="8729" dbname="TAXONOMY"/>
+        <ref dbkey="92519" dbname="TAXONOMY"/>
+        <ref dbkey="1114301" dbname="TAXONOMY"/>
+        <ref dbkey="8637" dbname="TAXONOMY"/>
+        <ref dbkey="509068" dbname="TAXONOMY"/>
+        <ref dbkey="26358130" dbname="pubmed"/>
+      </cross_references>
+      <dates>
+        <date type="submission" value="2015-09-02"/>
+        <date type="publication" value="2015-11-09"/>
+      </dates>
+      <additional_fields>
+        <field name="omics_type">Proteomics</field>
+        <field name="full_dataset_link">http://www.ebi.ac.uk/pride/archive/projects/PXD002837</field>
+        <field name="repository">pride</field>
+        <field name="sample_protocol">Florida State University College of Medicine Translational Science Laboratory. To analyze whole venom samples, we performed nanospray LC/MSE using the Synapt G2 HD Mass Spectrometer with a nanoAcquity UPLC (Waters Corp.) MSE is a data-independent acquisition mode that alternates between low and high energy functions, collecting mass spectral data for all detectable precursor and product ions. For coeluting peptides, the high energy spectra are chimeric, containing a mixture of unfragmented precursor ions and CID fragment ions from multiple precursors. Digestion of whole venom samples was performed using the Calbiochem ProteoExtract All-in-One Trypsin Digestion Kit (Merck, Darmstadt, Germany) according to the manufacturer’s instructions, using LC/MS grade solvents. Whole venom digests were diluted 1:10 in 3% acetonitrile (ACN) in LC/MS grade water (J.T. Baker) with 0.1% formic acid (FA) and 25 fmol/ml yeast alcohol dehydrogenase (ADH,Waters Corp.) as an internal standard. Two mL of sample containing 400 ng venom and 50 fmol of the internal standard (ADH) was injected. Glufibrinopeptide (785.8426 m/z,Waters Corp.) was used as the lock mass (external calibrant). Tryptic peptides were separated by reverse phase chromatography using aWaters nanoAcquity UPLC BEH130 C18 column with dimensions of 100 um &#2; 100 mm and 1.7 mm bead size. Gradient conditions were as follows: Mobile phase A solvent was 0.1% formic acid (Aq), mobile phase B solvent was 0.1% formic acid in acetonitrile (ACN); column was maintained at a temperature of 35&#14;C and a flow rate of 880 nL/min. The column was pre-equilibrated at initial conditions of 7% B and the gradient proceeded 7–35% B over 55 minutes, 35–50% B over five minutes, 50–80% B over two minutes, and remained at 80% B for 5 minutes before returning to 7% B over three minutes. Data were acquired for 70 minutes in nanoESI Positive mode over a mass range of 50–2000 m/z. The ion source temperature was 80&#14;C, capillary and cone voltages were 2.8 kV and 30 V, respectively, and nanoflow gas was 0.5 bar. Fragmentation occurred in the trap collision cell with low energy collision set at 4 V and high energy collision set over a ramp of 15–40 V. Raw data were generated using MassLynx version 4.1 software (Waters Corp.) and data were processed in ProteinLynx Global SERVER (PLGS) version 2.5.1 (Waters Corp.). The IdentityE function in PLGS was used to deconvolute the spectra by assigning fragment ions to specific precursors based on retention time and other factors. Proteins were identified using the PLGS IdentityE algorithm to search a decoy database containing entries specific to the proteome animal with the internal standard sequence (ADH) appended and an equal number of reversed sequences. The database included all putative toxin proteins as well as the nontoxin proteins identified in the venom-gland transcriptome. Search parameters allowed for precursor and fragment mass tolerances to be set by the software based on resolution, one missed cleavage site, three peptides per protein, seven fragment ions per protein, and post-translational modifications of cysteine carbamidomethylation (fixed) and oxidation of methionine (variable). Each sample was run in triplicate.</field>
+        <field name="data_protocol">All proteins retained in the final analyses had 0% false positive rates (FPR), and any protein not detected in all three replicates was excluded from our quantitative comparisons. Yeast alcohol dehydrogenase (ADH) was used as an internal standard for calculating response factors in the estimation of protein quantities and response factors were calculated independently for each replicate. For the first analysis, only the top three peptides, ranked by PLGS score (PLGS version 2.5.1), were used for protein quantification. Only proteins with at least three detected peptides were retained. The known load of ADH (50 fmol) was divided by the summed intensities of its top three peptides to obtain a response factor with units of fmol per unit intensity. The response factor was multiplied by the sum of the top three peptide intensities for each venom protein to estimate its concentration. For the second analysis, we used the summed intensities of all peptides in our calculations. For the response factor, the known concentration of ADH (50 fmol) was multiplied by its molecular weight to get total fg load. This fg value was divided by the summed intensities of all ADH peptides to obtain a response factor with units of fg per unit intensity. The response factor was multiplied by the summed intensities of all peptides in each venom protein to estimate its total fg load, which was then divided by the theoretical molecular weight of the venom protein to estimate its fmol concentration. This all-peptide quantification method is based on the same principles underlying iBAQ, which has been demonstrated to have biological relevance and to perform well at the protein and proteome levels (Schwanhäusser et al. 2011; Arike et al. 2012). For both analyses, fmol values from each replicate were calculated separately and averaged to produce a final estimate of concentration. To assess the quality of our estimates, we calculated the coefficients of variation for the values of each protein across replicates. From all 11 data sets, only a single protein had a coefficient of variation greater than one under either analysis: C. adamanteus SVSP-1 = 1.05 under the all-peptide analysis. Across all 11 data sets, the coefficients of variation were below 0.3 for 93% of proteins under the all-peptide analysis and 96% of proteins under the topthree analysis. We therefore did not exclude any proteins on the basis of low quality. We did, however, exclude all Bradykininpotentiation and C-type natriuretic peptides because they are known to undergo extensive proteolytic cleavage which could cause a significant discrepancy between the predicted and actual peptides. To compare transcript to protein levels, we needed comparable measures of both. For transcript abundances, we began with counts of reads mapped to coding sequences from alignments using NGen version 12 from the DNASTAR software suite (DNASTAR, Inc., Madison, WI) and bowtie2 (Langmead and Salzberg 2012) and transcripts per million (TPM) estimated using a bowtie (Langmead et al. 2009) alignment and RSEM (Li and Dewey 2011). All of these measures were highly correlated across all 11 data sets (NGen versus bowtie2: 0.99 &lt; r &lt; 1.0 and 0.99 &lt; R &lt; 1.0, NGen versus TPM: 0.87 &lt; r &lt; 0.98 and 0.74 &lt; R &lt; 0.98, and bowtie2 versus TPM: 0.87 &lt; r &lt; 0.98 and 0.74 &lt; R &lt; 0.98, where r is Spearman’s rank correlation coefficient, and R is Pearson’s correlation coefficient). For protein abundances, we estimated molar amounts using two approaches. For the first, we only considered the best three peptide matches for each protein. For the second, we used all identified peptides. These measures of protein abundance were also highly correlated across all 11 data sets (0.84 &lt; r &lt; 0.97; 0.68 &lt; R &lt; 0.99). For our comparisons, we therefore used TPM estimates for transcript abundances, because these are most directly analogous to molar amounts, and the all-peptide protein abundances, because this measure should be less sensitive to shared peptides among paralogs in the large gene families characteristic of snake venoms.</field>
+        <field name="instrument_platform">Synapt MS</field>
+        <field name="species">Agkistrodon contortrix</field>
+        <field name="species">Sistrurus miliarius barbouri (Dusky pigmy rattlesnake) (Sistrurus barbouri)</field>
+        <field name="species">Agkistrodon piscivorus (cottonmouth)</field>
+        <field name="species">Crotalus horridus (Timber rattlesnake)</field>
+        <field name="species">Sistrurus catenatus (massasauga)</field>
+        <field name="species">Crotalus adamanteus (Eastern diamondback rattlesnake)</field>
+        <field name="species">Boiga irregularis (Brown tree snake)</field>
+        <field name="species">Micrurus tener (Texas coral snake)</field>
+        <field name="species">Micrurus fulvius (Eastern coral snake) (Coluber fulvius)</field>
+        <field name="species">Hypsiglena jani</field>
+        <field name="cell_type">Not available</field>
+        <field name="disease">Not available</field>
+        <field name="tissue">venom</field>
+        <field name="modification">iodoacetamide derivatized residue</field>
+        <field name="modification">monohydroxylated residue</field>
+        <field name="technology_type">Shotgun proteomics</field>
+        <field name="technology_type">Mass Spectrometry</field>
+        <field name="curator_keywords">Biological</field>
+        <field name="submitter_keywords">snake venom</field>
+        <field name="submitter_keywords"> LC/MSE</field>
+        <field name="quantification_method">Peptide counting</field>
+        <field name="submission_type">PARTIAL</field>
+        <field name="software">Not available</field>
+        <field name="publication">Rokyta DR, Margres MJ, Calvin K. Post-transcriptional Mechanisms Contribute Little to Phenotypic Variation in Snake Venoms. G3 (Bethesda). 2015 Sep 9;5(11):2375-82</field>
+        <field name="submitter">Mark Margres</field>
+        <field name="submitter_mail">mmargres@bio.fsu.edu</field>
+        <field name="submitter_affiliation">Florida State University</field>
+        <field name="labhead">Darin R. Rokyta</field>
+        <field name="labhead_mail">drokyta@bio.fsu.edu</field>
+        <field name="labhead_affiliation">Florida State University</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2015/11/PXD002837/2014_11Nov13_McGivern_V168_1_AllQuantFor_2uL.xlsm</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2015/11/PXD002837/2014_11Nov13_McGivern_V168_2__2uL.xlsm</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2015/11/PXD002837/2014_11Nov13_McGivern_V168_3__2uL.xlsm</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2015/11/PXD002837/2014_11Nov13_McGivern_V394_1_AllQuantFor_2uL.xlsm</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2015/11/PXD002837/2014_11Nov13_McGivern_V394_2__2uL.xlsm</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2015/11/PXD002837/2014_11Nov13_McGivern_V394_3__2uL.xlsm</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2015/11/PXD002837/2015_3Mar18_McGiv_V0007_Cadam_1.xlsm</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2015/11/PXD002837/2015_3Mar18_McGiv_V0007_Cadam_2.xlsm</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2015/11/PXD002837/2015_3Mar18_McGiv_V0007_Cadam_3.xlsm</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2015/11/PXD002837/2015_3Mar18_McGiv_V0078_Apisc_1.xlsm</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2015/11/PXD002837/2015_3Mar18_McGiv_V0078_Apisc_2.xlsm</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2015/11/PXD002837/2015_3Mar18_McGiv_V0078_Apisc_3.xlsm</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2015/11/PXD002837/2015_3Mar18_McGiv_V0079_Smili_1.xlsm</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2015/11/PXD002837/2015_3Mar18_McGiv_V0079_Smili_2.xlsm</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2015/11/PXD002837/2015_3Mar18_McGiv_V0079_Smili_3.xlsm</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2015/11/PXD002837/2015_3Mar18_McGiv_V0166_Scate_1.xlsm</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2015/11/PXD002837/2015_3Mar18_McGiv_V0166_Scate_2.xlsm</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2015/11/PXD002837/2015_3Mar18_McGiv_V0166_Scate_3.xlsm</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2015/11/PXD002837/2015_3Mar18_McGiv_V0167_Acont_1.xlsm</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2015/11/PXD002837/2015_3Mar18_McGiv_V0167_Acont_2.xlsm</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2015/11/PXD002837/2015_3Mar18_McGiv_V0167_Acont_3.xlsm</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2015/11/PXD002837/2015_3Mar18_McGiv_V0610BirreNoContig_1.xlsm</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2015/11/PXD002837/2015_3Mar18_McGiv_V0610BirreNoContig_2.xlsm</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2015/11/PXD002837/2015_3Mar18_McGiv_V0610BirreNoContig_3.xlsm</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2015/11/PXD002837/2015_3Mar18_McGiv_V0611_Htorq_1.xlsm</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2015/11/PXD002837/2015_3Mar18_McGiv_V0611_Htorq_2.xlsm</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2015/11/PXD002837/2015_3Mar18_McGiv_V0611_Htorq_3.xlsm</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2015/11/PXD002837/Updated_2014_11Nov21_McGivern_V146_1.xlsm</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2015/11/PXD002837/Updated_2014_11Nov21_McGivern_V146_2.xlsm</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2015/11/PXD002837/Updated_2014_11Nov21_McGivern_V146_3.xlsm</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2015/11/PXD002837/Updated_2014_11Nov21_McGivern_V418_1.xlsm</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2015/11/PXD002837/Updated_2014_11Nov21_McGivern_V418_2.xlsm</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2015/11/PXD002837/Updated_2014_11Nov21_McGivern_V418_3.xlsm</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2015/11/PXD002837/Acontortrix_2015_3Mar24_V0167_1.mzML</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2015/11/PXD002837/Acontortrix_2015_3Mar24_V0167_2.mzML</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2015/11/PXD002837/Acontortrix_2015_3Mar24_V0167_3.mzML</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2015/11/PXD002837/Apiscivorus_2015_3Mar24_V0078_1.mzML</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2015/11/PXD002837/Apiscivorus_2015_3Mar24_V0078_2.mzML</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2015/11/PXD002837/Apiscivorus_2015_3Mar24_V0078_3.mzML</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2015/11/PXD002837/Birregularis_2015_3Mar18_V0610_1.mzML</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2015/11/PXD002837/Birregularis_2015_3Mar18_V0610_2.mzML</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2015/11/PXD002837/Birregularis_2015_3Mar18_V0610_3.mzML</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2015/11/PXD002837/Cadamanteus_2015_3Mar18_V0007_1.mzML</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2015/11/PXD002837/Cadamanteus_2015_3Mar18_V0007_2.mzML</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2015/11/PXD002837/Cadamanteus_2015_3Mar18_V0007_3.mzML</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2015/11/PXD002837/Chorridus_A_2014_11Nov13_V168_1a.mzML</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2015/11/PXD002837/Chorridus_A_2014_11Nov13_V168_2a.mzML</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2015/11/PXD002837/Chorridus_A_2014_11Nov13_V168_3a.mzML</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2015/11/PXD002837/Chorridus_B_2014_11Nov13_V394_1a.mzML</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2015/11/PXD002837/Chorridus_B_2014_11Nov13_V394_2a.mzML</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2015/11/PXD002837/Chorridus_B_2014_11Nov13_V394_3a.mzML</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2015/11/PXD002837/Hypsiglena_2015_3Mar18_V0611_1.mzML</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2015/11/PXD002837/Hypsiglena_2015_3Mar18_V0611_2.mzML</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2015/11/PXD002837/Hypsiglena_2015_3Mar18_V0611_3.mzML</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2015/11/PXD002837/Mfulvius_2014_11Nov21_V146_1.mzML</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2015/11/PXD002837/Mfulvius_2014_11Nov21_V146_2.mzML</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2015/11/PXD002837/Mfulvius_2014_11Nov21_V146_3.mzML</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2015/11/PXD002837/Mtener_2014_11Nov21_V418_1.mzML</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2015/11/PXD002837/Mtener_2014_11Nov21_V418_2.mzML</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2015/11/PXD002837/Mtener_2014_11Nov21_V418_3.mzML</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2015/11/PXD002837/Scatenatus_2015_3Mar24_V0166_1.mzML</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2015/11/PXD002837/Scatenatus_2015_3Mar24_V0166_2.mzML</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2015/11/PXD002837/Scatenatus_2015_3Mar24_V0166_3.mzML</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2015/11/PXD002837/Smiliarius_2015_3Mar24_V0079_1.mzML</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2015/11/PXD002837/Smiliarius_2015_3Mar24_V0079_2.mzML</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2015/11/PXD002837/Smiliarius_2015_3Mar24_V0079_3.mzML</field>
+      </additional_fields>
+    </entry>
+  </entries>
+</database>
