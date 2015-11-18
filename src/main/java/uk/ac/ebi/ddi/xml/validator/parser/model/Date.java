@@ -39,6 +39,22 @@ public class Date
     protected String value;
 
     /**
+     * Default constructor
+     */
+    public Date() {
+    }
+
+    /**
+     * Constructor with both parameters
+     * @param type type of the date
+     * @param value value of the date
+     */
+    public Date(String type, String value) {
+        this.type = type;
+        this.value = value;
+    }
+
+    /**
      * Gets the value of the type property.
      * 
      * @return

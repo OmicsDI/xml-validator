@@ -1,6 +1,10 @@
 
 package uk.ac.ebi.ddi.xml.validator.parser.model;
 
+import org.omg.CORBA.PUBLIC_MEMBER;
+import uk.ac.ebi.ddi.xml.validator.utils.*;
+import uk.ac.ebi.ddi.xml.validator.utils.Field;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -75,4 +79,25 @@ public class DatesType
         return date.isEmpty();
     }
 
+    public boolean containsPublicationDate(){
+        if(date != null && !date.isEmpty()){
+            for(Date dateField: date){
+                if(dateField.getType().equalsIgnoreCase(Field.PUBLICATION.getName()))
+                    return true;
+            }
+        }
+        return false;
+    }
+
+    public void addDefaultPublicationDate() {
+        String toAdd = null;
+        if(date !=null && !date.isEmpty()){
+            for(Date dateField: date){
+                if(dateField.getType().equalsIgnoreCase(Field.PUBLICATION_UPDATED.getName()))
+                   toAdd = dateField.getValue();
+            }
+        }
+        if(toAdd != null)
+            date.add(new Date(Field.PUBLICATION.getName(), toAdd));
+    }
 }

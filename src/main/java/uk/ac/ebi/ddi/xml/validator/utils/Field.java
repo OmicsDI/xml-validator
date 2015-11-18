@@ -10,6 +10,7 @@ import java.util.List;
 public enum Field {
 
     PUBLICATION("publication", FieldType.MANDATORY, FieldCategory.DATE),
+    PUBLICATION_UPDATED("updated", FieldType.OPTIONAL, FieldCategory.DATE),
     REPOSITORY("repository", FieldType.MANDATORY, FieldCategory.ADDITIONAL),
     OMICS("omics_type", FieldType.MANDATORY, FieldCategory.ADDITIONAL),
     LINK("full_dataset_link", FieldType.MANDATORY, FieldCategory.ADDITIONAL),
@@ -25,6 +26,7 @@ public enum Field {
     ENRICH_SAMPLE("sample_synonyms", FieldType.OPTIONAL, FieldCategory.ADDITIONAL),
     ENRICH_DATA("sample_synonyms", FieldType.OPTIONAL, FieldCategory.ADDITIONAL),
     ENRICH_PUBLICATION("publication_synonyms", FieldType.OPTIONAL, FieldCategory.ADDITIONAL);
+
 
     private final String name;
     private final FieldType type;
