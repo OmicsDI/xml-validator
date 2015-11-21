@@ -24,7 +24,7 @@ public enum Field {
     ENRICH_TITLE("name_synonyms", FieldType.OPTIONAL, FieldCategory.ADDITIONAL),
     ENRICH_ABSTRACT("description_synonyms", FieldType.OPTIONAL, FieldCategory.ADDITIONAL),
     ENRICH_SAMPLE("sample_synonyms", FieldType.OPTIONAL, FieldCategory.ADDITIONAL),
-    ENRICH_DATA("sample_synonyms", FieldType.OPTIONAL, FieldCategory.ADDITIONAL),
+    ENRICH_DATA("data_synonyms", FieldType.OPTIONAL, FieldCategory.ADDITIONAL),
     ENRICH_PUBLICATION("publication_synonyms", FieldType.OPTIONAL, FieldCategory.ADDITIONAL);
 
 
