@@ -25,7 +25,11 @@ public enum Field {
     ENRICH_ABSTRACT("description_synonyms", FieldType.OPTIONAL, FieldCategory.ADDITIONAL),
     ENRICH_SAMPLE("sample_synonyms", FieldType.OPTIONAL, FieldCategory.ADDITIONAL),
     ENRICH_DATA("data_synonyms", FieldType.OPTIONAL, FieldCategory.ADDITIONAL),
-    ENRICH_PUBLICATION("publication_synonyms", FieldType.OPTIONAL, FieldCategory.ADDITIONAL);
+    PUBMED_ABSTRACT("pubmed_abstract", FieldType.OPTIONAL, FieldCategory.ADDITIONAL),
+    PUBMED_TITLE("pubmed_title", FieldType.OPTIONAL, FieldCategory.ADDITIONAL),
+    PUBMED_AUTHORS("pubmed_authors", FieldType.OPTIONAL, FieldCategory.ADDITIONAL),
+    ENRICH_PUBMED_ABSTRACT("pubmed_abstract_synonyms", FieldType.OPTIONAL, FieldCategory.ADDITIONAL),
+    ENRICHE_PUBMED_TITLE("pubmed_title_synonyms", FieldType.OPTIONAL, FieldCategory.ADDITIONAL);
 
 
     private final String name;
