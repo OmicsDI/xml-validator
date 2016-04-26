@@ -37,6 +37,7 @@ public class CrossReferences
 {
 
     private final static long serialVersionUID = 105L;
+
     protected List<Reference> ref;
 
     /**

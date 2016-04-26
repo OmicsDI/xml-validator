@@ -3,6 +3,7 @@ package uk.ac.ebi.ddi.xml.validator.cli;
 import org.apache.commons.cli.*;
 import uk.ac.ebi.ddi.xml.validator.parser.OmicsXMLFile;
 import uk.ac.ebi.ddi.xml.validator.utils.Tuple;
+import uk.ac.ebi.ddi.xml.validator.utils.Utils;
 
 import java.io.File;
 import java.io.PrintStream;
@@ -40,8 +41,8 @@ public class validatorCLI {
 
         String levelOpt = "check";
         options.addOption(levelOpt, true, "Choose validation level (default level is Warn): \n" +
-                "\t Warn: This category do a complete Schema and semantic validation of the file \n" +
-                "\t Error: This category do a validation at level of XML Schema");
+                "\t Warn:  This category do a complete Schema Validation and Mandatory/Recommended/Additional fields \n" +
+                "\t Error: This category do a validation at level of XML Schema, Mandatory Fields");
 
         String convertOpt = "merge";
         String numberOpt  = "property=value";
@@ -65,10 +66,10 @@ public class validatorCLI {
             File inFile = new File (line.getOptionValue(inFileOpt));
 
             String checkValue = line.getOptionValue(levelOpt);
-            if(checkValue == null || !checkValue.equalsIgnoreCase("Warn"))
-                checkValue = "Error";
+            if(checkValue == null || !checkValue.equalsIgnoreCase(Utils.WARN))
+                checkValue = Utils.ERROR;
             else
-                checkValue = "Warn";
+                checkValue = Utils.WARN;
 
             String reportName = line.getOptionValue(reportFileOpt);
 
@@ -92,7 +93,7 @@ public class validatorCLI {
             for(File file: files){
 
                 List<Tuple> error = OmicsXMLFile.validateSchema(file);
-                if(checkValue.equalsIgnoreCase("Warn")){
+                if(checkValue.equalsIgnoreCase(Utils.WARN)){
                     error.addAll(OmicsXMLFile.validateSemantic(file));
                 }
                 if(errors.containsKey(file)){

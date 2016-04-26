@@ -11,8 +11,12 @@ import java.util.List;
  */
 public class Utils {
 
-    public static String ERROR = "ERROR";
-    public static String WARN   = "WARN";
+    public static String ERROR = "Error";
+    public static String WARN  = "Warn";
+
+    public static String NOT_FOUND_MESSAGE = "The entry do not contain:";
+    public static String ENTRY_NOT_FOUND = "Entry:";
+    public static String REPORT_SPACE  = " ";
 
 
     public static List<Tuple> validateSemantic(Entry entry){
@@ -20,13 +24,13 @@ public class Utils {
         List<Tuple> errors = new ArrayList<Tuple>();
 
         if(entry.getId() == null || entry.getId().isEmpty())
-            errors.add(new Tuple(ERROR, "The entry do not contain Id"));
+            errors.add(new Tuple(ERROR, NOT_FOUND_MESSAGE + REPORT_SPACE + Field.ID.getFullName()));
 
         if(entry.getName() == null || entry.getName().getValue() == null || entry.getName().getValue().isEmpty())
-            errors.add(new Tuple(ERROR, entry.getId() + "\tThe entry do not contain Name"));
+            errors.add(new Tuple(ERROR, ENTRY_NOT_FOUND + REPORT_SPACE + entry.getId() + REPORT_SPACE + NOT_FOUND_MESSAGE + Field.NAME));
 
         if(entry.getDescription() == null || entry.getDescription().isEmpty()){
-            errors.add(new Tuple(WARN, entry.getId() + "\tThe entry do not contain Name"));
+            errors.add(new Tuple(ERROR, ENTRY_NOT_FOUND + REPORT_SPACE + entry.getId() + REPORT_SPACE + NOT_FOUND_MESSAGE + REPORT_SPACE+ Field.DESCRIPTION));
         }
 
         if(entry.getDates() != null && !entry.getDates().isEmpty()){
@@ -38,7 +42,7 @@ public class Utils {
                     if(field.getName().equalsIgnoreCase(date.getType()) && date.getValue() != null)
                         found = true;
                 if(!found){
-                    errors.add(new Tuple(errorCode, entry.getId() + "\t The entry do not contain the Field\t" + field.getName()));
+                    errors.add(new Tuple(errorCode, ENTRY_NOT_FOUND + REPORT_SPACE + entry.getId() + REPORT_SPACE + NOT_FOUND_MESSAGE + REPORT_SPACE + field.getFullName()));
                 }
             }
         }
@@ -52,7 +56,7 @@ public class Utils {
                     if(field.getName().equalsIgnoreCase(ref.getDbname()) && ref.getDbname() != null)
                         found = true;
                 if(!found){
-                    errors.add(new Tuple(errorCode, entry.getId() + "\t The entry do not contain the Field\t" + field.getName()));
+                    errors.add(new Tuple(errorCode, ENTRY_NOT_FOUND + REPORT_SPACE + entry.getId() + REPORT_SPACE + NOT_FOUND_MESSAGE + REPORT_SPACE + field.getFullName()));
                 }
             }
         }
@@ -66,7 +70,7 @@ public class Utils {
                     if(field.getName().equalsIgnoreCase(ref.getName()) && ref.getName() != null)
                         found = true;
                 if(!found){
-                    errors.add(new Tuple(errorCode, entry.getId() + "\t The entry do not contain the Field\t" + field.getName()));
+                    errors.add(new Tuple(errorCode, ENTRY_NOT_FOUND + REPORT_SPACE + entry.getId() + REPORT_SPACE+ NOT_FOUND_MESSAGE + REPORT_SPACE + field.getFullName()));
                 }
             }
         }

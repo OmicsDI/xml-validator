@@ -483,4 +483,10 @@ public class Entry
         }
         crossReferences.setRef(fields);
     }
+
+    public void setCrossReferences(List<Reference> references){
+        if(references != null && !references.isEmpty()){
+            crossReferences.setRef(references);
+        }
+    }
 }

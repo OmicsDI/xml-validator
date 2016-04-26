@@ -119,7 +119,6 @@ public class OmicsXMLFile {
 
     }
 
-
     private void initializeEntryMaps() throws DDIException {
 
         List<IndexElement> entries = index.getElements(DataElement.ENTRY.getXpath());
@@ -492,9 +491,9 @@ public class OmicsXMLFile {
         try {
             validator.validate(source);
         } catch (SAXException ex) {
-            errors.add(new Tuple("Error", ex.getMessage()));
+            errors.add(new Tuple(Utils.ERROR, ex.getMessage()));
         } catch (IOException e) {
-            errors.add(new Tuple("Error", e.getMessage()));
+            errors.add(new Tuple(Utils.ERROR, e.getMessage()));
 
         }
         return errors;
@@ -505,13 +504,13 @@ public class OmicsXMLFile {
         try {
             OmicsXMLFile reader = new OmicsXMLFile(file);
             List<String> Ids    = reader.getEntryIds();
-            // Retrive all the entries and retrieve the warning sematic validation
+            // Retrive all the entries and retrieve the warning semantic validation
             for(String id: Ids){
                 List<Tuple> error = Utils.validateSemantic(reader.getEntryById(id));
                 errors.addAll(error);
             }
         } catch (DDIException e) {
-            errors.add(new Tuple("Error", e.getMessage()));
+            errors.add(new Tuple(Utils.ERROR, e.getMessage()));
 
         }
         return errors;
@@ -537,6 +536,11 @@ public class OmicsXMLFile {
         return (database != null)?database.getEntryCount():null;
     }
 
+
+    public void setDatabaseName(String name){
+        if(database != null)
+            database.setName(name);
+    }
 
 
 }

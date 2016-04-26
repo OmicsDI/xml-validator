@@ -7,5 +7,6 @@ package uk.ac.ebi.ddi.xml.validator.utils;
 public enum FieldCategory {
     CROSSREF,
     DATE,
+    DATA,
     ADDITIONAL
 }
