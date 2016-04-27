@@ -1,9 +1,7 @@
 package uk.ac.ebi.ddi.xml.validator.cli;
 
 import org.apache.commons.cli.*;
-import sun.tools.jconsole.Messages;
 import uk.ac.ebi.ddi.xml.validator.parser.OmicsXMLFile;
-import uk.ac.ebi.ddi.xml.validator.parser.model.Entry;
 import uk.ac.ebi.ddi.xml.validator.utils.*;
 
 import java.io.File;
@@ -23,7 +21,6 @@ import java.util.Map;
  */
 public class validatorCLI {
 
-    @SuppressWarnings("static-access")
     public static void main(String[] args) throws Exception {
 
         // Definite command line
