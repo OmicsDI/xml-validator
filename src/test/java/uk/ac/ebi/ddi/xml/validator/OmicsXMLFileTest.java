@@ -10,11 +10,13 @@ import uk.ac.ebi.ddi.xml.validator.parser.marshaller.OmicsDataMarshaller;
 import uk.ac.ebi.ddi.xml.validator.parser.model.Database;
 import uk.ac.ebi.ddi.xml.validator.parser.model.Entries;
 import uk.ac.ebi.ddi.xml.validator.parser.model.Entry;
+import uk.ac.ebi.ddi.xml.validator.utils.Tuple;
 
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URL;
+import java.util.List;
 
 
 public class OmicsXMLFileTest {
@@ -26,7 +28,7 @@ public class OmicsXMLFileTest {
     @Before
     public void setUp() throws Exception {
 
-        URL fileURL = OmicsXMLFileTest.class.getClassLoader().getResource("PRIDE_EBEYE_PRD000123.xml");
+        URL fileURL = OmicsXMLFileTest.class.getClassLoader().getResource("PRIDE_EBEYE_Wrong_PRD000123.xml");
 
         file = new File(fileURL.toURI());
 
@@ -100,5 +102,12 @@ public class OmicsXMLFileTest {
 
         System.out.println(entry.toString());
 
+    }
+
+    @Test
+    public void testSemanticValidation(){
+
+        List<Tuple> errors = OmicsXMLFile.validateSemantic(this.file);
+        System.out.println(errors);
     }
 }

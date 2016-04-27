@@ -1,9 +1,10 @@
 package uk.ac.ebi.ddi.xml.validator.cli;
 
 import org.apache.commons.cli.*;
+import sun.tools.jconsole.Messages;
 import uk.ac.ebi.ddi.xml.validator.parser.OmicsXMLFile;
-import uk.ac.ebi.ddi.xml.validator.utils.Tuple;
-import uk.ac.ebi.ddi.xml.validator.utils.Utils;
+import uk.ac.ebi.ddi.xml.validator.parser.model.Entry;
+import uk.ac.ebi.ddi.xml.validator.utils.*;
 
 import java.io.File;
 import java.io.PrintStream;
@@ -105,6 +106,7 @@ public class validatorCLI {
             if(!errors.isEmpty()){
                 if(reportName != null){
                     PrintStream reportFile = new PrintStream(new File(reportName));
+                    generateSummaryReport(errors,reportFile);
                     for(File file: errors.keySet()){
                         for (Tuple error: errors.get(file))
                             reportFile.println(file.getAbsolutePath() + "\t" + error.getKey() + "\t" + error.getValue());
@@ -113,6 +115,7 @@ public class validatorCLI {
                 }else{
                     for(File file: errors.keySet()){
                         PrintStream reportFile = new PrintStream(new File(file.getAbsolutePath() + ".error.csv"));
+                        generateSummaryReport(errors,reportFile);
                         for (Tuple error: errors.get(file))
                             reportFile.println(file.getName() + "\t" + error.getKey() + "\t" + error.getValue());
                         reportFile.close();
@@ -122,5 +125,41 @@ public class validatorCLI {
             }
         }
     }
+
+    public static void generateSummaryReport(Map<File, List<Tuple>> errors, PrintStream reportFile){
+        int numberErrors = 0;
+        int numberWars   = 0;
+        Map<Field, Integer> fields = new HashMap<>();
+        for(List<Tuple> errorList: errors.values()){
+            for(Tuple error: errorList){
+                String message = (String) error.getValue();
+                if(error.getKey() == Utils.ERROR)
+                    numberErrors++;
+                else
+                    numberWars++;
+                for(Field field: Field.values()){
+                    if(message.contains(field.getFullName())){
+                        if(!fields.containsKey(field))
+                            fields.put(field, 0);
+                        fields.put(field, fields.get(field) + 1);
+                    }
+                }
+            }
+
+        }
+        reportFile.println("The number of Errors in the files: "  + numberErrors);
+        reportFile.println("The number of Warnings in the files: "  + numberWars);
+        for(Map.Entry entry: fields.entrySet()){
+            Field field = (Field) entry.getKey();
+            Integer errorNumber = (Integer) entry.getValue();
+            String error = (field.getType() == FieldType.MANDATORY)? Utils.ERROR:Utils.WARN;
+            if(field.getCategory() == FieldCategory.DATE)
+                reportFile.println(error + " The number of datasets without or outdated " + field.getFullName() + " is " + errorNumber);
+            else
+                reportFile.println(error + " The number of datasets without " + field.getFullName() + " is " + errorNumber);
+        }
+    }
+
+
 
 }

@@ -1,9 +1,12 @@
 package uk.ac.ebi.ddi.xml.validator.utils;
 
 import uk.ac.ebi.ddi.xml.validator.parser.model.*;
+import uk.ac.ebi.ddi.xml.validator.parser.model.Date;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.io.PrintStream;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 /**
  * @author Yasset Perez-Riverol (ypriverol@gmail.com)
@@ -15,6 +18,7 @@ public class Utils {
     public static String WARN  = "Warn";
 
     public static String NOT_FOUND_MESSAGE = "The entry do not contain:";
+    public static String NOT_FOUND_UPDATED = "The entry do not contain or is out of range:";
     public static String ENTRY_NOT_FOUND = "Entry:";
     public static String REPORT_SPACE  = " ";
 
@@ -34,15 +38,15 @@ public class Utils {
         }
 
         if(entry.getDates() != null && !entry.getDates().isEmpty()){
-            List<Field> fields = Field.getValuesByCategory(FieldCategory.DATE);
+            List<Field> fields = Field.getValuesByCategory(FieldCategory.DATE, FieldType.UNKNOWN);
             for (Field field: fields){
                 String errorCode = (field.getType() == FieldType.MANDATORY)? ERROR: WARN;
                 boolean found = false;
                 for(Date date: entry.getDates().getDate())
-                    if(field.getName().equalsIgnoreCase(date.getType()) && date.getValue() != null)
+                    if(field.getName().equalsIgnoreCase(date.getType()) && date.getValue() != null && validateDate(date.getValue()))
                         found = true;
                 if(!found){
-                    errors.add(new Tuple(errorCode, ENTRY_NOT_FOUND + REPORT_SPACE + entry.getId() + REPORT_SPACE + NOT_FOUND_MESSAGE + REPORT_SPACE + field.getFullName()));
+                    errors.add(new Tuple(errorCode, ENTRY_NOT_FOUND + REPORT_SPACE + entry.getId() + REPORT_SPACE + NOT_FOUND_UPDATED + REPORT_SPACE + field.getFullName()));
                 }
             }
         }
@@ -62,7 +66,7 @@ public class Utils {
         }
 
         if(entry.getAdditionalFields() != null && !entry.getAdditionalFields().isEmpty()){
-            List<Field> fields = Field.getValuesByCategory(FieldCategory.ADDITIONAL);
+            List<Field> fields = Field.getValuesByCategory(FieldCategory.ADDITIONAL, FieldType.UNKNOWN);
             for (Field field: fields){
                 String errorCode = (field.getType() == FieldType.MANDATORY)? ERROR: WARN;
                 boolean found = false;
@@ -77,4 +81,19 @@ public class Utils {
 
         return errors;
     }
+
+    private static boolean validateDate(String value) {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        try {
+            java.util.Date date = sdf.parse(value);
+            java.util.Date currentDate = new java.util.Date();
+            if(currentDate.compareTo(date) >= 0)
+                return true;
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+
 }

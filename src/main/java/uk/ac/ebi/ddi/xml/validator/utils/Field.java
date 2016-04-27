@@ -13,7 +13,7 @@ public enum Field {
     NAME("name", FieldType.MANDATORY, FieldCategory.DATA, "Dataset Name"),
     DESCRIPTION("description", FieldType.MANDATORY, FieldCategory.DATA, "Dataset Description"),
     PUBLICATION("publication", FieldType.MANDATORY, FieldCategory.DATE, "Dataset Publication Date"),
-    PUBLICATION_UPDATED("updated", FieldType.OPTIONAL, FieldCategory.DATE, "Dataset Updated Date"),
+    PUBLICATION_UPDATED("updated", FieldType.UNKNOWN, FieldCategory.DATE, "Dataset Updated Date"),
     REPOSITORY("repository", FieldType.MANDATORY, FieldCategory.ADDITIONAL, "Dataset Repository"),
     OMICS("omics_type", FieldType.MANDATORY, FieldCategory.ADDITIONAL, "Dataset Omics Type"),
     LINK("full_dataset_link", FieldType.MANDATORY, FieldCategory.ADDITIONAL, "Full Dataset Link in the Original Database"),
@@ -33,7 +33,7 @@ public enum Field {
     PUBMED_AUTHORS("pubmed_authors", FieldType.UNKNOWN, FieldCategory.ADDITIONAL, "Pubmed Authors"),
     ENRICH_PUBMED_ABSTRACT("pubmed_abstract_synonyms", FieldType.UNKNOWN, FieldCategory.ADDITIONAL, "Pubmed Abstract Synonyms"),
     ENRICHE_PUBMED_TITLE("pubmed_title_synonyms", FieldType.UNKNOWN, FieldCategory.ADDITIONAL, "Pubmed title Synonyms"),
-    GPMDB_MODEL("model", FieldType.OPTIONAL, FieldCategory.ADDITIONAL, "MODEL");
+    GPMDB_MODEL("model", FieldType.UNKNOWN, FieldCategory.ADDITIONAL, "MODEL");
 
 
     private final String name;
@@ -90,5 +90,15 @@ public enum Field {
 
     public String getFullName() {
         return fullName;
+    }
+
+    public static List<Field> getValuesByCategory(FieldCategory category, FieldType unknown) {
+        Field[] values = Field.values();
+        List<Field> vReturn = new ArrayList<Field>();
+        for (Field value: values){
+            if(value.getCategory() == category && !(value.getType() == unknown))
+                vReturn.add(value);
+        }
+        return vReturn;
     }
 }
