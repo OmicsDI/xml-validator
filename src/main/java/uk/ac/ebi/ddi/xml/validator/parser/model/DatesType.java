@@ -100,4 +100,15 @@ public class DatesType
         if(toAdd != null)
             date.add(new Date(Field.PUBLICATION.getName(), toAdd));
     }
+
+    public Date getDateByKey(String key){
+        if(date !=null && !date.isEmpty()){
+            for(Date dateField: date){
+                if(dateField.getType().equalsIgnoreCase(key))
+                    return dateField;
+            }
+        }
+        return null;
+    }
+
 }

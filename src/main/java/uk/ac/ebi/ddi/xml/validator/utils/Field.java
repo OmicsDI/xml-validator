@@ -33,7 +33,10 @@ public enum Field {
     PUBMED_AUTHORS("pubmed_authors", FieldType.UNKNOWN, FieldCategory.ADDITIONAL, "Pubmed Authors"),
     ENRICH_PUBMED_ABSTRACT("pubmed_abstract_synonyms", FieldType.UNKNOWN, FieldCategory.ADDITIONAL, "Pubmed Abstract Synonyms"),
     ENRICHE_PUBMED_TITLE("pubmed_title_synonyms", FieldType.UNKNOWN, FieldCategory.ADDITIONAL, "Pubmed title Synonyms"),
-    GPMDB_MODEL("model", FieldType.UNKNOWN, FieldCategory.ADDITIONAL, "MODEL");
+    GPMDB_MODEL("model", FieldType.UNKNOWN, FieldCategory.ADDITIONAL, "MODEL"),
+    MEDLINE("MEDLINE", FieldType.UNKNOWN, FieldCategory.CROSSREF, "MEDLINE Reference"),
+    SUBMISSION_DATE("submission", FieldType.UNKNOWN, FieldCategory.DATE, "Submission Date"),
+    SUBMITTER_KEYWORDS("submitter_keywords", FieldType.UNKNOWN, FieldCategory.ADDITIONAL, "MODEL");
 
 
     private final String name;

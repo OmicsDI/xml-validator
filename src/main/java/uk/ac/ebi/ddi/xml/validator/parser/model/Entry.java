@@ -295,6 +295,7 @@ public class Entry
         this.acc = value;
     }
 
+
     /**
      * <p>Java class for anonymous complex type.
      * 
@@ -487,6 +488,25 @@ public class Entry
     public void setCrossReferences(List<Reference> references){
         if(references != null && !references.isEmpty()){
             crossReferences.setRef(references);
+        }
+    }
+
+    public void removeCrossReferences(String key){
+        if(crossReferences != null && crossReferences.getRef() != null && !crossReferences.getRef().isEmpty()){
+            for(int i = 0; i < crossReferences.getRef().size(); i++){
+                Reference reference = crossReferences.getRef().get(i);
+                if(reference != null && reference.dbkey != null && reference.dbname.equalsIgnoreCase(key)){
+                    crossReferences.getRef().remove(i);
+                    i--;
+                }
+            }
+        }
+    }
+
+    public void addDate(Date date) {
+
+        if(dates != null && dates.getDate() != null){
+            dates.getDate().add(date);
         }
     }
 }
