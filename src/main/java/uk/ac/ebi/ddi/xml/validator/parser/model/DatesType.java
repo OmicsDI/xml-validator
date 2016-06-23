@@ -1,8 +1,6 @@
 
 package uk.ac.ebi.ddi.xml.validator.parser.model;
 
-import org.omg.CORBA.PUBLIC_MEMBER;
-import uk.ac.ebi.ddi.xml.validator.utils.*;
 import uk.ac.ebi.ddi.xml.validator.utils.Field;
 
 import java.io.Serializable;
@@ -69,7 +67,7 @@ public class DatesType
      */
     public List<Date> getDate() {
         if (date == null) {
-            date = new ArrayList<Date>();
+            date = new ArrayList<>();
         }
         return this.date;
     }

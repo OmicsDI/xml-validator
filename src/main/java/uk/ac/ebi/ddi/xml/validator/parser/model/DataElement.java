@@ -20,7 +20,7 @@ public enum DataElement {
     private static final Set<String> xpaths;
 
     static {
-        xpaths = new HashSet<String>();
+        xpaths = new HashSet<>();
         for (DataElement xpath : values()) {
             xpaths.add(xpath.getXpath());
         }

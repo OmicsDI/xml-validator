@@ -36,7 +36,15 @@ public enum Field {
     GPMDB_MODEL("model", FieldType.UNKNOWN, FieldCategory.ADDITIONAL, "MODEL"),
     MEDLINE("MEDLINE", FieldType.UNKNOWN, FieldCategory.CROSSREF, "MEDLINE Reference"),
     SUBMISSION_DATE("submission", FieldType.UNKNOWN, FieldCategory.DATE, "Submission Date"),
+    SOFTWARE_INFO("software", FieldType.UNKNOWN, FieldCategory.ADDITIONAL, "Software"),
+    SPECIE_FIELD("species", FieldType.UNKNOWN, FieldCategory.ADDITIONAL, "Specie"),
+    CELL_TYPE_FIELD("cell_type", FieldType.UNKNOWN, FieldCategory.ADDITIONAL, "Cell Type"),
+    DISEASE_FIELD("disease", FieldType.UNKNOWN, FieldCategory.ADDITIONAL, "Disease"),
+    TISSUE_FIELD("tissue", FieldType.UNKNOWN, FieldCategory.ADDITIONAL, "Tissue"),
+    SECONDARY_ACCESSION("additional_accession", FieldType.OPTIONAL,FieldCategory.ADDITIONAL, "Secondary Accesion"),
+
     SUBMITTER_KEYWORDS("submitter_keywords", FieldType.UNKNOWN, FieldCategory.ADDITIONAL, "MODEL");
+
 
 
     private final String name;
@@ -61,7 +69,7 @@ public enum Field {
      */
     public static List<Field> getValuesByType(FieldType type){
         Field[] values = Field.values();
-        List<Field> vReturn = new ArrayList<Field>();
+        List<Field> vReturn = new ArrayList<>();
         for (Field value: values){
             if(value.getType() == type)
                 vReturn.add(value);
@@ -83,7 +91,7 @@ public enum Field {
 
     public static List<Field> getValuesByCategory(FieldCategory category){
         Field[] values = Field.values();
-        List<Field> vReturn = new ArrayList<Field>();
+        List<Field> vReturn = new ArrayList<>();
         for (Field value: values){
             if(value.getCategory() == category)
                 vReturn.add(value);
@@ -97,7 +105,7 @@ public enum Field {
 
     public static List<Field> getValuesByCategory(FieldCategory category, FieldType unknown) {
         Field[] values = Field.values();
-        List<Field> vReturn = new ArrayList<Field>();
+        List<Field> vReturn = new ArrayList<>();
         for (Field value: values){
             if(value.getCategory() == category && !(value.getType() == unknown))
                 vReturn.add(value);

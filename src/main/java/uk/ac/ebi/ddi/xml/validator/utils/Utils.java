@@ -3,7 +3,6 @@ package uk.ac.ebi.ddi.xml.validator.utils;
 import uk.ac.ebi.ddi.xml.validator.parser.model.*;
 import uk.ac.ebi.ddi.xml.validator.parser.model.Date;
 
-import java.io.PrintStream;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -25,7 +24,7 @@ public class Utils {
 
     public static List<Tuple> validateSemantic(Entry entry){
 
-        List<Tuple> errors = new ArrayList<Tuple>();
+        List<Tuple> errors = new ArrayList<>();
 
         if(entry.getId() == null || entry.getId().isEmpty())
             errors.add(new Tuple(ERROR, NOT_FOUND_MESSAGE + REPORT_SPACE + Field.ID.getFullName()));

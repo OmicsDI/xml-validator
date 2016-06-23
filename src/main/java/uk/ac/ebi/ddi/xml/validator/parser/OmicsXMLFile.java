@@ -115,17 +115,15 @@ public class OmicsXMLFile {
             }
 
         }
-
-
     }
 
     private void initializeEntryMaps() throws DDIException {
 
         List<IndexElement> entries = index.getElements(DataElement.ENTRY.getXpath());
 
-        idToIndexElementMap = new HashMap<String, IndexElement>(entries.size());
+        idToIndexElementMap = new HashMap<>(entries.size());
 
-        entryIds = new ArrayList<String>(entries.size());
+        entryIds = new ArrayList<>(entries.size());
 
         for (IndexElement entry : entries) {
             // read the attributes
@@ -171,7 +169,7 @@ public class OmicsXMLFile {
         // process the file line by line
         try {
             // initialize the run attributes
-            HashMap<String, String> foundAttributes = new HashMap<String, String>();
+            HashMap<String, String> foundAttributes = new HashMap<>();
 
             // go to the beginning of element
             access.seek(indexElement.getStart());
@@ -258,12 +256,17 @@ public class OmicsXMLFile {
 
         // unmarshall the object
         try {
-            Entry entry = unmarshaller.unmarshal(xml, DataElement.ENTRY);
-
-            return entry;
+            return unmarshaller.unmarshal(xml, DataElement.ENTRY);
         } catch (Exception e) {
             throw new DDIException("Failed to unmarshal an Entry", e);
         }
+    }
+
+    public List<Entry> getAllEntries() throws DDIException {
+        List<Entry> entries = new ArrayList<>();
+        for(String id: getEntryIds())
+            entries.add(getEntryById(id));
+        return entries;
     }
 
     /**
@@ -286,9 +289,8 @@ public class OmicsXMLFile {
             throw new DDIException("Fail during the indexin");
 
         try {
-            Entry entry =getEntryById(id);
 
-            return entry;
+            return getEntryById(id);
         } catch (Exception e) {
             throw new DDIException("Failed to unmarshal an Entry", e);
         }
@@ -307,7 +309,7 @@ public class OmicsXMLFile {
      * @return
      */
     private List<IndexElement> convertIndexElements(List<IndexElement> index) {
-        List<IndexElement> convertedIndex = new ArrayList<IndexElement>(index.size());
+        List<IndexElement> convertedIndex = new ArrayList<>(index.size());
 
         for (IndexElement e : index) {
             int size = (int) (e.getStop() - e.getStart());
@@ -344,9 +346,7 @@ public class OmicsXMLFile {
             try {
                 String xml = readSnipplet(indexElement);
 
-                Entry entry = unmarshaller.unmarshal(xml, DataElement.ENTRY);
-
-                return entry;
+                return unmarshaller.unmarshal(xml, DataElement.ENTRY);
             } catch (Exception e) {
                 throw new RuntimeException("Failed to load spectrum from mzData file.", e);
             }
@@ -383,8 +383,7 @@ public class OmicsXMLFile {
             access.read(bytes);
 
             // create and return the string
-            String snipplet = new String(bytes);
-            return snipplet;
+            return new String(bytes);
 
         } catch (IOException e) {
             throw new DDIException("Failed to read from mzData file.", e);
@@ -431,7 +430,7 @@ public class OmicsXMLFile {
         return retval;
     }
 
-    public static boolean hasFileHeader(File file) {
+    public static boolean hasFileHeader(File file) throws DDIException {
         if(file.getAbsolutePath().toLowerCase().endsWith(".xml")){
             BufferedReader reader = null;
             try {
@@ -445,7 +444,7 @@ public class OmicsXMLFile {
                 Matcher matcher = OmicsXMLFilePatter.matcher(content);
                 return matcher.find();
             } catch (Exception e) {
-                new DDIException("Failed to read file", e);
+                throw  new DDIException("Failed to read file", e);
             } finally {
                 if (reader != null) {
                     try {
@@ -465,7 +464,7 @@ public class OmicsXMLFile {
      * @return the list of errors
      */
     public static List<Tuple> validateSchema(File file) {
-        List<Tuple> errors = new ArrayList<Tuple>();
+        List<Tuple> errors = new ArrayList<>();
         // 1. Lookup a factory for the W3C XML Schema language
         SchemaFactory factory = SchemaFactory.newInstance("http://www.w3.org/2001/XMLSchema");
 
@@ -490,17 +489,14 @@ public class OmicsXMLFile {
         // 5. Check the document (throws an Exception if not valid)
         try {
             validator.validate(source);
-        } catch (SAXException ex) {
+        } catch (SAXException | IOException ex) {
             errors.add(new Tuple(Utils.ERROR, ex.getMessage()));
-        } catch (IOException e) {
-            errors.add(new Tuple(Utils.ERROR, e.getMessage()));
-
         }
         return errors;
     }
 
     public static List<Tuple> validateSemantic(File file) {
-        List<Tuple> errors = new ArrayList<Tuple>();
+        List<Tuple> errors = new ArrayList<>();
         try {
             OmicsXMLFile reader = new OmicsXMLFile(file);
             List<String> Ids    = reader.getEntryIds();

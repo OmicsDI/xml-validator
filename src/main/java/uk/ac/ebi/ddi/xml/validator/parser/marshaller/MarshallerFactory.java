@@ -18,7 +18,7 @@ public class MarshallerFactory extends WstxOutputFactory{
 
     private static JAXBContext jc = null;
 
-    public  Set<String> emptyElements = new HashSet<String>();
+    public  Set<String> emptyElements = new HashSet<>();
 
     public static MarshallerFactory getInstance() {
         return instance;

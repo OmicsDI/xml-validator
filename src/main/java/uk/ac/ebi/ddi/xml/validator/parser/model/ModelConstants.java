@@ -10,7 +10,7 @@ public class ModelConstants {
     public static final String JAXB_FORMATTING_PROPERTY = "jaxb.formatted.output";
     public static final String JAXB_FRAGMENT_PROPERTY = "jaxb.fragment";
 
-    private static Map<Class, QName> indexClass = new HashMap<Class, QName>();
+    private static Map<Class, QName> indexClass = new HashMap<>();
 
     public static QName getQNameForClass(Class<? extends IDataObject> aClass) {
         indexClass.put(Database.class, new QName("database"));

@@ -64,7 +64,7 @@ public class CrossReferences
      */
     public List<Reference> getRef() {
         if (ref == null) {
-            ref = new ArrayList<Reference>();
+            ref = new ArrayList<>();
         }
         return this.ref;
     }

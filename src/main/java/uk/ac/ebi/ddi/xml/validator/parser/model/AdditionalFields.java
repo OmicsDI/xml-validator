@@ -64,7 +64,7 @@ public class AdditionalFields
      */
     public List<Field> getField() {
         if (field == null) {
-            field = new ArrayList<Field>();
+            field = new ArrayList<>();
         }
         return this.field;
     }

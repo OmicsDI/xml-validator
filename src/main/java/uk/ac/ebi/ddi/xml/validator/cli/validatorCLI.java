@@ -60,7 +60,7 @@ public class validatorCLI {
             formatter.printHelp("validatorCLI", options);
         }else {
 
-            List<File> files = new ArrayList<File>();
+            List<File> files = new ArrayList<>();
             File inFile = new File (line.getOptionValue(inFileOpt));
 
             String checkValue = line.getOptionValue(levelOpt);
@@ -87,7 +87,7 @@ public class validatorCLI {
                 System.exit(1);
             }
 
-            Map<File, List<Tuple>> errors = new HashMap<File, List<Tuple>>();
+            Map<File, List<Tuple>> errors = new HashMap<>();
             for(File file: files){
 
                 List<Tuple> error = OmicsXMLFile.validateSchema(file);

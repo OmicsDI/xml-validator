@@ -80,14 +80,14 @@ public class Entries
 
     public List<Entry> getEntry() {
         if (entry == null) {
-            entry = new ArrayList<Entry>();
+            entry = new ArrayList<>();
         }
         return this.entry;
     }
 
     public void addEntry(Entry entry){
         if(this.entry == null)
-            this.entry = new ArrayList<Entry>();
+            this.entry = new ArrayList<>();
         this.entry.add(entry);
     }
 

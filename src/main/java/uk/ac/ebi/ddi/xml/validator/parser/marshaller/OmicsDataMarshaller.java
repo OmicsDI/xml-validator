@@ -18,10 +18,8 @@ import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 import javax.xml.namespace.QName;
 
-import javax.xml.stream.XMLOutputFactory;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamWriter;
-import javax.xml.transform.OutputKeys;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.io.StringWriter;
@@ -99,10 +97,7 @@ public class OmicsDataMarshaller {
 
             marshaller.marshal( new JAXBElement(aQName, object.getClass(), object), xmlStreamWriter );
 
-        } catch (JAXBException e) {
-            logger.error("Marshaller.marshall", e);
-            throw new IllegalStateException("Error while marshalling object:" + object.toString());
-        } catch (XMLStreamException e) {
+        } catch (JAXBException | XMLStreamException e) {
             logger.error("Marshaller.marshall", e);
             throw new IllegalStateException("Error while marshalling object:" + object.toString());
         }

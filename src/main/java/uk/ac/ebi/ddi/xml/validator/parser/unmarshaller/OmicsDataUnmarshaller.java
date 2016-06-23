@@ -1,7 +1,6 @@
 package uk.ac.ebi.ddi.xml.validator.parser.unmarshaller;
 
 import uk.ac.ebi.ddi.xml.validator.parser.model.DataElement;
-import uk.ac.ebi.ddi.xml.validator.parser.model.DataObject;
 import uk.ac.ebi.ddi.xml.validator.parser.model.IDataObject;
 
 

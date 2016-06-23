@@ -119,7 +119,7 @@ public class ObjectFactory {
      */
     @XmlElementDecl(namespace = "", name = "database")
     public JAXBElement<Database> createDatabase(Database value) {
-        return new JAXBElement<Database>(_Database_QNAME, Database.class, null, value);
+        return new JAXBElement<>(_Database_QNAME, Database.class, null, value);
     }
 
 }

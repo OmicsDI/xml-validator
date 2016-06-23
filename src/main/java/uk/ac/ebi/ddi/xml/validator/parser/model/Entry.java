@@ -427,7 +427,7 @@ public class Entry
      * @return a list with all the values for the corresponding key
      */
     public List<String> getAdditionalFieldValues(String key){
-        List<String> value = new ArrayList<String>();
+        List<String> value = new ArrayList<>();
         if(additionalFields != null && !additionalFields.isEmpty()){
             for(Field field: additionalFields.getField())
                 if(field != null && field.getName() != null && field.getName().equalsIgnoreCase(key))
@@ -436,17 +436,17 @@ public class Entry
         return value;
     }
 
-    public void addAdditionalField(String name, String enrichedTitle) {
-        List<Field> fields = additionalFields.getField();
-        if(name != null && enrichedTitle != null){
-            if(fields == null)
-                fields = new ArrayList<>();
+    public void addAdditionalField(String name, String value) {
+        if(name != null && value != null){
+            if(additionalFields == null || additionalFields.field == null){
+                additionalFields = new AdditionalFields();
+                additionalFields.field = new ArrayList<>();
+            }
             Field field = new Field();
             field.setName(name);
-            field.setValue(enrichedTitle);
-            fields.add(field);
+            field.setValue(value);
+            additionalFields.field.add(field);
         }
-        additionalFields.setField(fields);
     }
 
     /**
@@ -472,7 +472,10 @@ public class Entry
      * @param value the values of the cross-reference for example a pubmedID
      */
     public void addCrossReferenceValue(String key, String value) {
-
+        if(crossReferences == null){
+            crossReferences = new CrossReferences();
+            crossReferences.ref = new ArrayList<>();
+        }
         List<Reference> fields = crossReferences.getRef();
         if(key != null && value != null){
             if(fields == null)
@@ -504,9 +507,31 @@ public class Entry
     }
 
     public void addDate(Date date) {
-
-        if(dates != null && dates.getDate() != null){
-            dates.getDate().add(date);
+        if(date != null){
+            if(dates == null || dates.getDate() == null){
+                dates = new DatesType();
+                dates.date = new ArrayList<>();
+            }
+            dates.date.add(date);
         }
+    }
+
+    public void setName(String name){
+        this.name = new Name();
+        this.name.setValue(name);
+    }
+
+    public void addDate(String type, String value){
+        Date date = new Date();
+        date.setType(type);
+        date.setValue(value);
+        addDate(date);
+    }
+
+    public String getDatabase(){
+        if(additionalFields != null && !additionalFields.isEmpty()){
+            return getAdditionalFieldValue(uk.ac.ebi.ddi.xml.validator.utils.Field.REPOSITORY.getName());
+        }
+        return null;
     }
 }
