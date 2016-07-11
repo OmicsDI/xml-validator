@@ -88,4 +88,12 @@ public class CrossReferences
     public void setRef(List<Reference> ref) {
         this.ref = ref;
     }
+
+    public boolean containsValue(String value){
+        if(ref != null && !ref.isEmpty())
+            for (Reference reference : ref)
+            if (reference.getDbkey().equalsIgnoreCase(value))
+                return true;
+        return false;
+    }
 }

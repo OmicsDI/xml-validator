@@ -2,6 +2,7 @@
 package uk.ac.ebi.ddi.xml.validator.parser.model;
 
 import java.io.Serializable;
+import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -196,6 +197,13 @@ public class Database
      */
     public void setEntries(Entries value) {
         this.entries = value;
+    }
+
+    public void setEntries(List<Entry> entries){
+        if(this.entries == null)
+            this.entries = new Entries(entries);
+        else
+            this.entries.entry = entries;
     }
 
 

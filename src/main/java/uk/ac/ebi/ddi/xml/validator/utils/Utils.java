@@ -1,7 +1,9 @@
 package uk.ac.ebi.ddi.xml.validator.utils;
 
+import org.apache.log4j.Logger;
 import uk.ac.ebi.ddi.xml.validator.parser.model.*;
 import uk.ac.ebi.ddi.xml.validator.parser.model.Date;
+import uk.ac.ebi.ddi.xml.validator.parser.unmarshaller.OmicsUnmarshallerFactory;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -12,6 +14,8 @@ import java.util.*;
  * @date 19/08/2015
  */
 public class Utils {
+
+    private static final Logger logger = Logger.getLogger(Utils.class);
 
     public static String ERROR = "Error";
     public static String WARN  = "Warn";
@@ -82,15 +86,19 @@ public class Utils {
     }
 
     private static boolean validateDate(String value) {
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        try {
-            java.util.Date date = sdf.parse(value);
-            java.util.Date currentDate = new java.util.Date();
-            if(currentDate.compareTo(date) >= 0)
-                return true;
-        } catch (ParseException e) {
-            e.printStackTrace();
+        String[] dateValues = new String[]{"yyyy-MM-dd", "dd-MMM-yyyy HH:mm:ss"};
+
+        for(String dateStr: dateValues){
+            try {
+                java.util.Date date = new SimpleDateFormat(dateStr).parse(value);
+                java.util.Date currentDate = new java.util.Date();
+                if(currentDate.compareTo(date) >= 0)
+                    return true;
+            } catch (ParseException e) {
+                logger.debug(e.getMessage());
+            }
         }
+
         return false;
     }
 

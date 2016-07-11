@@ -41,7 +41,8 @@ public enum Field {
     CELL_TYPE_FIELD("cell_type", FieldType.UNKNOWN, FieldCategory.ADDITIONAL, "Cell Type"),
     DISEASE_FIELD("disease", FieldType.UNKNOWN, FieldCategory.ADDITIONAL, "Disease"),
     TISSUE_FIELD("tissue", FieldType.UNKNOWN, FieldCategory.ADDITIONAL, "Tissue"),
-    SECONDARY_ACCESSION("additional_accession", FieldType.OPTIONAL,FieldCategory.ADDITIONAL, "Secondary Accesion"),
+    SECONDARY_ACCESSION("additional_accession", FieldType.OPTIONAL,FieldCategory.ADDITIONAL, "Secondary Accession"),
+    ENSEMBL_EXPRESSION_ATLAS("ensembl", FieldType.UNKNOWN, FieldCategory.CROSSREF, "Gene reference to ENSEMBL"),
 
     SUBMITTER_KEYWORDS("submitter_keywords", FieldType.UNKNOWN, FieldCategory.ADDITIONAL, "MODEL");
 

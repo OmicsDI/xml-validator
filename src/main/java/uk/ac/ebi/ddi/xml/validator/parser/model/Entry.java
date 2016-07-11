@@ -4,6 +4,7 @@ package uk.ac.ebi.ddi.xml.validator.parser.model;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
@@ -484,6 +485,30 @@ public class Entry
             field.setDbkey(value);
             field.setDbname(key);
             fields.add(field);
+        }
+        crossReferences.setRef(fields);
+    }
+
+    /**
+     * Add a new cross-reference key/value to the corss-references list
+     * @param key the key of the corss-reference: for example pubmed
+     * @param values the values of the cross-reference for example a pubmedID
+     */
+    public void addCrossReferenceValue(String key, Set<String> values) {
+        if(crossReferences == null){
+            crossReferences = new CrossReferences();
+            crossReferences.ref = new ArrayList<>();
+        }
+        List<Reference> fields = crossReferences.getRef();
+        if(key != null && values != null){
+            if(fields == null)
+                fields = new ArrayList<>();
+            for(String value: values){
+                Reference field = new Reference();
+                field.setDbkey(value);
+                field.setDbname(key);
+                fields.add(field);
+            }
         }
         crossReferences.setRef(fields);
     }
