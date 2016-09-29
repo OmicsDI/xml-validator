@@ -1,0 +1,19 @@
+The number of Errors in the files: 1
+The number of Warnings in the files: 7
+Warn The number of datasets without Dataset NCBI TAXONOMY is 1
+Warn The number of datasets without Dataset Submitter email is 1
+Warn The number of datasets without MODEL is 8
+Warn The number of datasets without Instrument Platform is 1
+Warn The number of datasets without Gene reference to ENSEMBL is 1
+Warn The number of datasets without Dataset Pubmed Id is 1
+Warn The number of datasets without Secondary Accession is 1
+Error The number of datasets without Dataset Omics Type is 1
+Warn The number of datasets without MEDLINE Reference is 1
+BIOMODELS.xml	Warn	Entry: MODEL00002243.1 The entry do not contain: Dataset NCBI TAXONOMY
+BIOMODELS.xml	Warn	Entry: MODEL00002243.1 The entry do not contain: Dataset Pubmed Id
+BIOMODELS.xml	Warn	Entry: MODEL00002243.1 The entry do not contain: MEDLINE Reference
+BIOMODELS.xml	Warn	Entry: MODEL00002243.1 The entry do not contain: Gene reference to ENSEMBL
+BIOMODELS.xml	Error	Entry: MODEL00002243.1 The entry do not contain: Dataset Omics Type
+BIOMODELS.xml	Warn	Entry: MODEL00002243.1 The entry do not contain: Dataset Submitter email
+BIOMODELS.xml	Warn	Entry: MODEL00002243.1 The entry do not contain: Instrument Platform
+BIOMODELS.xml	Warn	Entry: MODEL00002243.1 The entry do not contain: Secondary Accession

@@ -1,0 +1,74 @@
+<database>
+    <name>BioModels Database</name>
+    <description>BioModels Database is a repository of computational models of biological processes. Models described
+        from literature are manually curated and enriched with cross-references.
+    </description>
+    <release>1</release>
+    <release_date>2016-08-26</release_date>
+    <entry_count>1</entry_count>
+    <entries>
+        <entry id="MODEL00002243.1"> <!-- uniqueID -->
+            <name>Thiele2013 - Cerebellum cells in molecular layer</name>
+            <description>
+                Thiele2013 - Cerebellum cells in molecular layer The model of cerebellum cells in molecular layer
+                metabolism is derived from the community-driven global reconstruction of human metabolism
+                (version 2.02, MODEL1109130000 ).
+            </description>
+            <dates>
+                <date type="submission" value="2016-08-19"/>
+                <date type="publication" value="2016-08-20"/>
+                <date type="last_modification" value="2016-08-19"/>
+            </dates>
+            <additional_fields>
+                <field name="submitter">Tung Nguyen</field>
+                <field name="submitter_mail">tnguyen@ebi.ac.uk</field>
+                <field name="submitter_affiliation">EMBL - European Bioinformatics Institute</field>
+                <field name="repository">BioModels</field>
+                <field name="full_dataset_link">http://wwwdev.ebi.ac.uk/biomodels/jummp-biomodels/model/MODEL00002243.1</field>
+                <!--<field name="publication">Pub Title + Pub Authors + Pub Abstract + Pub Year</field>-->
+                <field name="publication">A community-driven global reconstruction of human metabolism,
+                    Thiele I, et al . (2013)
+                    Multiple models of human metabolism have been reconstructed, but each represents only a subset of
+                    our knowledge. Here we describe Recon 2, a community-driven, consensus 'metabolic reconstruction',
+                    which is the most comprehensive representation of human metabolism that is applicable to
+                    computational modeling. Compared with its predecessors, the reconstruction has improved topological
+                    and functional features, including ~2x more reactions and ~1.7x more unique metabolites. Using
+                    Recon 2 we predicted changes in metabolite biomarkers for 49 inborn errors of metabolism with 77%
+                    accuracy when compared to experimental data. Mapping metabolomic data and drug information onto
+                    Recon 2 demonstrates its potential for integrating and analyzing diverse data types. Using protein
+                    expression data, we automatically generated a compendium of 65 cell type-specific models, providing
+                    a basis for manual curation or investigation of cell-specific metabolic properties. Recon 2 will
+                    facilitate many future biomedical studies and is freely available at http://humanmetabolism.org/.
+                </field>
+                <field name="disease">Disease name</field>
+                <!--<field name="omics_type">Models</field>-->
+                <field name="data_protocol">extracted from Curation comments</field> <!-- Software used -->
+                <field name="sample_protocol">extracted from Curation comments</field> <!-- Software used -->
+                <field name="technology_type">Software used</field> <!-- Software used -->
+
+                <!-- The additional fields we define ourself -->
+                <field name="modelFormat">SBML</field>
+                <field name="submissionId">UNCHECKED</field>
+                <field name="publicationId">UNCHECKED</field>
+                <field name="levelVersion">UNCHECKED</field>
+                <field name="validationStatus">UNCHECKED</field>
+                <field name="certificationComment">This model is not certified</field>
+                <field name="elementName">Element Name</field>
+                <field name="elementID">Element ID</field>
+                <field name="elementDescription">Element Description</field>
+                <field name="public">The model is public</field>
+                <field name="deleted">The model is deleted</field>
+                <field name="certified">The model is certified</field>
+                <field name="sbmlSBOTerm">SBML SBO Term</field>
+                <field name="curators">Curators</field>
+                <field name="authors">Authors</field>
+                <field name="derivations">Derivations</field>
+                <field name="pharmml**">Fields related to PharmML</field>
+            </additional_fields>
+            <cross_references>
+                <ref dbkey="CHEBI:16551" dbname="ChEBI"/>
+                <ref dbkey="MTBLC30031" dbname="MetaboLights"/>
+            </cross_references>
+        </entry>
+    </entries>
+</database>

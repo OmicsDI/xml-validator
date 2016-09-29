@@ -63,6 +63,6 @@ file, the command should be refined to:
 
 ## Support
 
-For any issue or support questions, please contact pride-support@ebi.ac.uk
+For any issue or support questions, please contact omicsdi-support@ebi.ac.uk
 
  

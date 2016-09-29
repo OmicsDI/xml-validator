@@ -44,7 +44,8 @@ public enum Field {
     SECONDARY_ACCESSION("additional_accession", FieldType.OPTIONAL,FieldCategory.ADDITIONAL, "Secondary Accession"),
     ENSEMBL_EXPRESSION_ATLAS("ensembl", FieldType.UNKNOWN, FieldCategory.CROSSREF, "Gene reference to ENSEMBL"),
 
-    SUBMITTER_KEYWORDS("submitter_keywords", FieldType.UNKNOWN, FieldCategory.ADDITIONAL, "MODEL");
+    SUBMITTER_KEYWORDS("submitter_keywords", FieldType.UNKNOWN, FieldCategory.ADDITIONAL, "Submitter Keywords"),
+    CURATOR_KEYWORDS("curator_keywords", FieldType.UNKNOWN, FieldCategory.ADDITIONAL, "Submitter Keywords");
 
 
 

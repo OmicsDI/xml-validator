@@ -89,11 +89,8 @@ public class validatorCLI {
 
             Map<File, List<Tuple>> errors = new HashMap<>();
             for(File file: files){
-
                 List<Tuple> error = OmicsXMLFile.validateSchema(file);
-                if(checkValue.equalsIgnoreCase(Utils.WARN)){
-                    error.addAll(OmicsXMLFile.validateSemantic(file));
-                }
+                error.addAll(OmicsXMLFile.validateSemantic(file));
                 if(errors.containsKey(file)){
                    error.addAll(errors.get(file));
                 }
@@ -103,18 +100,20 @@ public class validatorCLI {
             if(!errors.isEmpty()){
                 if(reportName != null){
                     PrintStream reportFile = new PrintStream(new File(reportName));
-                    generateSummaryReport(errors,reportFile);
-                    for(File file: errors.keySet()){
+                    generateSummaryReport(errors,reportFile, checkValue);
+                    for(File file: errors.keySet())
                         for (Tuple error: errors.get(file))
-                            reportFile.println(file.getAbsolutePath() + "\t" + error.getKey() + "\t" + error.getValue());
-                    }
+                            if(checkValue == Utils.WARN || (error.getValue() == Utils.ERROR))
+                                reportFile.println(file.getAbsolutePath() + "\t" + error.getKey() + "\t" + error.getValue());
+
                     reportFile.close();
                 }else{
                     for(File file: errors.keySet()){
                         PrintStream reportFile = new PrintStream(new File(file.getAbsolutePath() + ".error.csv"));
-                        generateSummaryReport(errors,reportFile);
+                        generateSummaryReport(errors,reportFile, checkValue);
                         for (Tuple error: errors.get(file))
-                            reportFile.println(file.getName() + "\t" + error.getKey() + "\t" + error.getValue());
+                            if(checkValue == Utils.WARN || (error.getValue() == Utils.ERROR))
+                                reportFile.println(file.getName() + "\t" + error.getKey() + "\t" + error.getValue());
                         reportFile.close();
                     }
                 }
@@ -123,7 +122,7 @@ public class validatorCLI {
         }
     }
 
-    public static void generateSummaryReport(Map<File, List<Tuple>> errors, PrintStream reportFile){
+    public static void generateSummaryReport(Map<File, List<Tuple>> errors, PrintStream reportFile, String errorLevel){
         int numberErrors = 0;
         int numberWars   = 0;
         Map<Field, Integer> fields = new HashMap<>();
@@ -150,10 +149,13 @@ public class validatorCLI {
             Field field = (Field) entry.getKey();
             Integer errorNumber = (Integer) entry.getValue();
             String error = (field.getType() == FieldType.MANDATORY)? Utils.ERROR:Utils.WARN;
-            if(field.getCategory() == FieldCategory.DATE)
-                reportFile.println(error + " The number of datasets without or outdated " + field.getFullName() + " is " + errorNumber);
-            else
-                reportFile.println(error + " The number of datasets without " + field.getFullName() + " is " + errorNumber);
+            if(errorLevel == Utils.WARN || (error == Utils.ERROR)){
+                if(field.getCategory() == FieldCategory.DATE)
+                    reportFile.println(error + " The number of datasets without or outdated " + field.getFullName() + " is " + errorNumber);
+                else
+                    reportFile.println(error + " The number of datasets without " + field.getFullName() + " is " + errorNumber);
+
+            }
         }
     }
 

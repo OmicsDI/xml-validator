@@ -3,7 +3,6 @@ package uk.ac.ebi.ddi.xml.validator.utils;
 import org.apache.log4j.Logger;
 import uk.ac.ebi.ddi.xml.validator.parser.model.*;
 import uk.ac.ebi.ddi.xml.validator.parser.model.Date;
-import uk.ac.ebi.ddi.xml.validator.parser.unmarshaller.OmicsUnmarshallerFactory;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
