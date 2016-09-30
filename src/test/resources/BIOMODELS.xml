@@ -8,7 +8,7 @@
     <entry_count>1</entry_count>
     <entries>
         <entry id="MODEL00002243.1"> <!-- uniqueID -->
-            <name>Thiele2013 - Cerebellum cells in molecular layer</name>
+            <!--<name>Thiele2013 - Cerebellum cells in molecular layer</name>-->
             <description>
                 Thiele2013 - Cerebellum cells in molecular layer The model of cerebellum cells in molecular layer
                 metabolism is derived from the community-driven global reconstruction of human metabolism
