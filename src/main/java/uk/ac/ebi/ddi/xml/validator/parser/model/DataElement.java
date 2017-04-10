@@ -26,7 +26,7 @@ public enum DataElement {
         }
     }
 
-    private DataElement(String xpath, @SuppressWarnings("rawtypes") Class clazz) {
+    DataElement(String xpath, @SuppressWarnings("rawtypes") Class clazz) {
         this.xpath = xpath;
         this.type = clazz;
     }

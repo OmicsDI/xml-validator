@@ -442,6 +442,11 @@ public class OmicsXMLFile {
                 }
                 // check file type
                 Matcher matcher = OmicsXMLFilePatter.matcher(content);
+                try {
+                    reader.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
                 return matcher.find();
             } catch (Exception e) {
                 throw  new DDIException("Failed to read file", e);
@@ -505,6 +510,7 @@ public class OmicsXMLFile {
                 List<Tuple> error = Utils.validateSemantic(reader.getEntryById(id));
                 errors.addAll(error);
             }
+            reader.close();
         } catch (DDIException e) {
             errors.add(new Tuple(Utils.ERROR, e.getMessage()));
 
@@ -536,6 +542,17 @@ public class OmicsXMLFile {
     public void setDatabaseName(String name){
         if(database != null)
             database.setName(name);
+    }
+
+    /**
+     * Close the Reader
+     */
+    public void close(){
+        try {
+            accessFile.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 

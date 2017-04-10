@@ -70,13 +70,6 @@ public class OmicsDataMarshaller {
                                                           "' will be treated as root element.");
             } else {
 
-//                String encoding = (String) marshaller.getProperty(Marshaller.JAXB_ENCODING);
-//
-//                marshaller.setProperty("com.sun.xml.bind.xmlDeclaration", Boolean.FALSE);
-//
-//                // Specify the new header
-//                marshaller.setProperty("com.sun.xml.bind.xmlHeaders", "<?xml version=\"1.1\" encoding=\"" + encoding + "\">");
-
                 if (logger.isDebugEnabled()) logger.debug("Object '" + object.getClass().getName() +
                                                           "' will be treated as fragment.");
             }
@@ -93,7 +86,6 @@ public class OmicsDataMarshaller {
 
             xmlStreamWriter = new IndentingXMLStreamWriter(xmlStreamWriter);
 
-//            xmlStreamWriter.writeStartDocument("1.1");
 
             marshaller.marshal( new JAXBElement(aQName, object.getClass(), object), xmlStreamWriter );
 
@@ -101,6 +93,10 @@ public class OmicsDataMarshaller {
             logger.error("Marshaller.marshall", e);
             throw new IllegalStateException("Error while marshalling object:" + object.toString());
         }
+
+    }
+
+    public void close(){
 
     }
     

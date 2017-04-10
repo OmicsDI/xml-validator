@@ -6,10 +6,7 @@ import uk.ac.ebi.ddi.xml.validator.utils.*;
 
 import java.io.File;
 import java.io.PrintStream;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * This class allow the user to interact with the library:
@@ -103,7 +100,7 @@ public class validatorCLI {
                     generateSummaryReport(errors,reportFile, checkValue);
                     for(File file: errors.keySet())
                         for (Tuple error: errors.get(file))
-                            if(checkValue == Utils.WARN || (error.getValue() == Utils.ERROR))
+                            if(Objects.equals(checkValue, Utils.WARN) || (error.getValue() == Utils.ERROR))
                                 reportFile.println(file.getAbsolutePath() + "\t" + error.getKey() + "\t" + error.getValue());
 
                     reportFile.close();
@@ -112,7 +109,7 @@ public class validatorCLI {
                         PrintStream reportFile = new PrintStream(new File(file.getAbsolutePath() + ".error.csv"));
                         generateSummaryReport(errors,reportFile, checkValue);
                         for (Tuple error: errors.get(file))
-                            if(checkValue == Utils.WARN || (error.getValue() == Utils.ERROR))
+                            if(Objects.equals(checkValue, Utils.WARN) || (error.getValue() == Utils.ERROR))
                                 reportFile.println(file.getName() + "\t" + error.getKey() + "\t" + error.getValue());
                         reportFile.close();
                     }
@@ -149,7 +146,7 @@ public class validatorCLI {
             Field field = (Field) entry.getKey();
             Integer errorNumber = (Integer) entry.getValue();
             String error = (field.getType() == FieldType.MANDATORY)? Utils.ERROR:Utils.WARN;
-            if(errorLevel == Utils.WARN || (error == Utils.ERROR)){
+            if(Objects.equals(errorLevel, Utils.WARN) || (Objects.equals(error, Utils.ERROR))){
                 if(field.getCategory() == FieldCategory.DATE)
                     reportFile.println(error + " The number of datasets without or outdated " + field.getFullName() + " is " + errorNumber);
                 else
