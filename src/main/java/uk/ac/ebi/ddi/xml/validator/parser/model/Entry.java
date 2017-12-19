@@ -553,7 +553,7 @@ public class Entry
         addDate(date);
     }
 
-    public String getDatabase(){
+    public String getRepository(){
         if(additionalFields != null && !additionalFields.isEmpty()){
             return getAdditionalFieldValue(uk.ac.ebi.ddi.xml.validator.utils.Field.REPOSITORY.getName());
         }
