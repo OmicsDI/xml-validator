@@ -544,6 +544,13 @@ public class OmicsXMLFile {
             database.setName(name);
     }
 
+    public String getDatabaseName(){
+        if(database != null)
+            return database.getName();
+        else
+            return null;
+    }
+
     /**
      * Close the Reader
      */
