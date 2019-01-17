@@ -102,6 +102,7 @@ public class OmicsXMLFile {
             String xml = readSnipplet(databases.get(0));
 
             try {
+                xml = xml.replaceAll("&#[^;]+;", "");
                 Database entry = unmarshaller.unmarshal(xml, DataElement.DATABASE);
                 database = new SummaryDatabase();
                 database.setDescription(entry.getDescription());

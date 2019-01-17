@@ -1,0 +1,204 @@
+<database>
+  <name>Pride Archive</name>
+  <description/>
+  <release>3</release>
+  <release_date>2019-01-01</release_date>
+  <entry_count>1</entry_count>
+  <entries>
+    <entry id="PXD007896">
+      <name>Comprehensive proteomics identification of &#11;IFN-λ3-regulated anti-viral proteins in &#11;HBV-transfected cells</name>
+      <description>Hepatitis B virus (HBV) causes both acute and chronic liver inflammation. Approximately 600,000 CHB patients each year die of HBV-related diseases such as cirrhosis and liver cancer. Therefore, CHB remains a global health concern. Although there have been anti-HBV agents for treating CHB, they have some limitations including viral-drug resistance and adverse effects. Type III IFN or IFN-λ is promising to use as anti-HBV agents because of its anti-viral activities like type I IFNs. In addition, the expression of its receptor, IFNLR1, is limited only in epithelial cells including hepatocytes. Thus, treatment with IFN-lambda results in less side effects compared to IFN-alpha treatment. IFN-lambdas have been shown to inhibit the replication of several viruses including IAV, DENV, EMCV, HIV, HCV, and HBV; however, there have been no studies on the effects of IFN-λ3, the highest activity among other subtypes, on HBV replication. Therefore, this study aims to determine antiviral activities of IFN-λ3 against HBV replication and to investigate its molecular mechanism responsible for suppressing HBV propagation. The results showed that HBV transcripts and amount of intracellular HBV DNA were decreased in HepG2.2.15 cells, stable HBV-transfected hepatoblastoma cell line, treated with IFN-λ3 in a dose-dependent manner. This indicated that IFN-λ3 could inhibit HBV replication. Next, we performed quantitative proteomics to investigate the proteome changes in HepG2.2.15 treated with IFN-λ3. The proteins that changed their expressions were involved in several biological processes such as defense to viral infection, immune responses, cell-cell adhesion, transcription, translation, and metabolism. We further confirmed the proteomics results by immunoblotting assay. Consistent with MS data, it found that the expression of OAS3, SAMHD1 and STAT1 were increased as a result of IFN-λ3 stimulation. These results indicated that proteomics results were reproducible and reliable. Finally, we proposed 3 possible mechanisms involved in suppressing HBV replication including i.) IFN-λ3 induced anti-viral proteins affecting many steps in HBV life cycle ii.) IFN-λ3 promoted antigen processing and antigen presentation and iii.) IFN-λ3 rescued RIG-I signaling to promote both type I and type III IFN production.</description>
+      <cross_references>
+        <ref dbkey="9606" dbname="TAXONOMY"/>
+        <ref dbkey="30097535" dbname="pubmed"/>
+      </cross_references>
+      <dates>
+        <date type="submission" value="2017-10-03"/>
+        <date type="publication" value="2018-08-17"/>
+      </dates>
+      <additional_fields>
+        <field name="omics_type">Proteomics</field>
+        <field name="full_dataset_link">http://www.ebi.ac.uk/pride/archive/projects/PXD007896</field>
+        <field name="repository">pride</field>
+        <field name="sample_protocol">The stably HBV-transfected HepG2.2.15 cells were stimulated with or without 100 ng/ml of IFN-λ3 for 24 hours. After collecting cells, these cells were lysed in 5% SDC and digested with trypsin. The equal amount of tryptic peptides from both groups were subsequently performed dimethyl labeling. The light reagents were applied into control group while the treated group were labeled with heavy reagents. Then, the two labeled peptides were combined, fractionated by high pH reversed-phase fractionation kit and analyzed by LC-MS/MS. The peptides were eluted in 5-40% acetonitrile in 0.1% FA for 70 min followed by 40-95% acetonitrile in 0.1% FA for 20 min at a flow rate of about 300 nl/min. The MS methods included a full MS scan at a resolution of 70,000 followed by 10 data-dependent MS2 scans at a resolution of 17,500. The normalized collision energy of HCD fragmentation was set at 35%. An MS scan range of 350 to 1400 m/z was selected and precursor ions with unassigned charge states, a charge state of +1, or a charge state of greater than +8 were excluded. A dynamic exclusion of 30 s was used.</field>
+        <field name="data_protocol">Using Proteome Discoverer™ Software 2.1 (Thermo), the MS raw data files were searched against a composite database containing the forward and reversed peptide sequences of the Human Swiss-Prot Database (20,219 proteins, June 2017) and the Hepatitis B Virus Swiss-Prot Database (225 proteins, June 2017). The search parameters were set for the following fixed modifications: carbamidomethylation of cysteine (+57.02146 Da), as well as light and heavy dimethylation of N-termini and lysine (+28.031300, and +36.075670 Da). For variable modifications, the search parameters were set as follows: oxidation of methionine (+15.99491 Da) with a maximum of four modifications and two missed cleavages allowed per peptide. Parent and fragment monoisotopic mass errors were set at 10 ppm. A target–decoy approach was used to limit a false discovery rate of the identified peptides to less than 1%. The online resource Database for Annotation, Visualization and Integrated Discovery (DAVID, v6.8) was employed to classify the proteins regulated by IFN-λ3 into functional categories using all proteins identified by MS as background. HBV life-cycle mapping and network analysis of protein interactions among the proteins whose expressions changed significantly with IFN-λ3 treatment was performed by manual curation from literature with assistance from KEGG pathway analysis.</field>
+        <field name="instrument_platform">Q Exactive</field>
+        <field name="species">Homo sapiens (Human)</field>
+        <field name="cell_type">hepatocyte</field>
+        <field name="disease">Not available</field>
+        <field name="tissue">Tissue not applicable to dataset</field>
+        <field name="modification">iodoacetamide derivatized residue</field>
+        <field name="modification">monohydroxylated residue</field>
+        <field name="modification">acetylated residue</field>
+        <field name="technology_type">Shotgun proteomics</field>
+        <field name="technology_type">Mass Spectrometry</field>
+        <field name="curator_keywords">Biological</field>
+        <field name="curator_keywords">Biomedical</field>
+        <field name="submitter_keywords">IFN-λ3</field>
+        <field name="submitter_keywords">Hepatitis B Virus</field>
+        <field name="submitter_keywords">LC-MS/MS</field>
+        <field name="submitter_keywords">Dimethyl labeling</field>
+        <field name="quantification_method">MS1 based isotope labeling</field>
+        <field name="submission_type">PARTIAL</field>
+        <field name="software">Not available</field>
+        <field name="publication">30097535 Makjaroen J, Somparn P, Hodge K, Poomipak W, Hirankarn N, Pisitkun T. Comprehensive proteomics identification of IFN-λ3-regulated anti-viral proteins in HBV-transfected cells. Mol Cell Proteomics. 2018 10.1074/mcp.ra118.000735</field>
+        <field name="submitter">Poorichaya Somparn</field>
+        <field name="submitter_mail">poorichaya.s@chula.ac.th</field>
+        <field name="submitter_affiliation">Chulalongkorn university</field>
+        <field name="labhead">Trairak Pisitkut</field>
+        <field name="labhead_mail">trairak@gmail.com</field>
+        <field name="labhead_affiliation">Chulalongkorn University Systems Bilogy center, Research affairs, Faculty of Medicine, Chulalongkorn University, Bangkok, Thailand</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2018/08/PXD007896/2017Jan28OffSet4F1.mgf</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2018/08/PXD007896/2017Jan28OffSet4F1.raw</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2018/08/PXD007896/2017Jan28OffSet4F10.mgf</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2018/08/PXD007896/2017Jan28OffSet4F10.raw</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2018/08/PXD007896/2017Jan28OffSet4F2.mgf</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2018/08/PXD007896/2017Jan28OffSet4F2.raw</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2018/08/PXD007896/2017Jan28OffSet4F3.mgf</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2018/08/PXD007896/2017Jan28OffSet4F3.raw</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2018/08/PXD007896/2017Jan28OffSet4F4.mgf</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2018/08/PXD007896/2017Jan28OffSet4F4.raw</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2018/08/PXD007896/2017Jan28OffSet4F5.mgf</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2018/08/PXD007896/2017Jan28OffSet4F5.raw</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2018/08/PXD007896/2017Jan28OffSet4F6.mgf</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2018/08/PXD007896/2017Jan28OffSet4F6.raw</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2018/08/PXD007896/2017Jan28OffSet4F7.mgf</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2018/08/PXD007896/2017Jan28OffSet4F7.raw</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2018/08/PXD007896/2017Jan28OffSet4F8.mgf</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2018/08/PXD007896/2017Jan28OffSet4F8.raw</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2018/08/PXD007896/2017Jan28OffSet4F9.mgf</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2018/08/PXD007896/2017Jan28OffSet4F9.raw</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2018/08/PXD007896/2017Jan29OffSet5F1.mgf</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2018/08/PXD007896/2017Jan29OffSet5F1.raw</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2018/08/PXD007896/2017Jan29OffSet5F10.mgf</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2018/08/PXD007896/2017Jan29OffSet5F10.raw</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2018/08/PXD007896/2017Jan29OffSet5F2.mgf</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2018/08/PXD007896/2017Jan29OffSet5F2.raw</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2018/08/PXD007896/2017Jan29OffSet5F3.mgf</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2018/08/PXD007896/2017Jan29OffSet5F3.raw</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2018/08/PXD007896/2017Jan29OffSet5F4.mgf</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2018/08/PXD007896/2017Jan29OffSet5F4.raw</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2018/08/PXD007896/2017Jan29OffSet5F5.mgf</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2018/08/PXD007896/2017Jan29OffSet5F5.raw</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2018/08/PXD007896/2017Jan29OffSet5F6.mgf</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2018/08/PXD007896/2017Jan29OffSet5F6.raw</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2018/08/PXD007896/2017Jan29OffSet5F7.mgf</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2018/08/PXD007896/2017Jan29OffSet5F7.raw</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2018/08/PXD007896/2017Jan29OffSet5F8.mgf</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2018/08/PXD007896/2017Jan29OffSet5F8.raw</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2018/08/PXD007896/2017Jan29OffSet5F9.mgf</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2018/08/PXD007896/2017Jan29OffSet5F9.raw</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2018/08/PXD007896/HepG215Set1F1.mgf</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2018/08/PXD007896/HepG215Set1F1.raw</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2018/08/PXD007896/HepG215Set1F2.mgf</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2018/08/PXD007896/HepG215Set1F2.raw</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2018/08/PXD007896/HepG215Set1F3.mgf</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2018/08/PXD007896/HepG215Set1F3.raw</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2018/08/PXD007896/HepG215Set1F4.mgf</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2018/08/PXD007896/HepG215Set1F4.raw</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2018/08/PXD007896/HepG215Set1F5.mgf</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2018/08/PXD007896/HepG215Set1F5.raw</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2018/08/PXD007896/HepG215Set1F6.mgf</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2018/08/PXD007896/HepG215Set1F6.raw</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2018/08/PXD007896/HepG215Set1F7.mgf</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2018/08/PXD007896/HepG215Set1F7.raw</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2018/08/PXD007896/HepG215Set1F8.mgf</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2018/08/PXD007896/HepG215Set1F8.raw</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2018/08/PXD007896/HepG215Set1F9.mgf</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2018/08/PXD007896/HepG215Set1F9.raw</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2018/08/PXD007896/HepG215Set1f10.mgf</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2018/08/PXD007896/HepG215Set1f10.raw</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2018/08/PXD007896/HepG215Set2F1.mgf</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2018/08/PXD007896/HepG215Set2F1.raw</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2018/08/PXD007896/HepG215Set2F10.mgf</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2018/08/PXD007896/HepG215Set2F10.raw</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2018/08/PXD007896/HepG215Set2F2.mgf</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2018/08/PXD007896/HepG215Set2F2.raw</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2018/08/PXD007896/HepG215Set2F3.mgf</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2018/08/PXD007896/HepG215Set2F3.raw</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2018/08/PXD007896/HepG215Set2F4.mgf</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2018/08/PXD007896/HepG215Set2F4.raw</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2018/08/PXD007896/HepG215Set2F5.mgf</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2018/08/PXD007896/HepG215Set2F5.raw</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2018/08/PXD007896/HepG215Set2F6.mgf</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2018/08/PXD007896/HepG215Set2F6.raw</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2018/08/PXD007896/HepG215Set2F7.mgf</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2018/08/PXD007896/HepG215Set2F7.raw</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2018/08/PXD007896/HepG215Set2F8.mgf</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2018/08/PXD007896/HepG215Set2F8.raw</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2018/08/PXD007896/HepG215Set2F9.mgf</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2018/08/PXD007896/HepG215Set2F9.raw</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2018/08/PXD007896/HepG215Set3F1.mgf</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2018/08/PXD007896/HepG215Set3F1.raw</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2018/08/PXD007896/HepG215Set3F10.mgf</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2018/08/PXD007896/HepG215Set3F10.raw</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2018/08/PXD007896/HepG215Set3F2.mgf</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2018/08/PXD007896/HepG215Set3F2.raw</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2018/08/PXD007896/HepG215Set3F3.mgf</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2018/08/PXD007896/HepG215Set3F3.raw</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2018/08/PXD007896/HepG215Set3F4.mgf</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2018/08/PXD007896/HepG215Set3F4.raw</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2018/08/PXD007896/HepG215Set3F5.mgf</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2018/08/PXD007896/HepG215Set3F5.raw</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2018/08/PXD007896/HepG215Set3F6.mgf</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2018/08/PXD007896/HepG215Set3F6.raw</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2018/08/PXD007896/HepG215Set3F7.mgf</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2018/08/PXD007896/HepG215Set3F7.raw</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2018/08/PXD007896/HepG215Set3F8.mgf</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2018/08/PXD007896/HepG215Set3F8.raw</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2018/08/PXD007896/HepG215Set3F9.mgf</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2018/08/PXD007896/HepG215Set3F9.raw</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2018/08/PXD007896/Set1F1.xlsx</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2018/08/PXD007896/Set1F10.xlsx</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2018/08/PXD007896/Set1F2.xlsx</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2018/08/PXD007896/Set1F3.xlsx</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2018/08/PXD007896/Set1F4.xlsx</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2018/08/PXD007896/Set1F5.xlsx</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2018/08/PXD007896/Set1F6.xlsx</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2018/08/PXD007896/Set1F7.xlsx</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2018/08/PXD007896/Set1F8.xlsx</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2018/08/PXD007896/Set1F9.xlsx</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2018/08/PXD007896/Set2F1.xlsx</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2018/08/PXD007896/Set2F10.xlsx</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2018/08/PXD007896/Set2F2.xlsx</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2018/08/PXD007896/Set2F3.xlsx</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2018/08/PXD007896/Set2F4.xlsx</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2018/08/PXD007896/Set2F5.xlsx</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2018/08/PXD007896/Set2F6.xlsx</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2018/08/PXD007896/Set2F7.xlsx</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2018/08/PXD007896/Set2F8.xlsx</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2018/08/PXD007896/Set2F9.xlsx</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2018/08/PXD007896/Set3F1.xlsx</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2018/08/PXD007896/Set3F10.xlsx</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2018/08/PXD007896/Set3F2.xlsx</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2018/08/PXD007896/Set3F3.xlsx</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2018/08/PXD007896/Set3F4.xlsx</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2018/08/PXD007896/Set3F5.xlsx</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2018/08/PXD007896/Set3F6.xlsx</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2018/08/PXD007896/Set3F7.xlsx</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2018/08/PXD007896/Set3F8.xlsx</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2018/08/PXD007896/Set3F9.xlsx</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2018/08/PXD007896/Set4F1.xlsx</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2018/08/PXD007896/Set4F10.xlsx</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2018/08/PXD007896/Set4F2.xlsx</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2018/08/PXD007896/Set4F3.xlsx</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2018/08/PXD007896/Set4F4.xlsx</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2018/08/PXD007896/Set4F5.xlsx</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2018/08/PXD007896/Set4F6.xlsx</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2018/08/PXD007896/Set4F7.xlsx</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2018/08/PXD007896/Set4F8.xlsx</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2018/08/PXD007896/Set4F9.xlsx</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2018/08/PXD007896/Set5F1.xlsx</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2018/08/PXD007896/Set5F10.xlsx</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2018/08/PXD007896/Set5F2.xlsx</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2018/08/PXD007896/Set5F3.xlsx</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2018/08/PXD007896/Set5F4.xlsx</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2018/08/PXD007896/Set5F5.xlsx</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2018/08/PXD007896/Set5F6.xlsx</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2018/08/PXD007896/Set5F7.xlsx</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2018/08/PXD007896/Set5F8.xlsx</field>
+        <field name="dataset_file">ftp://ftp.pride.ebi.ac.uk/pride/data/archive/2018/08/PXD007896/Set5F9.xlsx</field>
+      </additional_fields>
+    </entry>
+  </entries>
+</database>
