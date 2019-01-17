@@ -7,16 +7,16 @@ import javax.xml.bind.Marshaller;
 
 public class ObjectClassListener extends Marshaller.Listener {
 
-    private static final Logger logger = Logger.getLogger(ObjectClassListener.class);
+    private static final Logger LOGGER = Logger.getLogger(ObjectClassListener.class);
 
     public void beforeMarshal(Object source) {
         //this class will only be associated with a Marshaller when
-        //the logging level is set to DEBUG 
-        logger.debug("marshalling: " + source.getClass());
+        //the logging level is set to DEBUG
+        LOGGER.debug("marshalling: " + source.getClass());
 
     }
 
     public void afterMarshal(Object source) {
-        logger.debug("  marshalled: " + source.getClass());
+        LOGGER.debug("  marshalled: " + source.getClass());
     }
 }

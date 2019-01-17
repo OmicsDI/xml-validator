@@ -14,44 +14,40 @@ import javax.xml.transform.sax.SAXSource;
 import java.io.StringReader;
 
 
-
 public class OmicsUnmarshallerFactory {
 
-	private static final Logger logger = Logger.getLogger(OmicsUnmarshallerFactory.class);
+    private static final Logger LOGGER = Logger.getLogger(OmicsUnmarshallerFactory.class);
 
-    private static OmicsUnmarshallerFactory instance = new OmicsUnmarshallerFactory();
-    private static JAXBContext jc = null;
+    private static OmicsUnmarshallerFactory instance;
+    private static JAXBContext jc;
 
     private OmicsUnmarshallerFactory() {
     }
 
     public static OmicsUnmarshallerFactory getInstance() {
+        if (instance == null) {
+            instance = new OmicsUnmarshallerFactory();
+        }
         return instance;
     }
 
     public OmicsDataUnmarshaller initializeUnmarshaller() {
 
         try {
-            // Lazy caching of the JAXB Context.
             if (jc == null) {
                 jc = JAXBContext.newInstance(ModelConstants.MODEL_PKG);
             }
-
-            //create unmarshaller
-            OmicsDataUnmarshaller pum = new OmicsDataUnmarshallerImpl();
-            logger.debug("Unmarshaller Initialized");
-
-            return pum;
+            return new OmicsDataUnmarshallerImpl();
 
         } catch (JAXBException e) {
-            logger.error("UnmarshallerFactory.initializeUnmarshaller", e);
+            LOGGER.error("UnmarshallerFactory.initializeUnmarshaller", e);
             throw new IllegalStateException("Could not initialize unmarshaller", e);
         }
     }
 
     private class OmicsDataUnmarshallerImpl implements OmicsDataUnmarshaller {
 
-        private Unmarshaller unmarshaller = null;
+        private Unmarshaller unmarshaller;
 
         private OmicsDataUnmarshallerImpl() throws JAXBException {
             unmarshaller = jc.createUnmarshaller();
@@ -65,28 +61,19 @@ public class OmicsUnmarshallerFactory {
          * @param <T>        an instance of class type.
          * @return T    return an instance of class type.
          */
-		@Override
-		public synchronized <T extends IDataObject> T unmarshal(String xmlSnippet, DataElement element)
-				throws Exception {
-			
-			T retval;
-            try {
+        @Override
+        public synchronized <T extends IDataObject> T unmarshal(String xmlSnippet, DataElement element)
+                throws Exception {
 
-                if (xmlSnippet == null || element == null) {
-                    return null;
-                }
-
-                @SuppressWarnings("unchecked")
-                JAXBElement<T> holder = unmarshaller.unmarshal(new SAXSource(new InputSource(new StringReader(xmlSnippet))), element.getClassType());
-                retval = holder.getValue();
-
-            } catch (JAXBException e) {
-                throw new Exception("Error unmarshalling object: " + e.getMessage(), e);
+            if (xmlSnippet == null || element == null) {
+                return null;
             }
 
-            return retval;
-		}
-
+            @SuppressWarnings("unchecked")
+            JAXBElement<T> holder = unmarshaller.unmarshal(
+                    new SAXSource(new InputSource(new StringReader(xmlSnippet))), element.getClassType());
+            return holder.getValue();
+        }
     }
 }
 

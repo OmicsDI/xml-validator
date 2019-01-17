@@ -15,9 +15,9 @@ import javax.xml.bind.annotation.XmlValue;
 
 /**
  * <p>Java class for entryType complex type.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;complexType name="entryType"&gt;
  *   &lt;complexContent&gt;
@@ -52,18 +52,15 @@ import javax.xml.bind.annotation.XmlValue;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "entryType", propOrder = {
 
 })
 public class Entry
-    implements Serializable, IDataObject
-{
+        implements Serializable, IDataObject {
 
-    private final static long serialVersionUID = 105L;
+    private static final long serialVersionUID = 105L;
     @XmlElement(required = true)
     protected Entry.Name name;
     protected String description;
@@ -82,11 +79,9 @@ public class Entry
 
     /**
      * Gets the value of the name property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Entry.Name }
-     *     
+     *
+     * @return possible object is
+     * {@link Entry.Name }
      */
     public Entry.Name getName() {
         return name;
@@ -94,11 +89,9 @@ public class Entry
 
     /**
      * Sets the value of the name property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Entry.Name }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Entry.Name }
      */
     public void setName(Entry.Name value) {
         this.name = value;
@@ -106,11 +99,9 @@ public class Entry
 
     /**
      * Gets the value of the description property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getDescription() {
         return description;
@@ -118,11 +109,9 @@ public class Entry
 
     /**
      * Sets the value of the description property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setDescription(String value) {
         this.description = value;
@@ -130,11 +119,9 @@ public class Entry
 
     /**
      * Gets the value of the authors property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getAuthors() {
         return authors;
@@ -142,11 +129,9 @@ public class Entry
 
     /**
      * Sets the value of the authors property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setAuthors(String value) {
         this.authors = value;
@@ -154,11 +139,9 @@ public class Entry
 
     /**
      * Gets the value of the keywords property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getKeywords() {
         return keywords;
@@ -166,11 +149,9 @@ public class Entry
 
     /**
      * Sets the value of the keywords property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setKeywords(String value) {
         this.keywords = value;
@@ -178,11 +159,9 @@ public class Entry
 
     /**
      * Gets the value of the dates property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link DatesType }
-     *     
+     *
+     * @return possible object is
+     * {@link DatesType }
      */
     public DatesType getDates() {
         return dates;
@@ -190,11 +169,9 @@ public class Entry
 
     /**
      * Sets the value of the dates property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link DatesType }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link DatesType }
      */
     public void setDates(DatesType value) {
         this.dates = value;
@@ -202,11 +179,9 @@ public class Entry
 
     /**
      * Gets the value of the crossReferences property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link CrossReferences }
-     *     
+     *
+     * @return possible object is
+     * {@link CrossReferences }
      */
     public CrossReferences getCrossReferences() {
         return crossReferences;
@@ -214,11 +189,9 @@ public class Entry
 
     /**
      * Sets the value of the crossReferences property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link CrossReferences }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link CrossReferences }
      */
     public void setCrossReferences(CrossReferences value) {
         this.crossReferences = value;
@@ -226,11 +199,9 @@ public class Entry
 
     /**
      * Gets the value of the additionalFields property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link AdditionalFields }
-     *     
+     *
+     * @return possible object is
+     * {@link AdditionalFields }
      */
     public AdditionalFields getAdditionalFields() {
         return additionalFields;
@@ -238,11 +209,9 @@ public class Entry
 
     /**
      * Sets the value of the additionalFields property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link AdditionalFields }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link AdditionalFields }
      */
     public void setAdditionalFields(AdditionalFields value) {
         this.additionalFields = value;
@@ -250,11 +219,9 @@ public class Entry
 
     /**
      * Gets the value of the id property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getId() {
         return id;
@@ -262,11 +229,9 @@ public class Entry
 
     /**
      * Sets the value of the id property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setId(String value) {
         this.id = value;
@@ -274,11 +239,9 @@ public class Entry
 
     /**
      * Gets the value of the acc property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getAcc() {
         return acc;
@@ -286,11 +249,9 @@ public class Entry
 
     /**
      * Sets the value of the acc property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setAcc(String value) {
         this.acc = value;
@@ -299,9 +260,9 @@ public class Entry
 
     /**
      * <p>Java class for anonymous complex type.
-     * 
+     *
      * <p>The following schema fragment specifies the expected content contained within this class.
-     * 
+     *
      * <pre>
      * &lt;complexType&gt;
      *   &lt;simpleContent&gt;
@@ -318,18 +279,15 @@ public class Entry
      *   &lt;/simpleContent&gt;
      * &lt;/complexType&gt;
      * </pre>
-     * 
-     * 
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
-        "value"
+            "value"
     })
     public static class Name
-        implements Serializable, IDataObject
-    {
+            implements Serializable, IDataObject {
 
-        private final static long serialVersionUID = 105L;
+        private static final long serialVersionUID = 105L;
         @XmlValue
         protected String value;
         @XmlAttribute(name = "boost")
@@ -337,11 +295,9 @@ public class Entry
 
         /**
          * Gets the value of the value property.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
+         *
+         * @return possible object is
+         * {@link String }
          */
         public String getValue() {
             return value;
@@ -349,11 +305,9 @@ public class Entry
 
         /**
          * Sets the value of the value property.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link String }
          */
         public void setValue(String value) {
             this.value = value;
@@ -361,11 +315,9 @@ public class Entry
 
         /**
          * Gets the value of the boost property.
-         * 
-         * @return
-         *     possible object is
-         *     {@link Float }
-         *     
+         *
+         * @return possible object is
+         * {@link Float }
          */
         public Float getBoost() {
             return boost;
@@ -373,11 +325,9 @@ public class Entry
 
         /**
          * Sets the value of the boost property.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link Float }
-         *     
+         *
+         * @param value allowed object is
+         *              {@link Float }
          */
         public void setBoost(Float value) {
             this.boost = value;
@@ -409,37 +359,43 @@ public class Entry
 
     /**
      * Return the unique value of the present key
+     *
      * @param key
      * @return
      */
-    public String getAdditionalFieldValue(String key){
+    public String getAdditionalFieldValue(String key) {
         String value = null;
-        if(additionalFields != null && !additionalFields.isEmpty()){
-            for(Field field: additionalFields.getField())
-                if(field != null && field.getName() != null && field.getName().equalsIgnoreCase(key))
+        if (additionalFields != null && !additionalFields.isEmpty()) {
+            for (Field field : additionalFields.getField()) {
+                if (field != null && field.getName() != null && field.getName().equalsIgnoreCase(key)) {
                     value = field.getValue();
+                }
+            }
         }
         return value;
     }
 
     /**
      * Return of a key all the values in the Entry fot the given key
+     *
      * @param key the key of the Field
      * @return a list with all the values for the corresponding key
      */
-    public List<String> getAdditionalFieldValues(String key){
+    public List<String> getAdditionalFieldValues(String key) {
         List<String> value = new ArrayList<>();
-        if(additionalFields != null && !additionalFields.isEmpty()){
-            for(Field field: additionalFields.getField())
-                if(field != null && field.getName() != null && field.getName().equalsIgnoreCase(key))
+        if (additionalFields != null && !additionalFields.isEmpty()) {
+            for (Field field : additionalFields.getField()) {
+                if (field != null && field.getName() != null && field.getName().equalsIgnoreCase(key)) {
                     value.add(field.getValue());
+                }
+            }
         }
         return value;
     }
 
     public void addAdditionalField(String name, String value) {
-        if(name != null && value != null){
-            if(additionalFields == null || additionalFields.field == null){
+        if (name != null && value != null) {
+            if (additionalFields == null || additionalFields.field == null) {
                 additionalFields = new AdditionalFields();
                 additionalFields.field = new ArrayList<>();
             }
@@ -452,14 +408,15 @@ public class Entry
 
     /**
      * Return a list of values for specific cross-reference database
+     *
      * @param key the cross-reference database
      * @return the list of values
      */
     public List<String> getCrossReferenceFieldValue(String key) {
         List<String> values = new ArrayList<>();
-        if(crossReferences != null && !crossReferences.isEmpty()){
-            for(Reference ref: crossReferences.getRef()){
-                if(ref != null && ref.getDbname() != null && ref.getDbname().equalsIgnoreCase(key)){
+        if (crossReferences != null && !crossReferences.isEmpty()) {
+            for (Reference ref : crossReferences.getRef()) {
+                if (ref != null && ref.getDbname() != null && ref.getDbname().equalsIgnoreCase(key)) {
                     values.add(ref.getDbkey());
                 }
             }
@@ -469,18 +426,20 @@ public class Entry
 
     /**
      * Add a new cross-reference key/value to the corss-references list
-     * @param key the key of the corss-reference: for example pubmed
+     *
+     * @param key   the key of the corss-reference: for example pubmed
      * @param value the values of the cross-reference for example a pubmedID
      */
     public void addCrossReferenceValue(String key, String value) {
-        if(crossReferences == null){
+        if (crossReferences == null) {
             crossReferences = new CrossReferences();
             crossReferences.ref = new ArrayList<>();
         }
         List<Reference> fields = crossReferences.getRef();
-        if(key != null && value != null){
-            if(fields == null)
+        if (key != null && value != null) {
+            if (fields == null) {
                 fields = new ArrayList<>();
+            }
             Reference field = new Reference();
             field.setDbkey(value);
             field.setDbname(key);
@@ -491,19 +450,21 @@ public class Entry
 
     /**
      * Add a new cross-reference key/value to the corss-references list
-     * @param key the key of the corss-reference: for example pubmed
+     *
+     * @param key    the key of the corss-reference: for example pubmed
      * @param values the values of the cross-reference for example a pubmedID
      */
     public void addCrossReferenceValue(String key, Set<String> values) {
-        if(crossReferences == null){
+        if (crossReferences == null) {
             crossReferences = new CrossReferences();
             crossReferences.ref = new ArrayList<>();
         }
         List<Reference> fields = crossReferences.getRef();
-        if(key != null && values != null){
-            if(fields == null)
+        if (key != null && values != null) {
+            if (fields == null) {
                 fields = new ArrayList<>();
-            for(String value: values){
+            }
+            for (String value : values) {
                 Reference field = new Reference();
                 field.setDbkey(value);
                 field.setDbname(key);
@@ -513,17 +474,17 @@ public class Entry
         crossReferences.setRef(fields);
     }
 
-    public void setCrossReferences(List<Reference> references){
-        if(references != null && !references.isEmpty()){
+    public void setCrossReferences(List<Reference> references) {
+        if (references != null && !references.isEmpty()) {
             crossReferences.setRef(references);
         }
     }
 
-    public void removeCrossReferences(String key){
-        if(crossReferences != null && crossReferences.getRef() != null && !crossReferences.getRef().isEmpty()){
-            for(int i = 0; i < crossReferences.getRef().size(); i++){
+    public void removeCrossReferences(String key) {
+        if (crossReferences != null && crossReferences.getRef() != null && !crossReferences.getRef().isEmpty()) {
+            for (int i = 0; i < crossReferences.getRef().size(); i++) {
                 Reference reference = crossReferences.getRef().get(i);
-                if(reference != null && reference.dbkey != null && reference.dbname.equalsIgnoreCase(key)){
+                if (reference != null && reference.dbkey != null && reference.dbname.equalsIgnoreCase(key)) {
                     crossReferences.getRef().remove(i);
                     i--;
                 }
@@ -532,8 +493,8 @@ public class Entry
     }
 
     public void addDate(Date date) {
-        if(date != null){
-            if(dates == null || dates.getDate() == null){
+        if (date != null) {
+            if (dates == null || dates.getDate() == null) {
                 dates = new DatesType();
                 dates.date = new ArrayList<>();
             }
@@ -541,20 +502,20 @@ public class Entry
         }
     }
 
-    public void setName(String name){
+    public void setName(String name) {
         this.name = new Name();
         this.name.setValue(name);
     }
 
-    public void addDate(String type, String value){
+    public void addDate(String type, String value) {
         Date date = new Date();
         date.setType(type);
         date.setValue(value);
         addDate(date);
     }
 
-    public String getRepository(){
-        if(additionalFields != null && !additionalFields.isEmpty()){
+    public String getRepository() {
+        if (additionalFields != null && !additionalFields.isEmpty()) {
             return getAdditionalFieldValue(uk.ac.ebi.ddi.xml.validator.utils.Field.REPOSITORY.getName());
         }
         return null;

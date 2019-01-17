@@ -60,12 +60,16 @@ public enum OmicsType {
         this.parentType = parentType;
     }
 
-    public static OmicsType getOmicsType(String name){
-        for(OmicsType omicsType: values())
-            if(omicsType.synonyms != null && omicsType.synonyms.length > 0)
-                for (String synonym: omicsType.synonyms)
-                    if(synonym.equalsIgnoreCase(name))
+    public static OmicsType getOmicsType(String name) {
+        for (OmicsType omicsType: values()) {
+            if (omicsType.synonyms != null && omicsType.synonyms.length > 0) {
+                for (String synonym : omicsType.synonyms) {
+                    if (synonym.equalsIgnoreCase(name)) {
                         return omicsType;
+                    }
+                }
+            }
+        }
         return UKNOWN;
     }
 }

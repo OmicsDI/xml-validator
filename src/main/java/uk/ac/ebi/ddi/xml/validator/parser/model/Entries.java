@@ -12,9 +12,9 @@ import javax.xml.bind.annotation.XmlType;
 
 /**
  * <p>Java class for entriesType complex type.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;complexType name="entriesType"&gt;
  *   &lt;complexContent&gt;
@@ -26,18 +26,15 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "entriesType", propOrder = {
-    "entry"
+        "entry"
 })
 public class Entries
-    implements Serializable, IDataObject
-{
+        implements Serializable, IDataObject {
 
-    private final static long serialVersionUID = 105L;
+    private static long serialVersionUID = 105L;
     @XmlElement(required = true)
     protected List<Entry> entry;
 
@@ -49,6 +46,7 @@ public class Entries
 
     /**
      * Constructor with all the entries by default
+     *
      * @param entry
      */
     public Entries(List<Entry> entry) {
@@ -57,25 +55,23 @@ public class Entries
 
     /**
      * Gets the value of the entry property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the entry property.
-     * 
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getEntry().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link Entry }
-     * 
-     * 
      */
 
     public List<Entry> getEntry() {
@@ -85,9 +81,10 @@ public class Entries
         return this.entry;
     }
 
-    public void addEntry(Entry entry){
-        if(this.entry == null)
+    public void addEntry(Entry entry) {
+        if (this.entry == null) {
             this.entry = new ArrayList<>();
+        }
         this.entry.add(entry);
     }
 

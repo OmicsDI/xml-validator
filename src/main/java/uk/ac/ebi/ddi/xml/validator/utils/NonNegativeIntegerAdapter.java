@@ -12,9 +12,10 @@ public class NonNegativeIntegerAdapter extends XmlAdapter<String, Long> {
 
     @Override
     public String marshal(Long v) throws Exception {
-        if (v != null)
+        if (v != null) {
             return v.toString();
-        else
+        } else {
             return null;
+        }
     }
 }

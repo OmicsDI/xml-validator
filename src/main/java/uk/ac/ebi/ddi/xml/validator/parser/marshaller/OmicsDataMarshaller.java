@@ -26,10 +26,9 @@ import java.io.StringWriter;
 import java.io.Writer;
 
 
-
 public class OmicsDataMarshaller {
 
-    private static final Logger logger = Logger.getLogger(OmicsDataMarshaller.class);
+    private static final Logger LOGGER = Logger.getLogger(OmicsDataMarshaller.class);
 
     public <T extends IDataObject> String marshall(T object) {
         StringWriter sw = new StringWriter();
@@ -48,7 +47,7 @@ public class OmicsDataMarshaller {
         }
 
         try {
-            MarshallerFactory marshallerFactory  = MarshallerFactory.getInstance();
+            MarshallerFactory marshallerFactory = MarshallerFactory.getInstance();
 
             Marshaller marshaller = marshallerFactory.initializeMarshaller();
 
@@ -63,15 +62,17 @@ public class OmicsDataMarshaller {
                 marshaller.setProperty("com.sun.xml.bind.xmlDeclaration", Boolean.FALSE);
 
                 // Specify the new header
-                marshaller.setProperty("com.sun.xml.bind.xmlHeaders", "<?xml version=\"1.1\" encoding=\"" + encoding + "\">");
+                marshaller.setProperty(
+                        "com.sun.xml.bind.xmlHeaders", "<?xml version=\"1.1\" encoding=\"" + encoding + "\">");
 
-                if (logger.isDebugEnabled())
-                    logger.debug("Object '" + object.getClass().getName() +
-                                                          "' will be treated as root element.");
+                if (LOGGER.isDebugEnabled()) {
+                    LOGGER.debug("Object '" + object.getClass().getName() +
+                            "' will be treated as root element.");
+                }
             } else {
-
-                if (logger.isDebugEnabled()) logger.debug("Object '" + object.getClass().getName() +
-                                                          "' will be treated as fragment.");
+                if (LOGGER.isDebugEnabled()) {
+                    LOGGER.debug("Object '" + object.getClass().getName() + "' will be treated as fragment.");
+                }
             }
 
             QName aQName = ModelConstants.getQNameForClass(object.getClass());
@@ -80,25 +81,24 @@ public class OmicsDataMarshaller {
 
             XMLOutputFactory2 factory = new WstxOutputFactory();
 
-            factory.setProperty(WstxOutputProperties.P_OUTPUT_EMPTY_ELEMENT_HANDLER, new EmptyElementHandler.SetEmptyElementHandler(marshallerFactory.emptyElements));
+            factory.setProperty(WstxOutputProperties.P_OUTPUT_EMPTY_ELEMENT_HANDLER,
+                    new EmptyElementHandler.SetEmptyElementHandler(marshallerFactory.emptyElements));
 
             XMLStreamWriter xmlStreamWriter = factory.createXMLStreamWriter(out);
 
             xmlStreamWriter = new IndentingXMLStreamWriter(xmlStreamWriter);
 
 
-            marshaller.marshal( new JAXBElement(aQName, object.getClass(), object), xmlStreamWriter );
+            marshaller.marshal(new JAXBElement(aQName, object.getClass(), object), xmlStreamWriter);
 
         } catch (JAXBException | XMLStreamException e) {
-            logger.error("Marshaller.marshall", e);
+            LOGGER.error("Marshaller.marshall", e);
             throw new IllegalStateException("Error while marshalling object:" + object.toString());
         }
 
     }
 
-    public void close(){
+    public void close() {
 
     }
-    
-
 }

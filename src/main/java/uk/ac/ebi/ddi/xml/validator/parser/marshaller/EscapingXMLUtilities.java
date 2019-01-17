@@ -7,8 +7,8 @@ import it.unimi.dsi.fastutil.chars.CharOpenHashSet;
  */
 public class EscapingXMLUtilities {
 
-    public static final char substitute = '\uFFFD';
-    private static final CharOpenHashSet illegalChars;
+    public static final char SUBSTITUTE = '\uFFFD';
+    private static final CharOpenHashSet ILLEGAL_CHARS;
 
     private EscapingXMLUtilities() {
     }
@@ -23,19 +23,19 @@ public class EscapingXMLUtilities {
                 "\u008C\u008D\u008E\u008F\u0090\u0091\u0092\u0093\u0094\u0095\u0096\u0097"  +
                 "\u0098\u0099\u009A\u009B\u009C\u009D\u009E\u009F";
 
-        illegalChars = new CharOpenHashSet();
+        ILLEGAL_CHARS = new CharOpenHashSet();
         for (int i = 0; i < escapeString.length(); i++) {
-            illegalChars.add(escapeString.charAt(i));
+            ILLEGAL_CHARS.add(escapeString.charAt(i));
         }
     }
 
     private static boolean isIllegal(char c) {
-        return illegalChars.contains(c);
+        return ILLEGAL_CHARS.contains(c);
     }
 
     /**
      * Substitutes all illegal characters in the given string by the value of
-     * {@link EscapingXMLUtilities#substitute}. If no illegal characters
+     * {@link EscapingXMLUtilities#SUBSTITUTE}. If no illegal characters
      * were found, no copy is made and the given string is returned.
      *
      * @param string
@@ -51,7 +51,7 @@ public class EscapingXMLUtilities {
                     copy = string.toCharArray();
                     copied = true;
                 }
-                copy[i] = substitute;
+                copy[i] = SUBSTITUTE;
             }
         }
         return copied ? new String(copy) : string;

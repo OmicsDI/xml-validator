@@ -1,5 +1,7 @@
 package uk.ac.ebi.ddi.xml.validator.parser;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.xml.sax.SAXException;
 import psidev.psi.tools.xxindex.StandardXpathAccess;
 import psidev.psi.tools.xxindex.index.IndexElement;
@@ -26,15 +28,20 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * This class reads an XML file for DDI and generate a set of data structures to handle the underlying data structures, objects
- * IT also provide classes for validation using the DDI Schema, etc. Finally it provides a set of utilities to write Omics XML files.
+ * This class reads an XML file for DDI and generate a set of data structures
+ * to handle the underlying data structures, objects
+ * IT also provide classes for validation using the DDI Schema, etc.
+ * Finally it provides a set of utilities to write Omics XML files.
  *
  * @author Yasset Perez-Riverol (ypriverol@gmail.com)
  * @date 18/08/2015
  */
 public class OmicsXMLFile {
 
-    private static Pattern OmicsXMLFilePatter = Pattern.compile(".*(<database>).*");
+    private static final Pattern OMICS_XML_FILE_PATTER = Pattern.compile(".*(<database>).*");
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(OmicsXMLFile.class);
+
     /**
      * The mzXML source file.
      */
@@ -76,45 +83,42 @@ public class OmicsXMLFile {
      * Pattern used to extract xml attribute name
      * value pairs.
      */
-    private static final Pattern xmlAttributePattern = Pattern.compile("(\\w+)=\"([^\"]*)\"");
+    private static final Pattern XML_ATTRIBUTE_PATTERN = Pattern.compile("(\\w+)=\"([^\"]*)\"");
 
 
     public OmicsXMLFile(File file) throws DDIException {
 
         this.sourcefile = file;
+        try {
+            indexFile();
 
-        indexFile();
+            // create the unmarshaller
+            unmarshaller = OmicsUnmarshallerFactory.getInstance().initializeUnmarshaller();
 
-        // create the unmarshaller
-        unmarshaller = OmicsUnmarshallerFactory.getInstance().initializeUnmarshaller();
+            //Inizialize attributes for each Entry
+            initializeAttributeMaps();
 
-        //Inizialize attributes for each Entry
-        initializeAttributeMaps();
-
-        // initialize the entry maps
-        initializeEntryMaps();
-
+            // initialize the entry maps
+            initializeEntryMaps();
+        } catch (Exception e) {
+            LOGGER.error("Exception occurred when reading file {}, ", file.getAbsolutePath(), e);
+        }
     }
 
-    private void initializeAttributeMaps() throws DDIException {
+    private void initializeAttributeMaps() throws Exception {
         List<IndexElement> databases = index.getElements(DataElement.DATABASE.getXpath());
-        if(databases != null && !databases.isEmpty() && databases.size() == 1){
+        if (databases != null && !databases.isEmpty() && databases.size() == 1) {
             String xml = readSnipplet(databases.get(0));
-
-            try {
-                xml = xml.replaceAll("&#[^;]+;", "");
-                Database entry = unmarshaller.unmarshal(xml, DataElement.DATABASE);
-                database = new SummaryDatabase();
-                database.setDescription(entry.getDescription());
-                database.setName(entry.getName());
-                database.setRelease(entry.getRelease());
-                database.setEntryCount(entry.getEntryCount());
-                database.setReleaseDate(entry.getReleaseDate());
-
-            } catch (Exception e) {
-                throw new DDIException("Failed to unmarshal an Entry", e);
-            }
-
+            xml = xml.replaceAll("&#[^;]+;", "");
+            Database entry = unmarshaller.unmarshal(xml, DataElement.DATABASE);
+            database = new SummaryDatabase();
+            database.setDescription(entry.getDescription());
+            database.setName(entry.getName());
+            database.setRelease(entry.getRelease());
+            database.setEntryCount(entry.getEntryCount());
+            database.setReleaseDate(entry.getReleaseDate());
+        } else {
+            LOGGER.error("Number of databases is invalid, {}", databases);
         }
     }
 
@@ -130,8 +134,9 @@ public class OmicsXMLFile {
             // read the attributes
             Map<String, String> attributes = readElementAttributes(entry);
 
-            if (!attributes.containsKey("id"))
+            if (!attributes.containsKey("id")) {
                 throw new DDIException("Entry element with missing id attribute at line " + entry.getLineNumber());
+            }
 
             idToIndexElementMap.put(attributes.get("id"), entry);
             entryIds.add(attributes.get("id"));
@@ -141,6 +146,7 @@ public class OmicsXMLFile {
     /**
      * Indexes the current sourcefile and creates the
      * index and xpathAccess objects.
+     *
      * @throws DDIException Thrown when the sourcefile cannot be accessed.
      */
     private void indexFile() throws DDIException {
@@ -159,6 +165,7 @@ public class OmicsXMLFile {
      * Reads the given element's attributes and returns
      * them as a Map with the attribute's name as key
      * and its value as value.
+     *
      * @param indexElement
      * @return
      * @throws DDIException
@@ -199,14 +206,15 @@ public class OmicsXMLFile {
             headerString = headerString.substring(0, headerString.indexOf('>') + 1);
 
             // parse the line
-            Matcher matcher = xmlAttributePattern.matcher(headerString);
+            Matcher matcher = XML_ATTRIBUTE_PATTERN.matcher(headerString);
 
             while (matcher.find()) {
                 String name = matcher.group(1);
                 String value = matcher.group(2);
 
-                if (name != null && value != null)
+                if (name != null && value != null) {
                     foundAttributes.put(name, value);
+                }
             }
 
             return foundAttributes;
@@ -218,12 +226,14 @@ public class OmicsXMLFile {
     /**
      * Returns the random access file object to access
      * the source file.
+     *
      * @return
      * @throws DDIException
      */
     private RandomAccessFile getRandomAccess() throws DDIException {
-        if (accessFile != null)
+        if (accessFile != null) {
             return accessFile;
+        }
 
         try {
             accessFile = new RandomAccessFile(sourcefile, "r");
@@ -236,6 +246,7 @@ public class OmicsXMLFile {
 
     /**
      * This function return the information of an element using the the id in the XML, for example PXD00001
+     *
      * @param id the id value in the file
      * @return Entry
      * @throws DDIException
@@ -243,14 +254,16 @@ public class OmicsXMLFile {
     public Entry getEntryById(String id) throws DDIException {
         // make sure the spectrum exists
 
-        if (!idToIndexElementMap.containsKey(id))
+        if (!idToIndexElementMap.containsKey(id)) {
             throw new DDIException("Entry with id '" + id + "' does not exist.");
+        }
 
         // get the index element
         IndexElement indexElement = idToIndexElementMap.get(id);
 
-        if (indexElement == null)
+        if (indexElement == null) {
             throw new DDIException("Fail during the indexin");
+        }
 
         // get the snipplet
         String xml = readSnipplet(indexElement);
@@ -265,13 +278,16 @@ public class OmicsXMLFile {
 
     public List<Entry> getAllEntries() throws DDIException {
         List<Entry> entries = new ArrayList<>();
-        for(String id: getEntryIds())
+        for (String id : getEntryIds()) {
             entries.add(getEntryById(id));
+        }
         return entries;
     }
 
     /**
-     * THis function return an entry using the index element in the file for example first element (index = 0), second element (index = 1)
+     * THis function return an entry using the index element in the file for example first element (index = 0),
+     * second element (index = 1)
+     *
      * @param index the index in the List of file elements
      * @return Entry
      * @throws DDIException
@@ -279,15 +295,17 @@ public class OmicsXMLFile {
     public Entry getEntryByIndex(Integer index) throws DDIException {
         // make sure the spectrum exists
 
-        if (idToIndexElementMap.size() < index || index < 0)
+        if (idToIndexElementMap.size() < index || index < 0) {
             throw new DDIException("Entry with id '" + index + "' does not exist.");
+        }
 
         // get the index element
 
         String id = entryIds.get(index);
 
-        if (id == null)
+        if (id == null) {
             throw new DDIException("Fail during the indexin");
+        }
 
         try {
 
@@ -299,9 +317,10 @@ public class OmicsXMLFile {
 
     /**
      * Return all the entry Ids from the XML
+     *
      * @return List of Ids
      */
-    public List<String> getEntryIds(){
+    public List<String> getEntryIds() {
         return entryIds;
     }
 
@@ -323,8 +342,8 @@ public class OmicsXMLFile {
     /**
      * Iterator over all spectra in the omics DDI file
      * and returns Entry  objects.
-     * @author jg
      *
+     * @author jg
      */
     private class EntryIterator implements Iterator<Entry> {
         /**
@@ -362,6 +381,7 @@ public class OmicsXMLFile {
     /**
      * Reads a given XML Snipplet from the file and returns
      * it as a String.
+     *
      * @param indexElement An IndexElement specifying the position to read.
      * @return
      * @throws DDIException
@@ -424,25 +444,23 @@ public class OmicsXMLFile {
             System.out.println(ex.getMessage());
             retval = false;
         } catch (IOException e) {
-            e.printStackTrace();
-            throw new IllegalStateException("Could not validate file because of file read problems for source: " + xmlFile.getAbsolutePath());
+            throw new IllegalStateException("Could not validate file because of file read problems for source: "
+                    + xmlFile.getAbsolutePath());
         }
 
         return retval;
     }
 
     public static boolean hasFileHeader(File file) throws DDIException {
-        if(file.getAbsolutePath().toLowerCase().endsWith(".xml")){
-            BufferedReader reader = null;
-            try {
-                reader = new BufferedReader(new FileReader(file));
+        if (file.getAbsolutePath().toLowerCase().endsWith(".xml")) {
+            try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
                 // read the first ten lines
                 StringBuilder content = new StringBuilder();
                 for (int i = 0; i < 20; i++) {
                     content.append(reader.readLine());
                 }
                 // check file type
-                Matcher matcher = OmicsXMLFilePatter.matcher(content);
+                Matcher matcher = OMICS_XML_FILE_PATTER.matcher(content);
                 try {
                     reader.close();
                 } catch (IOException e) {
@@ -450,15 +468,7 @@ public class OmicsXMLFile {
                 }
                 return matcher.find();
             } catch (Exception e) {
-                throw  new DDIException("Failed to read file", e);
-            } finally {
-                if (reader != null) {
-                    try {
-                        reader.close();
-                    } catch (IOException e) {
-                        // do nothing here
-                    }
-                }
+                throw new DDIException("Failed to read file", e);
             }
         }
         return false;
@@ -466,6 +476,7 @@ public class OmicsXMLFile {
 
     /**
      * Return Error as a Tuple with the Code of the Error and the message.
+     *
      * @param file the file to be validated
      * @return the list of errors
      */
@@ -505,9 +516,9 @@ public class OmicsXMLFile {
         List<Tuple> errors = new ArrayList<>();
         try {
             OmicsXMLFile reader = new OmicsXMLFile(file);
-            List<String> Ids    = reader.getEntryIds();
+            List<String> ids = reader.getEntryIds();
             // Retrive all the entries and retrieve the warning semantic validation
-            for(String id: Ids){
+            for (String id : ids) {
                 List<Tuple> error = Utils.validateSemantic(reader.getEntryById(id));
                 errors.addAll(error);
             }
@@ -520,42 +531,43 @@ public class OmicsXMLFile {
     }
 
     public String getName() {
-        return (database != null)? database.getName():null;
+        return (database != null) ? database.getName() : null;
     }
 
     public String getDescription() {
-        return (database != null)? database.getDescription():null;
+        return (database != null) ? database.getDescription() : null;
     }
 
     public String getRelease() {
-        return (database != null)?database.getRelease():null;
+        return (database != null) ? database.getRelease() : null;
     }
 
     public String getReleaseDate() {
-        return (database != null)?database.getReleaseDate():null;
+        return (database != null) ? database.getReleaseDate() : null;
     }
 
     public Integer getEntryCount() {
-        return (database != null)?database.getEntryCount():null;
+        return (database != null) ? database.getEntryCount() : null;
     }
 
 
-    public void setDatabaseName(String name){
-        if(database != null)
+    public void setDatabaseName(String name) {
+        if (database != null) {
             database.setName(name);
+        }
     }
 
-    public String getDatabaseName(){
-        if(database != null)
+    public String getDatabaseName() {
+        if (database != null) {
             return database.getName();
-        else
-            return null;
+        }
+        return null;
     }
 
     /**
      * Close the Reader
      */
-    public void close(){
+    public void close() {
         try {
             accessFile.close();
         } catch (IOException e) {

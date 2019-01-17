@@ -9,7 +9,7 @@ import java.util.Set;
  */
 public enum DataElement {
 
-    ENTRY(		"/database/entries/entry", Entry.class),
+    ENTRY("/database/entries/entry", Entry.class),
     DATABASE("/database/", Database.class);
 
     private final String xpath;
@@ -17,12 +17,12 @@ public enum DataElement {
     @SuppressWarnings("rawtypes")
     private final Class type;
 
-    private static final Set<String> xpaths;
+    private static final Set<String> XPATHS;
 
     static {
-        xpaths = new HashSet<>();
+        XPATHS = new HashSet<>();
         for (DataElement xpath : values()) {
-            xpaths.add(xpath.getXpath());
+            XPATHS.add(xpath.getXpath());
         }
     }
 
@@ -41,7 +41,7 @@ public enum DataElement {
     }
 
     public static Set<String> getXpaths() {
-        return xpaths;
+        return XPATHS;
     }
 
 }

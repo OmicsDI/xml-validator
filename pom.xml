@@ -17,6 +17,8 @@
 
     <properties>
         <assembly.dir>${project.name}-${project.version}</assembly.dir>
+        <maven.checkstyle.version>2.17</maven.checkstyle.version>
+        <checkstyle.config.location>checkstyle.xml</checkstyle.config.location>
     </properties>
 
     <dependencies>
@@ -133,7 +135,7 @@
                     <archive>
                         <manifest>
                             <!--provide a CLI for omicsDDI-->
-                            <mainClass>uk.ac.ebi.ddi.xml.validator.cli.validatorCLI</mainClass>
+                            <mainClass>uk.ac.ebi.ddi.xml.validator.cli.ValidatorCLI</mainClass>
                             <addClasspath>true</addClasspath>
                             <classpathPrefix>lib</classpathPrefix>
                         </manifest>
@@ -183,6 +185,24 @@
                     <remoteTagging>true</remoteTagging>
                     <goals>deploy</goals>
                 </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-checkstyle-plugin</artifactId>
+                <version>${maven.checkstyle.version}</version>
+                <executions>
+                    <execution>
+                        <id>checkstyle</id>
+                        <phase>validate</phase>
+                        <goals>
+                            <goal>check</goal>
+                        </goals>
+                        <configuration>
+                            <failOnViolation>true</failOnViolation>
+                            <consoleOutput>true</consoleOutput>
+                        </configuration>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>

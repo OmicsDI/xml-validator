@@ -11,9 +11,9 @@ import javax.xml.bind.annotation.XmlType;
 
 /**
  * <p>Java class for additional_fieldsType complex type.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;complexType name="additional_fieldsType"&gt;
  *   &lt;complexContent&gt;
@@ -25,42 +25,37 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "additional_fieldsType", propOrder = {
-    "field"
+        "field"
 })
 public class AdditionalFields
-    implements Serializable, IDataObject
-{
+        implements Serializable, IDataObject {
 
-    private final static long serialVersionUID = 105L;
+    private static final long serialVersionUID = 105L;
     @XmlElement(required = true)
     protected List<Field> field;
 
     /**
      * Gets the value of the field property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the field property.
-     * 
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getField().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link Field }
-     * 
-     * 
      */
     public List<Field> getField() {
         if (field == null) {

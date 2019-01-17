@@ -10,9 +10,9 @@ import javax.xml.bind.Marshaller;
 import java.util.HashSet;
 import java.util.Set;
 
-public class MarshallerFactory extends WstxOutputFactory{
+public class MarshallerFactory extends WstxOutputFactory {
 
-    private static final Logger logger = Logger.getLogger(MarshallerFactory.class);
+    private static final Logger LOGGER = Logger.getLogger(MarshallerFactory.class);
 
     private static MarshallerFactory instance = new MarshallerFactory();
 
@@ -29,10 +29,10 @@ public class MarshallerFactory extends WstxOutputFactory{
     }
 
     public Marshaller initializeMarshaller() {
-        logger.debug("Initializing Marshaller for mzML.");
+        LOGGER.debug("Initializing Marshaller for mzML.");
         try {
             // Lazy caching of JAXB context.
-            if(jc == null) {
+            if (jc == null) {
                 jc = JAXBContext.newInstance(ModelConstants.MODEL_PKG);
             }
             //create marshaller and set basic properties
@@ -45,12 +45,12 @@ public class MarshallerFactory extends WstxOutputFactory{
             // See: ParamAlternative.beforeMarshalOperation and ParamAlternativeList.beforeMarshalOperation
             marshaller.setListener(new ObjectClassListener());
 
-            logger.info("Marshaller initialized");
+            LOGGER.info("Marshaller initialized");
 
             return marshaller;
 
         } catch (JAXBException e) {
-            logger.error("MarshallerFactory.initializeMarshaller", e);
+            LOGGER.error("MarshallerFactory.initializeMarshaller", e);
             throw new IllegalStateException("Can't initialize marshaller: " + e.getMessage());
         }
     }

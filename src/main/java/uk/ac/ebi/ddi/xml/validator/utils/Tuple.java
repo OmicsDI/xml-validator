@@ -7,7 +7,7 @@ import java.io.Serializable;
  * @date 18/08/2015
  */
 
-public class Tuple <K, V> implements Serializable {
+public class Tuple<K, V> implements Serializable {
     private K key;
     private V value;
 
@@ -34,12 +34,17 @@ public class Tuple <K, V> implements Serializable {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Tuple)) return false;
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof Tuple)) {
+            return false;
+        }
 
         Tuple tuple = (Tuple) o;
 
-        return !(key != null ? !key.equals(tuple.key) : tuple.key != null) && !(value != null ? !value.equals(tuple.value) : tuple.value != null);
+        return !(key != null ? !key.equals(tuple.key) : tuple.key != null)
+                && !(value != null ? !value.equals(tuple.value) : tuple.value != null);
 
     }
 

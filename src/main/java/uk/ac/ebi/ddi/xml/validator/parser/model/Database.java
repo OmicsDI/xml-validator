@@ -11,9 +11,9 @@ import javax.xml.bind.annotation.XmlType;
 
 /**
  * <p>Java class for databaseType complex type.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;complexType name="databaseType"&gt;
  *   &lt;complexContent&gt;
@@ -30,18 +30,15 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "databaseType", propOrder = {
 
 })
 public class Database
-    implements Serializable, IDataObject
-{
+        implements Serializable, IDataObject {
 
-    private final static long serialVersionUID = 105L;
+    private static final long serialVersionUID = 105L;
     @XmlElement(required = true)
     protected String name;
     @XmlElement(required = true)
@@ -57,11 +54,9 @@ public class Database
 
     /**
      * Gets the value of the name property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getName() {
         return name;
@@ -69,11 +64,9 @@ public class Database
 
     /**
      * Sets the value of the name property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setName(String value) {
         this.name = value;
@@ -81,11 +74,9 @@ public class Database
 
     /**
      * Gets the value of the description property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getDescription() {
         return description;
@@ -93,11 +84,9 @@ public class Database
 
     /**
      * Sets the value of the description property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setDescription(String value) {
         this.description = value;
@@ -105,11 +94,9 @@ public class Database
 
     /**
      * Gets the value of the release property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getRelease() {
         return release;
@@ -117,11 +104,9 @@ public class Database
 
     /**
      * Sets the value of the release property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setRelease(String value) {
         this.release = value;
@@ -129,11 +114,9 @@ public class Database
 
     /**
      * Gets the value of the releaseDate property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getReleaseDate() {
         return releaseDate;
@@ -141,11 +124,9 @@ public class Database
 
     /**
      * Sets the value of the releaseDate property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setReleaseDate(String value) {
         this.releaseDate = value;
@@ -153,11 +134,9 @@ public class Database
 
     /**
      * Gets the value of the entryCount property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Integer }
-     *     
+     *
+     * @return possible object is
+     * {@link Integer }
      */
     public Integer getEntryCount() {
         return entryCount;
@@ -165,11 +144,9 @@ public class Database
 
     /**
      * Sets the value of the entryCount property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Integer }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Integer }
      */
     public void setEntryCount(Integer value) {
         this.entryCount = value;
@@ -177,11 +154,9 @@ public class Database
 
     /**
      * Gets the value of the entries property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Entries }
-     *     
+     *
+     * @return possible object is
+     * {@link Entries }
      */
     public Entries getEntries() {
         return entries;
@@ -189,23 +164,21 @@ public class Database
 
     /**
      * Sets the value of the entries property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Entries }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Entries }
      */
     public void setEntries(Entries value) {
         this.entries = value;
     }
 
-    public void setEntries(List<Entry> entries){
-        if(this.entries == null)
+    public void setEntries(List<Entry> entries) {
+        if (this.entries == null) {
             this.entries = new Entries(entries);
-        else
+        } else {
             this.entries.entry = entries;
+        }
     }
-
 
 
 }

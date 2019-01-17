@@ -5,5 +5,5 @@ import uk.ac.ebi.ddi.xml.validator.parser.model.IDataObject;
 
 
 public interface OmicsDataUnmarshaller {
-	<T extends IDataObject> T unmarshal(String xmlSnippet, DataElement element) throws Exception;
+    <T extends IDataObject> T unmarshal(String xmlSnippet, DataElement element) throws Exception;
 }
