@@ -267,7 +267,7 @@ public class OmicsXMLFile {
 
         // get the snipplet
         String xml = readSnipplet(indexElement);
-
+        xml = xml.replaceAll("&#[^;]+;", "");
         // unmarshall the object
         try {
             return unmarshaller.unmarshal(xml, DataElement.ENTRY);
@@ -365,7 +365,7 @@ public class OmicsXMLFile {
 
             try {
                 String xml = readSnipplet(indexElement);
-
+                xml = xml.replaceAll("&#[^;]+;", "");
                 return unmarshaller.unmarshal(xml, DataElement.ENTRY);
             } catch (Exception e) {
                 throw new RuntimeException("Failed to load spectrum from mzData file.", e);

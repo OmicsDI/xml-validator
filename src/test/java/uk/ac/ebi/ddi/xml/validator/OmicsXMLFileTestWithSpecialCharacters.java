@@ -44,5 +44,6 @@ public class OmicsXMLFileTestWithSpecialCharacters {
     @Test
     public void testGetEntryIds() throws Exception {
         Assert.assertEquals(reader.getEntryIds().size(),1);
+        reader.getEntryById("PXD007896");
     }
 }
