@@ -1,21 +1,19 @@
 package uk.ac.ebi.ddi.xml.validator.utils;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import uk.ac.ebi.ddi.xml.validator.parser.model.*;
 import uk.ac.ebi.ddi.xml.validator.parser.model.Date;
+import uk.ac.ebi.ddi.xml.validator.parser.model.Entry;
+import uk.ac.ebi.ddi.xml.validator.parser.model.Reference;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author Yasset Perez-Riverol (ypriverol@gmail.com)
  * @date 19/08/2015
  */
 public class Utils {
-
-    private static final Logger LOGGER = LoggerFactory.getLogger(Utils.class);
 
     public static final String ERROR = "Error";
     public static final String WARN = "Warn";
@@ -101,7 +99,7 @@ public class Utils {
         return errors;
     }
 
-    private static boolean validateDate(String value) {
+    public static boolean validateDate(String value) {
         String[] dateValues = new String[]{"yyyy-MM-dd", "dd-MMM-yyyy HH:mm:ss"};
 
         for (String dateStr : dateValues) {
@@ -111,11 +109,9 @@ public class Utils {
                 if (currentDate.compareTo(date) >= 0) {
                     return true;
                 }
-            } catch (ParseException e) {
-                LOGGER.error("Exception occurred when parsing date {}, ", value, e);
+            } catch (ParseException ignore) {
             }
         }
-
         return false;
     }
 }

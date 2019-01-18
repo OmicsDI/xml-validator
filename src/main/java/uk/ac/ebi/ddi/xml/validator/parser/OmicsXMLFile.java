@@ -507,7 +507,7 @@ public class OmicsXMLFile {
         try {
             validator.validate(source);
         } catch (SAXException | IOException ex) {
-            errors.add(new Tuple(Utils.ERROR, ex.getMessage()));
+            errors.add(new Tuple<>(Utils.ERROR, ex.getMessage()));
         }
         return errors;
     }
@@ -524,8 +524,7 @@ public class OmicsXMLFile {
             }
             reader.close();
         } catch (DDIException e) {
-            errors.add(new Tuple(Utils.ERROR, e.getMessage()));
-
+            errors.add(new Tuple<>(Utils.ERROR, e.getMessage()));
         }
         return errors;
     }
