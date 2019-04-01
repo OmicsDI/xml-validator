@@ -8,5 +8,6 @@ public enum FieldCategory {
     CROSSREF,
     DATE,
     DATA,
-    ADDITIONAL
+    ADDITIONAL,
+    FILE
 }
