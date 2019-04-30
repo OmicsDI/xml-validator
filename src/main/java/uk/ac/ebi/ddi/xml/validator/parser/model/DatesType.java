@@ -1,15 +1,15 @@
 
 package uk.ac.ebi.ddi.xml.validator.parser.model;
 
-import uk.ac.ebi.ddi.xml.validator.utils.Field;
+import uk.ac.ebi.ddi.ddidomaindb.dataset.DSField;
 
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -75,7 +75,7 @@ public class DatesType
     public boolean containsPublicationDate() {
         if (date != null && !date.isEmpty()) {
             for (Date dateField : date) {
-                if (dateField.getType().equalsIgnoreCase(Field.PUBLICATION.getName())) {
+                if (dateField.getType().equalsIgnoreCase(DSField.Date.PUBLICATION.getName())) {
                     return true;
                 }
             }
@@ -87,13 +87,13 @@ public class DatesType
         String toAdd = null;
         if (date != null && !date.isEmpty()) {
             for (Date dateField : date) {
-                if (dateField.getType().equalsIgnoreCase(Field.PUBLICATION_UPDATED.getName())) {
+                if (dateField.getType().equalsIgnoreCase(DSField.Date.PUBLICATION_UPDATED.getName())) {
                     toAdd = dateField.getValue();
                 }
             }
         }
         if (toAdd != null) {
-            date.add(new Date(Field.PUBLICATION.getName(), toAdd));
+            date.add(new Date(DSField.Date.PUBLICATION.getName(), toAdd));
         }
     }
 

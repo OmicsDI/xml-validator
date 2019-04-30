@@ -1,8 +1,12 @@
 package uk.ac.ebi.ddi.xml.validator.cli;
 
 import org.apache.commons.cli.*;
+import uk.ac.ebi.ddi.ddidomaindb.dataset.Field;
+import uk.ac.ebi.ddi.ddidomaindb.dataset.FieldCategory;
+import uk.ac.ebi.ddi.ddidomaindb.dataset.FieldType;
 import uk.ac.ebi.ddi.xml.validator.parser.OmicsXMLFile;
-import uk.ac.ebi.ddi.xml.validator.utils.*;
+import uk.ac.ebi.ddi.xml.validator.utils.Tuple;
+import uk.ac.ebi.ddi.xml.validator.utils.Utils;
 
 import java.io.File;
 import java.io.PrintStream;
@@ -140,7 +144,7 @@ public class ValidatorCLI {
                 } else {
                     numberWars++;
                 }
-                for (Field field : Field.values()) {
+                for (Field field : Field.getFields()) {
                     if (message.contains(field.getFullName())) {
                         if (!fields.containsKey(field)) {
                             fields.put(field, 0);

@@ -1,5 +1,11 @@
 package uk.ac.ebi.ddi.xml.validator.utils;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import uk.ac.ebi.ddi.ddidomaindb.dataset.DSField;
+import uk.ac.ebi.ddi.ddidomaindb.dataset.Field;
+import uk.ac.ebi.ddi.ddidomaindb.dataset.FieldCategory;
+import uk.ac.ebi.ddi.ddidomaindb.dataset.FieldType;
 import uk.ac.ebi.ddi.xml.validator.parser.model.Date;
 import uk.ac.ebi.ddi.xml.validator.parser.model.Entry;
 import uk.ac.ebi.ddi.xml.validator.parser.model.Reference;
@@ -23,22 +29,24 @@ public class Utils {
     public static final String ENTRY_NOT_FOUND = "Entry:";
     public static final String REPORT_SPACE = " ";
 
+    private static final Logger LOGGER = LoggerFactory.getLogger(Utils.class);
+
 
     public static List<Tuple> validateSemantic(Entry entry) {
 
         List<Tuple> errors = new ArrayList<>();
 
         if (entry.getId() == null || entry.getId().isEmpty()) {
-            errors.add(new Tuple<>(ERROR, NOT_FOUND_MESSAGE + REPORT_SPACE + Field.ID.getFullName()));
+            errors.add(new Tuple<>(ERROR, NOT_FOUND_MESSAGE + REPORT_SPACE + DSField.ID.getFullName()));
         }
         if (entry.getName() == null || entry.getName().getValue() == null || entry.getName().getValue().isEmpty()) {
             errors.add(new Tuple<>(ERROR,
-                    ENTRY_NOT_FOUND + REPORT_SPACE + entry.getId() + REPORT_SPACE + NOT_FOUND_MESSAGE + Field.NAME));
+                ENTRY_NOT_FOUND + REPORT_SPACE + entry.getId() + REPORT_SPACE + NOT_FOUND_MESSAGE + DSField.NAME));
         }
         if (entry.getDescription() == null || entry.getDescription().isEmpty()) {
             errors.add(new Tuple<>(ERROR,
                     ENTRY_NOT_FOUND + REPORT_SPACE + entry.getId() + REPORT_SPACE + NOT_FOUND_MESSAGE + REPORT_SPACE
-                            + Field.DESCRIPTION));
+                            + DSField.DESCRIPTION));
         }
 
         if (entry.getDates() != null && !entry.getDates().isEmpty()) {
@@ -110,6 +118,7 @@ public class Utils {
                     return true;
                 }
             } catch (ParseException ignore) {
+                LOGGER.info("Date {} couldn't parsing", value);
             }
         }
         return false;
