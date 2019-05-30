@@ -1,12 +1,12 @@
 
 package uk.ac.ebi.ddi.xml.validator.parser.model;
 
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlType;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -56,6 +56,8 @@ public class CrossReferences
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link Reference }
+     *
+     * @return list of references
      */
     public List<Reference> getRef() {
         if (ref == null) {
@@ -76,11 +78,6 @@ public class CrossReferences
                 '}';
     }
 
-    /**
-     * Set a new list of references
-     *
-     * @param ref
-     */
     public void setRef(List<Reference> ref) {
         this.ref = ref;
     }

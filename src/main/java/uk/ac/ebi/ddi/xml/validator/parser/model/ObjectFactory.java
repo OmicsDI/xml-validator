@@ -32,79 +32,46 @@ public class ObjectFactory {
     public ObjectFactory() {
     }
 
-    /**
-     * Create an instance of {@link Entry }
-     */
     public Entry createEntry() {
         return new Entry();
     }
 
-    /**
-     * Create an instance of {@link Database }
-     */
     public Database createDatabase() {
         return new Database();
     }
 
-    /**
-     * Create an instance of {@link Entries }
-     */
     public Entries createEntries() {
         return new Entries();
     }
 
-    /**
-     * Create an instance of {@link AdditionalFields }
-     */
     public AdditionalFields createAdditionalFields() {
         return new AdditionalFields();
     }
 
-    /**
-     * Create an instance of {@link Field }
-     */
     public Field createField() {
         return new Field();
     }
 
-    /**
-     * Create an instance of {@link CrossReferences }
-     */
     public CrossReferences createCrossReferences() {
         return new CrossReferences();
     }
 
-    /**
-     * Create an instance of {@link Reference }
-     */
     public Reference createReference() {
         return new Reference();
     }
 
-    /**
-     * Create an instance of {@link DatesType }
-     */
     public DatesType createDatesType() {
         return new DatesType();
     }
 
-    /**
-     * Create an instance of {@link Date }
-     */
     public Date createDate() {
         return new Date();
     }
 
-    /**
-     * Create an instance of {@link Entry.Name }
-     */
     public Entry.Name createEntryName() {
         return new Entry.Name();
     }
 
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link Database }{@code >}}
-     */
     @XmlElementDecl(namespace = "", name = "database")
     public JAXBElement<Database> createDatabase(Database value) {
         return new JAXBElement<>(DATABASE_QNAME, Database.class, null, value);

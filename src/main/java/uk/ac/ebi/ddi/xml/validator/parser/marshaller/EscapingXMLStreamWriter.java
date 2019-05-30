@@ -7,7 +7,7 @@ import javax.xml.stream.XMLStreamWriter;
 /**
  * Delegating {@link javax.xml.stream.XMLStreamWriter} that filters out UTF-8 characters that
  * are illegal in XML.
- * <p/>
+ *
  * See forum post: http://glassfish.10926.n7.nabble.com/Escaping-illegal-characters-during-marshalling-td59751.html#a20090044
  *
  * @author Erik van Zijst

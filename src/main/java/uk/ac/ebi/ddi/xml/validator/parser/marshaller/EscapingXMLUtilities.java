@@ -37,9 +37,8 @@ public class EscapingXMLUtilities {
      * Substitutes all illegal characters in the given string by the value of
      * {@link EscapingXMLUtilities#SUBSTITUTE}. If no illegal characters
      * were found, no copy is made and the given string is returned.
-     *
-     * @param string
-     * @return
+     * @param string input
+     * @return escaped string
      */
     public static String escapeCharacters(String string) {
 

@@ -1,12 +1,12 @@
 package uk.ac.ebi.ddi.xml.validator.parser.model;
 
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -56,6 +56,8 @@ public class AdditionalFields
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link Field }
+     *
+     * @return list of fields
      */
     public List<Field> getField() {
         if (field == null) {

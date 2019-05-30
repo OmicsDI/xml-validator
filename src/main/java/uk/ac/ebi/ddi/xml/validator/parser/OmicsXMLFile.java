@@ -248,7 +248,6 @@ public class OmicsXMLFile {
      *
      * @param id the id value in the file
      * @return Entry
-     * @throws DDIException
      */
     public Entry getEntryById(String id) throws DDIException {
         // make sure the spectrum exists
@@ -289,7 +288,6 @@ public class OmicsXMLFile {
      *
      * @param index the index in the List of file elements
      * @return Entry
-     * @throws DDIException
      */
     public Entry getEntryByIndex(Integer index) throws DDIException {
         // make sure the spectrum exists
@@ -323,10 +321,6 @@ public class OmicsXMLFile {
         return entryIds;
     }
 
-    /**
-     * @param index
-     * @return
-     */
     private List<IndexElement> convertIndexElements(List<IndexElement> index) {
         List<IndexElement> convertedIndex = new ArrayList<>(index.size());
 
@@ -382,8 +376,6 @@ public class OmicsXMLFile {
      * it as a String.
      *
      * @param indexElement An IndexElement specifying the position to read.
-     * @return
-     * @throws DDIException
      */
     private String readSnipplet(IndexElement indexElement) throws DDIException {
         // read the XML from the file

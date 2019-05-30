@@ -59,6 +59,8 @@ public class DatesType
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link Date }
+     *
+     * @return list of dates
      */
     public List<Date> getDate() {
         if (date == null) {

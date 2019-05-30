@@ -354,12 +354,6 @@ public class Entry
                 '}';
     }
 
-    /**
-     * Return the unique value of the present key
-     *
-     * @param key
-     * @return
-     */
     public String getAdditionalFieldValue(String key) {
         String value = null;
         if (additionalFields != null && !additionalFields.isEmpty()) {
