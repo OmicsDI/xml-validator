@@ -4,20 +4,17 @@ import com.ctc.wstx.api.EmptyElementHandler;
 import com.ctc.wstx.api.WstxOutputProperties;
 import com.ctc.wstx.stax.WstxOutputFactory;
 import com.sun.xml.txw2.output.IndentingXMLStreamWriter;
-import org.apache.log4j.Logger;
-
-
 import org.codehaus.stax2.XMLOutputFactory2;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import uk.ac.ebi.ddi.xml.validator.parser.model.Database;
 import uk.ac.ebi.ddi.xml.validator.parser.model.IDataObject;
 import uk.ac.ebi.ddi.xml.validator.parser.model.ModelConstants;
-
 
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 import javax.xml.namespace.QName;
-
 import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamWriter;
 import java.io.OutputStream;
@@ -28,7 +25,7 @@ import java.io.Writer;
 
 public class OmicsDataMarshaller {
 
-    private static final Logger LOGGER = Logger.getLogger(OmicsDataMarshaller.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(OmicsDataMarshaller.class);
 
     public <T extends IDataObject> String marshall(T object) {
         StringWriter sw = new StringWriter();

@@ -5,12 +5,12 @@
     <parent>
         <groupId>uk.ac.ebi.ddi.maven</groupId>
         <artifactId>ddi-base-master</artifactId>
-        <version>1.0</version>
+        <version>1.1</version>
     </parent>
 
     <groupId>uk.ac.ebi.ddi</groupId>
     <artifactId>ddi-validator</artifactId>
-    <url>https://github.com/BD2K-DDI/xml-validator</url>
+    <url>https://github.com/OmicsDI/xml-validator</url>
 
     <version>1.0-SNAPSHOT</version>
 
@@ -182,7 +182,6 @@
     </build>
 
     <repositories>
-        <!-- EBI repo -->
         <repository>
             <id>nexus-ebi-repo</id>
             <name>The EBI internal repository</name>
@@ -193,25 +192,13 @@
                 <enabled>false</enabled>
             </snapshots>
         </repository>
-
-        <!-- EBI SNAPSHOT repo -->
-        <repository>
-            <id>nexus-ebi-snapshot-repo</id>
-            <name>The EBI internal snapshot repository</name>
-            <url>http://www.ebi.ac.uk/intact/maven/nexus/content/repositories/ebi-repo-snapshots/</url>
-            <releases>
-                <enabled>false</enabled>
-            </releases>
-            <snapshots>
-            </snapshots>
-        </repository>
     </repositories>
 
     <!--scm git config-->
     <scm>
-        <connection>scm:git:github.com/BD2K-DDI/xml-validator.git</connection>
-        <developerConnection>scm:git:git@github.com:BD2K-DDI/xml-validator.git</developerConnection>
-        <url>https://github.com/BD2K-DDI/xml-validator.git</url>
+        <connection>scm:git:github.com/OmicsDI/xml-validator.git</connection>
+        <developerConnection>scm:git:git@github.com:OmicsDI/xml-validator.git</developerConnection>
+        <url>https://github.com/OmicsDI/xml-validator.git</url>
         <tag>ddi-validator-1.0</tag>
     </scm>
 

@@ -1,6 +1,7 @@
 package uk.ac.ebi.ddi.xml.validator.parser.unmarshaller;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.xml.sax.InputSource;
 import uk.ac.ebi.ddi.xml.validator.parser.model.DataElement;
 import uk.ac.ebi.ddi.xml.validator.parser.model.IDataObject;
@@ -16,7 +17,7 @@ import java.io.StringReader;
 
 public class OmicsUnmarshallerFactory {
 
-    private static final Logger LOGGER = Logger.getLogger(OmicsUnmarshallerFactory.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(OmicsUnmarshallerFactory.class);
 
     private static OmicsUnmarshallerFactory instance;
     private static JAXBContext jc;

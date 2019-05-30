@@ -1,7 +1,8 @@
 package uk.ac.ebi.ddi.xml.validator.parser.marshaller;
 
 import com.ctc.wstx.stax.WstxOutputFactory;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import uk.ac.ebi.ddi.xml.validator.parser.model.ModelConstants;
 
 import javax.xml.bind.JAXBContext;
@@ -12,7 +13,7 @@ import java.util.Set;
 
 public class MarshallerFactory extends WstxOutputFactory {
 
-    private static final Logger LOGGER = Logger.getLogger(MarshallerFactory.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(MarshallerFactory.class);
 
     private static MarshallerFactory instance = new MarshallerFactory();
 
