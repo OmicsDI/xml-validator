@@ -34,7 +34,6 @@ import java.util.regex.Pattern;
  * Finally it provides a set of utilities to write Omics XML files.
  *
  * @author Yasset Perez-Riverol (ypriverol@gmail.com)
- * @date 18/08/2015
  */
 public class OmicsXMLFile {
 

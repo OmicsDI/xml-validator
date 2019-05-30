@@ -1,9 +1,5 @@
 package uk.ac.ebi.ddi.xml.validator.exception;
 
-/**
- * @author Yasset Perez-Riverol (ypriverol@gmail.com)
- * @date 18/08/2015
- */
 public class DDIException extends Exception {
 
     public DDIException() {

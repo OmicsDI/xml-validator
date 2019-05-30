@@ -2,11 +2,6 @@ package uk.ac.ebi.ddi.xml.validator.utils;
 
 import java.io.Serializable;
 
-/**
- * @author Yasset Perez-Riverol (ypriverol@gmail.com)
- * @date 18/08/2015
- */
-
 public class Tuple<K, V> implements Serializable {
     private K key;
     private V value;

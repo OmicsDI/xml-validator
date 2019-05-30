@@ -1,11 +1,5 @@
 package uk.ac.ebi.ddi.xml.validator.parser.model;
 
-/**
- * This is used to retrieve general information from the omicsDI file
- *
- * @author Yasset Perez-Riverol (ypriverol@gmail.com)
- * @date 20/10/15
- */
 public class SummaryDatabase {
 
     protected String name;

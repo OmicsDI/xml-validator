@@ -15,10 +15,6 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * @author Yasset Perez-Riverol (ypriverol@gmail.com)
- * @date 19/08/2015
- */
 public class Utils {
 
     public static final String ERROR = "Error";
