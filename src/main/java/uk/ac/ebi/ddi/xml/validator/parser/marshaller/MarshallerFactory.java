@@ -46,7 +46,7 @@ public class MarshallerFactory extends WstxOutputFactory {
             // See: ParamAlternative.beforeMarshalOperation and ParamAlternativeList.beforeMarshalOperation
             marshaller.setListener(new ObjectClassListener());
 
-            LOGGER.info("Marshaller initialized");
+            LOGGER.debug("Marshaller initialized");
 
             return marshaller;
 
