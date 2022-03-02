@@ -2,7 +2,7 @@
 ----------------------------------------
 [![Build Status](https://travis-ci.org/BD2K-DDI/xml-validator.svg)](https://travis-ci.org/BD2K-DDI/xml-validator)
 
-The xml validator provide a way of validating the XML files for the BD2K-DDI project. The current library and corresponding commandline tool provides different options
+The xml validator provide a way of validating the XML files. The current library and corresponding commandline tool provides different options
 for checking the quality of the files and the metadata they provide. The library is based on the rules and specifications for the [OmicsDI](https://github.com/BD2K-DDI/specifications)
 project. The schema validation will provide a first validation of the file using the [OmicsDI](https://github.com/BD2K-DDI/specifications/blob/master/docs/schema/OmicsDISchema.xsd)
 schema; the validation can be done for a directory or per files. Some of the validation steps, each entry in the file must contain this properties:
