@@ -18,12 +18,13 @@ import java.util.List;
 public class Utils {
 
     public static final String ERROR = "Error";
-    public static final String WARN = "Warn";
+    public static final String WARN = "Warning";
 
-    public static final String NOT_FOUND_MESSAGE = "The entry do not contain:";
-    public static final String NOT_FOUND_UPDATED = "The entry do not contain or is out of range:";
-    public static final String ENTRY_NOT_FOUND = "Entry:";
+    public static final String NOT_FOUND_MESSAGE = "The entry does not contain:";
+    public static final String NOT_FOUND_UPDATED = "The entry does not contain or is out of range:";
+    public static final String ENTRY_NOT_FOUND = "Entry";
     public static final String REPORT_SPACE = " ";
+    public static final String COLON = ":";
 
     private static final Logger LOGGER = LoggerFactory.getLogger(Utils.class);
 
@@ -33,16 +34,19 @@ public class Utils {
         List<Tuple> errors = new ArrayList<>();
 
         if (entry.getId() == null || entry.getId().isEmpty()) {
-            errors.add(new Tuple<>(ERROR, NOT_FOUND_MESSAGE + REPORT_SPACE + DSField.ID.getFullName()));
+            errors.add(new Tuple<>(ERROR, "[" + entry.getId() + "]" + COLON + REPORT_SPACE + "["+ ERROR+"]" + COLON + REPORT_SPACE + NOT_FOUND_MESSAGE +
+                    REPORT_SPACE + DSField.ID.getFullName()));
         }
         if (entry.getName() == null || entry.getName().getValue() == null || entry.getName().getValue().isEmpty()) {
             errors.add(new Tuple<>(ERROR,
-                ENTRY_NOT_FOUND + REPORT_SPACE + entry.getId() + REPORT_SPACE + NOT_FOUND_MESSAGE + DSField.NAME));
+                ENTRY_NOT_FOUND + REPORT_SPACE + "[" + entry.getId() + "]" + COLON + REPORT_SPACE +
+                        "["+ ERROR+"]" + COLON + REPORT_SPACE + NOT_FOUND_MESSAGE + DSField.NAME));
         }
         if (entry.getDescription() == null || entry.getDescription().isEmpty()) {
             errors.add(new Tuple<>(ERROR,
-                    ENTRY_NOT_FOUND + REPORT_SPACE + entry.getId() + REPORT_SPACE + NOT_FOUND_MESSAGE + REPORT_SPACE
-                            + DSField.DESCRIPTION));
+                    ENTRY_NOT_FOUND + REPORT_SPACE + "[" + entry.getId() + "]" + COLON + REPORT_SPACE +
+                            "["+ ERROR+"]" + COLON + REPORT_SPACE + NOT_FOUND_MESSAGE + REPORT_SPACE +
+                            DSField.DESCRIPTION));
         }
 
         if (entry.getDates() != null && !entry.getDates().isEmpty()) {
@@ -58,8 +62,9 @@ public class Utils {
                 }
                 if (!found) {
                     errors.add(new Tuple<>(errorCode,
-                            ENTRY_NOT_FOUND + REPORT_SPACE + entry.getId() + REPORT_SPACE + NOT_FOUND_UPDATED
-                                    + REPORT_SPACE + field.getFullName()));
+                            ENTRY_NOT_FOUND + REPORT_SPACE + "[" + entry.getId() + "]" + COLON +REPORT_SPACE
+                                    + "["+ errorCode+"]" + COLON + REPORT_SPACE + NOT_FOUND_UPDATED + REPORT_SPACE +
+                                    field.getFullName()));
                 }
             }
         }
@@ -76,13 +81,17 @@ public class Utils {
                 }
                 if (!found) {
                     errors.add(new Tuple<>(errorCode,
-                            ENTRY_NOT_FOUND + REPORT_SPACE + entry.getId() + REPORT_SPACE + NOT_FOUND_MESSAGE
-                                    + REPORT_SPACE + field.getFullName()));
+                            ENTRY_NOT_FOUND + REPORT_SPACE + "[" + entry.getId() + "]" + COLON + REPORT_SPACE
+                                    + "["+ errorCode+"]" + COLON + REPORT_SPACE + NOT_FOUND_MESSAGE + REPORT_SPACE +
+                                    field.getFullName()));
                 }
             }
         }
 
         if (entry.getAdditionalFields() != null && !entry.getAdditionalFields().isEmpty()) {
+            Field.getFields().add(DSField.Additional.REPOSITORY);
+            Field.getFields().add(DSField.Additional.LINK);
+
             List<Field> fields = Field.getValuesByCategory(FieldCategory.ADDITIONAL, FieldType.UNKNOWN);
             for (Field field : fields) {
                 String errorCode = (field.getType() == FieldType.MANDATORY) ? ERROR : WARN;
@@ -94,8 +103,9 @@ public class Utils {
                 }
                 if (!found) {
                     errors.add(new Tuple<>(errorCode,
-                            ENTRY_NOT_FOUND + REPORT_SPACE + entry.getId() + REPORT_SPACE + NOT_FOUND_MESSAGE
-                                    + REPORT_SPACE + field.getFullName()));
+                            ENTRY_NOT_FOUND + REPORT_SPACE + "[" + entry.getId() + "]" + COLON + REPORT_SPACE
+                                    + "["+ errorCode+"]" + COLON + REPORT_SPACE+ NOT_FOUND_MESSAGE + REPORT_SPACE
+                                    + field.getFullName()));
                 }
             }
         }

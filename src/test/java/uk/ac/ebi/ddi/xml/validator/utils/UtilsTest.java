@@ -12,6 +12,6 @@ public class UtilsTest {
 
     @Test
     public void testDate_FurtherInTheFuture_ShouldReturnFalse() {
-        Assert.assertTrue(!Utils.validateDate("2022-01-16"));
+        Assert.assertTrue(!Utils.validateDate("2023-01-16"));
     }
 }

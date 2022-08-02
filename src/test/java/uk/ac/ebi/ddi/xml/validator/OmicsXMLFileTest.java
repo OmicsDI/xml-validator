@@ -108,6 +108,6 @@ public class OmicsXMLFileTest {
     public void testSemanticValidation(){
 
         List<Tuple> errors = OmicsXMLFile.validateSemantic(this.file);
-        System.out.println(errors);
+        errors.stream().forEach(r-> System.out.println(r.getValue().toString()));
     }
 }
