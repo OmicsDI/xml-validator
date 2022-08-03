@@ -6,6 +6,7 @@ import org.xml.sax.SAXException;
 import psidev.psi.tools.xxindex.StandardXpathAccess;
 import psidev.psi.tools.xxindex.index.IndexElement;
 import psidev.psi.tools.xxindex.index.XpathIndex;
+import uk.ac.ebi.ddi.ddidomaindb.dataset.DSField;
 import uk.ac.ebi.ddi.xml.validator.exception.DDIException;
 import uk.ac.ebi.ddi.xml.validator.parser.model.DataElement;
 import uk.ac.ebi.ddi.xml.validator.parser.model.Database;
@@ -116,6 +117,8 @@ public class OmicsXMLFile {
             database.setRelease(entry.getRelease());
             database.setEntryCount(entry.getEntryCount());
             database.setReleaseDate(entry.getReleaseDate());
+            database.setUrl(entry.getSourceUrl());
+            database.setKeywords(entry.getKeywords());
         } else {
             LOGGER.error("Number of databases is invalid, {}", databases);
         }
@@ -465,6 +468,33 @@ public class OmicsXMLFile {
         return false;
     }
 
+    public static List<Tuple> validateDatabase(File file){
+        List<Tuple> errors = new ArrayList<>();
+        try {
+            OmicsXMLFile reader = new OmicsXMLFile(file);
+
+            SummaryDatabase database = reader.database;
+            if (database.getName() == null || database.getName().getId().isEmpty()) {
+                errors.add(new Tuple<>(ERROR, "[" + entry.getId() + "]" + COLON + REPORT_SPACE + "["+ ERROR+"]" + COLON + REPORT_SPACE + NOT_FOUND_MESSAGE +
+                        REPORT_SPACE + DSField.ID.getFullName()));
+            }
+            if (entry.getName() == null || entry.getName().getValue() == null || entry.getName().getValue().isEmpty()) {
+                errors.add(new Tuple<>(ERROR,
+                        ENTRY_NOT_FOUND + REPORT_SPACE + "[" + entry.getId() + "]" + COLON + REPORT_SPACE +
+                                "["+ ERROR+"]" + COLON + REPORT_SPACE + NOT_FOUND_MESSAGE + DSField.NAME));
+            }
+            if (entry.getDescription() == null || entry.getDescription().isEmpty()) {
+                errors.add(new Tuple<>(ERROR,
+                        ENTRY_NOT_FOUND + REPORT_SPACE + "[" + entry.getId() + "]" + COLON + REPORT_SPACE +
+                                "["+ ERROR+"]" + COLON + REPORT_SPACE + NOT_FOUND_MESSAGE + REPORT_SPACE +
+                                DSField.DESCRIPTION));
+            }
+            reader.close();
+        } catch (DDIException e) {
+            errors.add(new Tuple<>(Utils.ERROR, e.getMessage()));
+        }
+        return errors;
+    }
     /**
      * Return Error as a Tuple with the Code of the Error and the message.
      *
@@ -507,6 +537,7 @@ public class OmicsXMLFile {
         List<Tuple> errors = new ArrayList<>();
         try {
             OmicsXMLFile reader = new OmicsXMLFile(file);
+
             List<String> ids = reader.getEntryIds();
             // Retrive all the entries and retrieve the warning semantic validation
             for (String id : ids) {
