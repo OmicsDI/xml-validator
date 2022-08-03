@@ -12,6 +12,10 @@ public class SummaryDatabase {
 
     protected Integer entryCount;
 
+    protected String url;
+
+    protected String keywords;
+
 
     public SummaryDatabase() {
     }
@@ -20,12 +24,16 @@ public class SummaryDatabase {
                            String description,
                            String release,
                            String releaseDate,
-                           Integer entryCount) {
+                           Integer entryCount,
+                           String url,
+                           String keywords) {
         this.name = name;
         this.description = description;
         this.release = release;
         this.releaseDate = releaseDate;
         this.entryCount = entryCount;
+        this.url = url;
+        this.keywords = keywords;
     }
 
     public String getName() {
@@ -67,4 +75,21 @@ public class SummaryDatabase {
     public void setEntryCount(Integer entryCount) {
         this.entryCount = entryCount;
     }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public String getKeywords() {
+        return keywords;
+    }
+
+    public void setKeywords(String keywords) {
+        this.keywords = keywords;
+    }
+
 }
