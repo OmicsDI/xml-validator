@@ -468,27 +468,13 @@ public class OmicsXMLFile {
         return false;
     }
 
-    public static List<Tuple> validateDatabase(File file){
-        List<Tuple> errors = new ArrayList<>();
+    public static Set<Tuple> validateDatabase(File file){
+        Set<Tuple> errors = new HashSet<Tuple>();
         try {
             OmicsXMLFile reader = new OmicsXMLFile(file);
 
             SummaryDatabase database = reader.database;
-            if (database.getName() == null || database.getName().getId().isEmpty()) {
-                errors.add(new Tuple<>(ERROR, "[" + entry.getId() + "]" + COLON + REPORT_SPACE + "["+ ERROR+"]" + COLON + REPORT_SPACE + NOT_FOUND_MESSAGE +
-                        REPORT_SPACE + DSField.ID.getFullName()));
-            }
-            if (entry.getName() == null || entry.getName().getValue() == null || entry.getName().getValue().isEmpty()) {
-                errors.add(new Tuple<>(ERROR,
-                        ENTRY_NOT_FOUND + REPORT_SPACE + "[" + entry.getId() + "]" + COLON + REPORT_SPACE +
-                                "["+ ERROR+"]" + COLON + REPORT_SPACE + NOT_FOUND_MESSAGE + DSField.NAME));
-            }
-            if (entry.getDescription() == null || entry.getDescription().isEmpty()) {
-                errors.add(new Tuple<>(ERROR,
-                        ENTRY_NOT_FOUND + REPORT_SPACE + "[" + entry.getId() + "]" + COLON + REPORT_SPACE +
-                                "["+ ERROR+"]" + COLON + REPORT_SPACE + NOT_FOUND_MESSAGE + REPORT_SPACE +
-                                DSField.DESCRIPTION));
-            }
+            errors = Utils.validateDatabase(database);
             reader.close();
         } catch (DDIException e) {
             errors.add(new Tuple<>(Utils.ERROR, e.getMessage()));
@@ -533,17 +519,19 @@ public class OmicsXMLFile {
         return errors;
     }
 
-    public static List<Tuple> validateSemantic(File file) {
-        List<Tuple> errors = new ArrayList<>();
+    public static Set<Tuple> validateSemantic(File file) {
+        Set<Tuple> errors = new HashSet<Tuple>();
         try {
             OmicsXMLFile reader = new OmicsXMLFile(file);
 
+            Set<Tuple> dbErrors = Utils.validateDatabase(reader.database);
             List<String> ids = reader.getEntryIds();
             // Retrive all the entries and retrieve the warning semantic validation
             for (String id : ids) {
-                List<Tuple> error = Utils.validateSemantic(reader.getEntryById(id));
+                Set<Tuple> error = Utils.validateSemantic(reader.getEntryById(id));
                 errors.addAll(error);
             }
+            errors.addAll(dbErrors);
             reader.close();
         } catch (DDIException e) {
             errors.add(new Tuple<>(Utils.ERROR, e.getMessage()));
