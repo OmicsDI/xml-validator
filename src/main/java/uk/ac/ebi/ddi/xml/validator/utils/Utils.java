@@ -2,18 +2,18 @@ package uk.ac.ebi.ddi.xml.validator.utils;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import uk.ac.ebi.ddi.ddidomaindb.dataset.DSField;
-import uk.ac.ebi.ddi.ddidomaindb.dataset.Field;
-import uk.ac.ebi.ddi.ddidomaindb.dataset.FieldCategory;
-import uk.ac.ebi.ddi.ddidomaindb.dataset.FieldType;
+import uk.ac.ebi.ddi.ddidomaindb.dataset.*;
 import uk.ac.ebi.ddi.xml.validator.parser.model.Date;
 import uk.ac.ebi.ddi.xml.validator.parser.model.Entry;
 import uk.ac.ebi.ddi.xml.validator.parser.model.Reference;
+import uk.ac.ebi.ddi.xml.validator.parser.model.SummaryDatabase;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class Utils {
 
@@ -29,9 +29,9 @@ public class Utils {
     private static final Logger LOGGER = LoggerFactory.getLogger(Utils.class);
 
 
-    public static List<Tuple> validateSemantic(Entry entry) {
+    public static Set<Tuple> validateSemantic(Entry entry) {
 
-        List<Tuple> errors = new ArrayList<>();
+        Set<Tuple> errors = new HashSet<Tuple>();
 
         if (entry.getId() == null || entry.getId().isEmpty()) {
             errors.add(new Tuple<>(ERROR, "[" + entry.getId() + "]" + COLON + REPORT_SPACE + "["+ ERROR+"]" + COLON + REPORT_SPACE + NOT_FOUND_MESSAGE +
@@ -50,6 +50,7 @@ public class Utils {
         }
 
         if (entry.getDates() != null && !entry.getDates().isEmpty()) {
+            Field.getFields().add(DSField.Date.PUBLICATION);
             List<Field> fields = Field.getValuesByCategory(FieldCategory.DATE, FieldType.UNKNOWN);
             for (Field field : fields) {
                 String errorCode = (field.getType() == FieldType.MANDATORY) ? ERROR : WARN;
@@ -89,8 +90,8 @@ public class Utils {
         }
 
         if (entry.getAdditionalFields() != null && !entry.getAdditionalFields().isEmpty()) {
-            Field.getFields().add(DSField.Additional.REPOSITORY);
-            Field.getFields().add(DSField.Additional.LINK);
+            Field.getFields().add(DSField.Additional.IS_PRIVATE);
+            //Field.getFields().add(DSField.Additional.LINK);
 
             List<Field> fields = Field.getValuesByCategory(FieldCategory.ADDITIONAL, FieldType.UNKNOWN);
             for (Field field : fields) {
@@ -128,5 +129,36 @@ public class Utils {
             }
         }
         return false;
+    }
+
+    public static Set<Tuple> validateDatabase(SummaryDatabase summaryDatabase){
+
+        Set<Tuple> errors = new HashSet<Tuple>();
+
+        if (summaryDatabase.getName() == null || summaryDatabase.getName().isEmpty()) {
+            errors.add(new Tuple<>(ERROR, "["+ ERROR+"]" + COLON + REPORT_SPACE + NOT_FOUND_MESSAGE +
+                    REPORT_SPACE + DBField.NAME.getFullName()));
+        }
+        if (summaryDatabase.getDescription() == null || summaryDatabase.getDescription().isEmpty()) {
+            errors.add(new Tuple<>(WARN, "["+ WARN+"]" + COLON + REPORT_SPACE + NOT_FOUND_MESSAGE +
+                    REPORT_SPACE + DBField.DESCRIPTION.getFullName()));
+        }
+        if (summaryDatabase.getUrl() == null || summaryDatabase.getUrl().isEmpty()) {
+            errors.add(new Tuple<>(WARN, "["+ WARN+"]" + COLON + REPORT_SPACE + NOT_FOUND_MESSAGE +
+                    REPORT_SPACE + DBField.URL.getFullName()));
+        }
+        if (summaryDatabase.getKeywords() == null || summaryDatabase.getKeywords().isEmpty()) {
+            errors.add(new Tuple<>(WARN, "["+ WARN+"]" + COLON + REPORT_SPACE + NOT_FOUND_MESSAGE +
+                    REPORT_SPACE + DBField.KEYWORDS.getFullName()));
+        }
+        if (summaryDatabase.getEntryCount() == null || summaryDatabase.getEntryCount().equals(0)) {
+            errors.add(new Tuple<>(WARN, "["+ WARN+"]" + COLON + REPORT_SPACE + NOT_FOUND_MESSAGE +
+                    REPORT_SPACE + DBField.ENTRY_COUNT.getFullName()));
+        }
+        if (summaryDatabase.getReleaseDate() == null || summaryDatabase.getReleaseDate().isEmpty()) {
+            errors.add(new Tuple<>(WARN, "["+ WARN+"]" + COLON + REPORT_SPACE + NOT_FOUND_MESSAGE +
+                    REPORT_SPACE + DBField.RELEASE_DATE.getFullName()));
+        }
+        return errors;
     }
 }
