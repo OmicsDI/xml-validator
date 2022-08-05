@@ -1,0 +1,113 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<database>
+  <entries>
+    <entry id="1">
+      
+      
+      <dates>
+        
+        <date type="updated" value="2021-10-04"></date>
+    		<date type="collection_start_date" value="2020-10-26"></date>
+		    <date type="collection_end_date" value="2020-12-30"></date>
+      </dates>
+      <additional_fields>
+        
+        
+        <field name="sample_protocol">Non-probability: Quota</field>
+        <field name="spatial_coverage">Österreich</field>
+        <field name="spatial_coverage">Frankreich</field>
+        <field name="spatial_coverage">Deutschland</field>
+        <field name="spatial_coverage">Griechenland</field>
+        <field name="spatial_coverage">Ungarn</field>
+        <field name="spatial_coverage">Italien</field>
+        <field name="spatial_coverage">Niederlande</field>
+        <field name="spatial_coverage">Polen</field>
+        <field name="spatial_coverage">Spanien</field>
+        <field name="spatial_coverage">Schweden</field>
+        <field name="spatial_coverage">Vereinigtes Königreich</field>
+        <field name="persistent_identifier">10.4232/1.13787</field>
+        <field name="persistent_identifier_type">DOI</field>
+        <field name="data_access">A - Data and documents are released for academic research and teaching.</field>
+        <field name="collection_mode">Self-administered questionnaire: Web-based (CAWI)</field>
+        <field name="time_method">Cross-section</field>
+        <field name="author">Katsanidou, Alexia</field>
+        <field name="author_affiliation">GESIS - Leibniz-Institut für Sozialwissenschaften</field>
+        <field name="author">Giebler, Heiko</field>
+        <field name="author_affiliation">Wissenschaftszentrum Berlin für Sozialforschung</field>
+        <field name="author">Tosun, Jale</field>
+        <field name="author_affiliation">Universität Heidelberg</field>
+        <field name="author">Reinl, Ann-Kathrin</field>
+        <field name="author_affiliation">Ludwig-Maximilians-Universität München</field>
+        <field name="author">Pötzschke, Steffen</field>
+        <field name="author_affiliation">GESIS - Leibniz-Institut für Sozialwissenschaften</field>
+        <field name="author">Eder, Christina</field>
+        <field name="author_affiliation">GESIS - Leibniz-Institut für Sozialwissenschaften</field>
+        <field name="author">Heizmann, Boris</field>
+        <field name="author_affiliation">GESIS - Leibniz-Institut für Sozialwissenschaften</field>
+        <field name="author">Weßels, Bernhard</field>
+        <field name="author_affiliation">Wissenschaftszentrum Berlin für Sozialforschung</field>
+        <field name="author">Huth, Nora</field>
+        <field name="author_affiliation">GESIS - Leibniz-Institut für Sozialwissenschaften</field>
+        <field name="author">Horvath, Sandra</field>
+        <field name="author_affiliation">Wissenschaftszentrum Berlin für Sozialforschung</field>
+        <field name="author">Parth, Anne-Marie</field>
+        <field name="author_affiliation">Universität Heidelberg</field>
+        <field name="author">Sanhueza, Constanza</field>
+        <field name="author_affiliation">Wissenschaftszentrum Berlin für Sozialforschung</field>
+        <field name="author">Weiß, Julia</field>
+        <field name="author_affiliation">Universität Heidelberg</field>
+      </additional_fields>
+    </entry>
+	  <entry id="2">
+      <name>Active Lives Children and Young People Survey, 2020-2021</name>
+      <description>Abstract copyright UK Data Service and data collection copyright owner.The Active Lives Children and Young People Survey, which was established in September 2017, provides a world-leading approach to gathering data on how children engage with sport and physical activity. This school-based survey is the first and largest established physical activity survey with children and young people in England. It gives anyone working with children aged 5-16 key insight to help understand children's attitudes and behaviours around sport and physical activity. The results will shape and influence local decision-making as well as inform government policy on the PE and Sport Premium, Childhood Obesity Plan and other cross-departmental programmes. More general information about the study can be found on the Sport England Active Lives Survey webpage and the Active Lives Online website, including reports and data tables. The Active Lives Children and Young People survey is a school-based survey (i.e., historically always completed at school as part of lessons). Academic years 2020-2021 and 2019-20 have both been disrupted by the coronavirus pandemic, resulting in school sites being closed to many pupils for some of the year (e.g., during national lockdown periods, and during summer term for 2019-20). Due to the closure of school sites, the Active Lives Children and Young People Survey, 2020-2021 was adapted to allow at-home completion. Despite the disruption, the survey has still received a sufficient volume of responses for analysis. The adaptions involved minor questionnaire changes (e.g., to ensure the wording was appropriate for those not attending school and to enable completion at home), and communication changes. For further details on the survey changes, please see the accompanying User Guide document. Academic year 2020-21 saw a more even split of responses by term across the year, compared to 2019-20 which had a reduced proportion of summer term responses due to the disruption caused by Covid-19. It is recommended to analyse the data within term, as well as at an overall level, because of the changes in termly distribution. The survey identifies how participation varies across different activities and sports, by regions of England, between school types and terms, and between different demographic groups in the population. The survey measures levels of activity (active, fairly active and less active), attitudes towards sport and physical activity, swimming capability, the proportion of children and young people that volunteer in sport, sports spectating, and wellbeing measures such as happiness and life satisfaction. The questionnaire was designed to enable analysis of the findings by a broad range of variables, such as gender, family affluence and school year. The following datasets have been provided: 1)    Main dataset – this file includes responses from children and young people from school years 3 to 11, as well as responses from parents of children in years 1-2. The parents of children in years 1-2 provide behavioural answers about their child’s activity levels, they do not provide attitudinal information. Using this main dataset, full analyses can be carried out into sports and physical activity participation, levels of activity, volunteering (years 5 to 11), etc. Weighting is required when using this dataset (wt_gross / wt_gross.csplan files are available for SPSS users who can utilise them). 2)    Year 1-2 dataset – this file include responses from children in school years 1-2 directly, providing their attitudinal responses (e.g. whether they like playing sport and find it easy). Analysis can be carried out into feelings towards swimming, enjoyment for being active, happiness etc. Weighting is required when using this dataset (wt_gross / wt_gross.csplan files are available for SPSS users who can utilise them). 3)    Teacher dataset – this file includes response from the teachers at schools selected for the survey. Analysis can be carried out into school facilities available, length of PE lessons, whether swimming lessons are offered, etc. Weighting is not required when using this dataset.  For further information about the variables available for analysis, and the relevant school years asked survey questions, please see the supporting documentation. Please read the documentation before using the datasets. More general information about the study can be found on the Sport England Active Lives Survey webpages. Main Topics:Topics covered in the Active Lives Children and Young People Survey include: Sport and physical activity participation, Well-being and Health</description>
+      <dates>
+        <date type="publication" value="2022-04-07"></date>
+        <date type="updated" value="2022-04-07"></date>
+        <date type="collection_start_date" value="2020-08-31"></date>
+        <date type="collection_end_date" value="2021-07-22"></date>
+      </dates>
+      <additional_fields>
+        <field name="full_dataset_link">https://dx.doi.org/10.5255/UKDA-SN-8929-1</field>
+        <field name="repository">UK Data Service</field>
+        <field name="sample_protocol">Multi-stage stratified random sample</field>
+        <field name="analysis_unit">Individuals</field>
+        <field name="analysis_unit">National</field>
+        <field name="spatial_coverage">England</field>
+        <field name="persistent_identifier">10.5255/UKDA-SN-8929-1</field>
+        <field name="persistent_identifier_type">DOI</field>
+        <field name="data_access">The Data Collection is available to users registered with the UK Data Service. Commercial use of the data requires approval from the data owner or their nominee. The UK Data Service will contact you.</field>
+        <field name="universe_included">The populations differ between the three datasets provided: 1) Main dataset – includes 86,828 responses in total. The responses are provided from those in school years 3-11 and parents of children in years 1-2. 2) Year 1-2 dataset – includes 13,886 responses in total. The responses are provided from those in school years 1-2. 3) Teacher dataset – includes 1,166 responses in total. The responses are provided by teachers from schools responding to the survey. All respondents are based in England.</field>
+        <field name="collection_mode">Web-based interview</field>
+        <field name="time_method">Repeated cross-sectional study</field>
+        <field name="author">Sport England</field>
+        <field name="keywords">AEROBIC EXERCISE; SPORT; SPECIAL NEEDS STUDENTS; EDUCATIONAL YEAR; PRIMARY SCHOOLS; PARENTS; VOLUNTARY WORK; ETHNIC GROUPS; PHYSICAL EDUCATION; INTERPERSONAL TRUST; SPORTS PARTICIPATION; TRAVELLING TIME; HEALTHY EATING; SCHOOL MEALS; BALL GAMES; COMPUTERS; CHILDREN; RUNNING; HOLIDAYS ABROAD; GYM ATTENDANCE; SECONDARY SCHOOLS; DANCE; YOUTH; SWIMMING POOLS; STANDARD OF LIVING; GYMNASTICS; CARS; SECONDARY SCHOOL TEACHERS; COMBATIVE SPORTS; SPORT SPECTATORSHIP; SOCIAL DISADVANTAGE; AGE; PRIMARY SCHOOL TEACHERS; RACKET GAMES; DISABILITIES; CYCLING; SPORTS TRAINING; LIFE SATISFACTION; HAPPINESS; WATER SPORTS; SPORTS FACILITIES; COVID-19; EDUCATIONAL FACILITIES; WALKING; EXERCISE (PHYSICAL ACTIVITY); STUDENT TRANSPORTATION; SWIMMING; FREE SCHOOL MEALS; ATHLETICS</field>	
+      </additional_fields>
+    </entry>
+	  <entry id="3">
+      <name>Citizens' Pulse 2/2022</name>
+      <description><p><a href="https://www.stat.fi/tup/htpalvelut/tutkimukset/kansalaispulssi_en.html">The Citizens' Pulse surveys</a> examine Finnish attitudes and opinions in the context of the coronavirus pandemic (COVID-19). Main themes in the surveys include the activity and communication of authorities, compliance with regulations, future expectations, trust, and the respondents' own state of mind. This collection round also included questions about the social security reform (2020-2027) in Finland.</p><p>The second collection round of 2022 surveyed the respondents' opinions on the reliability of the information provided by various Finnish authorities (e.g. the Finnish Institute for Health and Welfare) and members of various groups (e.g. health care employees, researchers) on the coronavirus crisis. The respondents were asked to evaluate how fair or unfair they thought Finnish society was at present, and their state of mind was examined with questions on various matters relating to health and well-being. The questions covered, for example, whether the respondents were worried about their own risk or the risk of people close to them contracting COVID-19, the availability of health care for them and people close to them for issues unrelated to COVID-19, their own mental well-being, and whether they felt their lives were meaningful. Additionally, the respondents were asked about their concerns in regard to livelihood and everyday life (e.g. whether they were worried about the adequacy of their income or the income of people close to them, the uncertainty regarding how long the exceptional circumstances would last, and their children's schooling). The respondents' confidence in their future and experiences of stress were surveyed, and the respondents were asked to evaluate whether an atmosphere of crisis prevailed amongst Finns.</p><p>Next, the respondents opinions on the availability, reliability and accuracy of the information provided by Finnish authorities on the coronavirus crisis was charted. Compliance with coronavirus restrictions was examined by asking the respondents whether they had followed the restrictions and recommendations set by authorities for preventing transmission of the virus, including maintaining safe distances, wearing a face mask, and minimising contacts with people outside immediate family and friends. The respondents were also asked whether they had received at least one dose of the COVID-19 vaccine, and how necessary they felt that it was to follow measures such as wearing a mask and maintaining safe distances after receiving two or three doses of the COVID-19 vaccine. The respondents were surveyed on how useful they thought several measures were in preventing the spread of COVID-19 (e.g. testing yourself with rapid antigen at-home tests, avoiding public events, and using a COVID-19 certificate to enter restaurants and events), and how long they would be willing to comply with the measures. The respondents were also asked whether they thought that the current schedule for lifting COVID-19 restrictions was too soon, too late, or well-timed.</p><p>Opinions on the social security reform in Finland were examined by asking the respondents how much they agreed or disagreed with several statements on the topic of social security (e.g. I trust that the majority of people participate in society according to their own abilities and the possibilities afforded by them, An unemployed jobseeker should have the right to refuse a job that creates a significant amount of CO2 emissions, and Environmentally friendly choices are not financially easy for everyone which is why social security should encourage people to make environmentally friendly choices).</p><p>Background variables included the respondent's gender, age group, NUTS3 region of residence, highest level of education, household composition, and perceived financial situation of household.</p></description>
+      <dates>
+        <date type="publication" value="2022-05-31"></date>
+        <date type="updated" value="2022-03-23"></date>
+        <date type="collection_start_date" value="2022-02-16"></date>
+        <date type="collection_end_date" value="2022-02-21"></date>
+      </dates>
+      <additional_fields>
+        <field name="full_dataset_link">https://urn.fi/urn:nbn:fi:fsd:T-FSD3654</field>
+        <field name="repository">Finnish Social Science Data Archive</field>
+        <field name="analysis_unit">Individual</field>
+        <field name="spatial_coverage">Finland</field>
+        <field name="persistent_identifier">urn:nbn:fi:fsd:T-FSD3654</field>
+        <field name="persistent_identifier_type">URN</field>
+        <field name="data_access">The dataset is (A) openly available for all users without registration (CC BY 4.0).</field>
+        <field name="universe_included">People aged 15-74 residing in mainland Finland</field>
+        <field name="collection_mode">Self-administered questionnaire: Web-based (CAWI)</field>
+        <field name="time_method">Longitudinal: Trend/Repeated cross-section</field>
+        <field name="author">Statistics Finland</field>
+        <field name="author">Prime Minister's Office</field>
+        <field name="keywords">COVID-19; bacterial and virus diseases; trust; vaccination; communications; income; health; emotional states; well-being (health); dissemination of information; regulations; social security</field>	
+      </additional_fields>
+    </entry>
+  </entries>
+</database>
