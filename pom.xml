@@ -5,14 +5,14 @@
     <parent>
         <groupId>uk.ac.ebi.ddi.maven</groupId>
         <artifactId>ddi-base-master</artifactId>
-        <version>1.5</version>
+        <version>1.7</version>
     </parent>
 
     <groupId>uk.ac.ebi.ddi</groupId>
     <artifactId>ddi-validator</artifactId>
     <url>https://github.com/OmicsDI/xml-validator</url>
 
-    <version>1.3-SNAPSHOT</version>
+    <version>1.3</version>
 
     <properties>
         <assembly.dir>${project.name}-${project.version}</assembly.dir>
@@ -107,7 +107,7 @@
         </plugins>
     </build>
 
-   <!-- <repositories>
+    <repositories>
         <repository>
             <id>nexus-ebi-repo</id>
             <name>The EBI internal repository</name>
@@ -140,7 +140,7 @@
                 <enabled>false</enabled>
             </snapshots>
         </repository>
-    </repositories>-->
+    </repositories>
 
     <!--scm git config-->
     <scm>
