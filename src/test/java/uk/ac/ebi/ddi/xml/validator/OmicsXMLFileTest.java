@@ -17,6 +17,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URL;
 import java.util.List;
+import java.util.Set;
 
 
 public class OmicsXMLFileTest {
@@ -28,8 +29,9 @@ public class OmicsXMLFileTest {
     @Before
     public void setUp() throws Exception {
 
-        URL fileURL = OmicsXMLFileTest.class.getClassLoader().getResource("PRIDE_EBEYE_Wrong_PRD000123.xml");
-
+        //URL fileURL = OmicsXMLFileTest.class.getClassLoader().getResource("PRIDE_EBEYE_Wrong_PRD000123.xml");
+        URL fileURL = OmicsXMLFileTest.class.getClassLoader().getResource("by-covid_cessda_omicsdi_noid.xml");
+        //by-covid_cessda_omicsdi_noid.xml
         file = new File(fileURL.toURI());
 
         reader = new OmicsXMLFile(file);
@@ -107,7 +109,11 @@ public class OmicsXMLFileTest {
     @Test
     public void testSemanticValidation(){
 
-        List<Tuple> errors = OmicsXMLFile.validateSemantic(this.file);
+        //List<Tuple> errorsSchema = OmicsXMLFile.validateSchema(this.file);
+        //errorsSchema.stream().forEach(r-> System.out.println(r.getValue().toString()));
+
+        Set<Tuple> errors = OmicsXMLFile.validateSemantic(this.file);
         errors.stream().forEach(r-> System.out.println(r.getValue().toString()));
+        //errors.stream().filter(r -> r.getKey().equals("Error")).forEach(r-> System.out.println(r.getValue().toString()));
     }
 }
