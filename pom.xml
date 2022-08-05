@@ -107,7 +107,7 @@
         </plugins>
     </build>
 
-    <repositories>
+   <!-- <repositories>
         <repository>
             <id>nexus-ebi-repo</id>
             <name>The EBI internal repository</name>
@@ -140,7 +140,7 @@
                 <enabled>false</enabled>
             </snapshots>
         </repository>
-    </repositories>
+    </repositories>-->
 
     <!--scm git config-->
     <scm>
