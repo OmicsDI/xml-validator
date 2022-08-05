@@ -10,7 +10,9 @@
 			<xsd:element name="description" type="xsd:string" minOccurs="1"/>
 			<xsd:element name="release" type="xsd:string" minOccurs="1"/>
 			<xsd:element name="release_date" type="xsd:string" minOccurs="1"/>
-			<xsd:element name="entry_count" type="xsd:int" minOccurs="0"/>
+			<xsd:element name="url" type="xsd:string" minOccurs="0"/>
+			<xsd:element name="keywords" type="xsd:string" minOccurs="1"/>
+			<xsd:element name="entry_count" type="xsd:int" minOccurs="1"/>
 			<xsd:element name="entries" type="entriesType" minOccurs="1"/>
 		</xsd:all>
 	</xsd:complexType>
@@ -24,7 +26,7 @@
 	<xsd:complexType name="entryType">
 		<xsd:all>
 
-			<xsd:element name="name" minOccurs="1">
+			<xsd:element name="name" minOccurs="1" >
 				<xsd:complexType>
 					<xsd:simpleContent>
 						<xsd:extension base="xsd:string">
@@ -46,8 +48,8 @@
 			<xsd:element name="cross_references" type="cross_referencesType" minOccurs="0"/>
 			<xsd:element name="additional_fields" type="additional_fieldsType" minOccurs="1"/>
 		</xsd:all>
-		<xsd:attribute name="id" type="xsd:string" use="optional"/>
-		<xsd:attribute name="acc" type="xsd:string" use="required"/>
+		<xsd:attribute name="id" type="xsd:string" use="required"/>
+		<xsd:attribute name="acc" type="xsd:string" use="optional"/>
 	</xsd:complexType>
 
 	<xsd:complexType name="additional_fieldsType">
