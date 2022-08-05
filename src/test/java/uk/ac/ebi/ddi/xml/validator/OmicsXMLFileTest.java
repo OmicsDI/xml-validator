@@ -29,8 +29,8 @@ public class OmicsXMLFileTest {
     @Before
     public void setUp() throws Exception {
 
-        //URL fileURL = OmicsXMLFileTest.class.getClassLoader().getResource("PRIDE_EBEYE_Wrong_PRD000123.xml");
-        URL fileURL = OmicsXMLFileTest.class.getClassLoader().getResource("by-covid_cessda_omicsdi_noid.xml");
+        URL fileURL = OmicsXMLFileTest.class.getClassLoader().getResource("PRIDE_EBEYE_Wrong_PRD000123.xml");
+        //URL fileURL = OmicsXMLFileTest.class.getClassLoader().getResource("by-PRIDE_EBEYE_PXD002837_bycovid.xml");
         //by-covid_cessda_omicsdi_noid.xml
         file = new File(fileURL.toURI());
 
