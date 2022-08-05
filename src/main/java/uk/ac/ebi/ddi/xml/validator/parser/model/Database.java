@@ -51,6 +51,10 @@ public class Database
     protected Integer entryCount;
     @XmlElement(required = true)
     protected Entries entries;
+    @XmlElement(name = "url")
+    protected String sourceUrl;
+    @XmlElement(name = "keywords")
+    protected String keywords;
 
     /**
      * Gets the value of the name property.
@@ -179,6 +183,20 @@ public class Database
             this.entries.entry = entries;
         }
     }
+    public String getSourceUrl() {
+        return sourceUrl;
+    }
 
+    public void setSourceUrl(String sourceUrl) {
+        this.sourceUrl = sourceUrl;
+    }
+
+    public String getKeywords() {
+        return keywords;
+    }
+
+    public void setKeywords(String keywords) {
+        this.keywords = keywords;
+    }
 
 }
