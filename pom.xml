@@ -12,7 +12,7 @@
     <artifactId>ddi-validator</artifactId>
     <url>https://github.com/OmicsDI/xml-validator</url>
 
-    <version>1.3</version>
+    <version>1.3.1-SNAPSHOT</version>
 
     <properties>
         <assembly.dir>${project.name}-${project.version}</assembly.dir>
@@ -147,7 +147,7 @@
         <connection>scm:git:github.com/OmicsDI/xml-validator.git</connection>
         <developerConnection>scm:git:git@github.com:OmicsDI/xml-validator.git</developerConnection>
         <url>https://github.com/OmicsDI/xml-validator.git</url>
-        <tag>ddi-validator-1.3</tag>
+        <tag>ddi-validator-1.0</tag>
     </scm>
 
 
