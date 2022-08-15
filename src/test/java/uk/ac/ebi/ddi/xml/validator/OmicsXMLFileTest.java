@@ -114,7 +114,7 @@ public class OmicsXMLFileTest {
         //List<Tuple> errorsSchema = OmicsXMLFile.validateSchema(this.file);
         //errorsSchema.stream().forEach(r-> System.out.println(r.getValue().toString()));
 
-        Set<Tuple> errors = OmicsXMLFile.validateSemantic(this.file);
+        List<Tuple> errors = OmicsXMLFile.validateSemantic(this.file);
         //errors.stream().forEach(r-> System.out.println(r.getValue().toString()));
         errors.stream().filter(r -> r.getKey().equals("Error")).forEach(r-> System.out.println(r.getValue().toString()));
     }

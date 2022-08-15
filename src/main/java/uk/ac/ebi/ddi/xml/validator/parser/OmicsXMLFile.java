@@ -519,8 +519,8 @@ public class OmicsXMLFile {
         return errors;
     }
 
-    public static Set<Tuple> validateSemantic(File file) {
-        Set<Tuple> errors = new HashSet<Tuple>();
+    public static List<Tuple> validateSemantic(File file) {
+        List<Tuple> errors = new ArrayList<Tuple>();
         try {
             OmicsXMLFile reader = new OmicsXMLFile(file);
 
