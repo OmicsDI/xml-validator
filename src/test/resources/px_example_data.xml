@@ -1,0 +1,68 @@
+<database>
+  <name>iProX</name>
+  <description>The ProteomeXchange Consortium has been set up to provide a globally coordinated submission of mass spectrometry proteomics data to the main existing proteomics repositories, and to encourage optimal data dissemination.</description>
+  <release>20220809</release>
+  <entry_count>1424</entry_count>
+  <entries>
+    <entry id="PXD008428">
+      <name>Quantitative and In-Depth Survey of the Isotopic Abundance Distribution Errors</name>
+      <description>Quantitative and In-Depth Survey of the Isotopic Abundance Distribution Errors in Shotgun Proteomics</description>
+      <dates>
+        <date type="publication" value="Wed Dec 06 00:00:00 GMT 2017"></date>
+      </dates>
+      <cross_references>
+        <ref dbname="TAXONOMY" dbkey="9606"/>
+        <ref dbname="pubmed" dbkey="27266261"/>
+        <ref dbname="TAXONOMY" dbkey="9606"/>
+        <ref dbname="pubmed" dbkey="27266261"/>
+      </cross_references>
+      <additional_fields>
+        <field name="repository">iProX</field>
+        <field name="sample_protocol"></field>
+        <field name="data_protocol"></field>
+        <field name="full_dataset_link"></field>
+        <field name="omics_type">Proteomics</field>
+        <field name="species">Homo sapiens</field>
+        <field name="dataset_file">http://download.iprox.org/IPX0000755000/IPX0000755003/ZY_UPS2_D1_Mouse_0_6ug.raw</field>
+        <field name="dataset_file">http://download.iprox.org/IPX0000755000/IPX0000755001/ZY_UPS2_B1_load.raw</field>
+        <field name="dataset_file">http://download.iprox.org/IPX0000755000/IPX0000755002/ZY_UPS2_A3_Yeast_0_6ug.raw</field>
+        <field name="dataset_file">http://download.iprox.org/IPX0000755000/IPX0000755003/ZY_UPS2_C2_Mouse_0_6ug.raw</field>
+        <field name="dataset_file">http://download.iprox.org/IPX0000755000/IPX0000755001/ZY_UPS2_C3_load.raw</field>
+        <field name="dataset_file">http://download.iprox.org/IPX0000755000/IPX0000755002/ZY_UPS2_B2_Yeast_0_6ug.raw</field>
+        <field name="dataset_file">http://download.iprox.org/IPX0000755000/IPX0000755002/ZY_UPS2_D2_Yeast_0_6ug.raw</field>
+        <field name="dataset_file">http://download.iprox.org/IPX0000755000/IPX0000755003/ZY_UPS2_C1_Mouse_0_6ug.raw</field>
+        <field name="dataset_file">http://download.iprox.org/IPX0000755000/IPX0000755001/ZY_UPS2_C2_load.raw</field>
+        <field name="dataset_file">http://download.iprox.org/IPX0000755000/IPX0000755001/ZY_UPS2_A2_load.raw</field>
+        <field name="dataset_file">http://download.iprox.org/IPX0000755000/IPX0000755001/ZY_UPS2_B3_load.raw</field>
+        <field name="dataset_file">http://download.iprox.org/IPX0000755000/IPX0000755002/ZY_UPS2_A2_Yeast_0_6ug.raw</field>
+        <field name="dataset_file">http://download.iprox.org/IPX0000755000/IPX0000755002/ZY_UPS2_D3_Yeast_0_6ug.raw</field>
+        <field name="dataset_file">http://download.iprox.org/IPX0000755000/IPX0000755003/ZY_UPS2_B2_Mouse_0_6ug.raw</field>
+        <field name="dataset_file">http://download.iprox.org/IPX0000755000/IPX0000755001/ZY_UPS2_D1_load.raw</field>
+        <field name="dataset_file">http://download.iprox.org/IPX0000755000/IPX0000755003/ZY_UPS2_A3_Mouse_0_6ug.raw</field>
+        <field name="dataset_file">http://download.iprox.org/IPX0000755000/IPX0000755001/ZY_UPS2_A1_load.raw</field>
+        <field name="dataset_file">http://download.iprox.org/IPX0000755000/IPX0000755001/ZY_UPS2_D3_load.raw</field>
+        <field name="dataset_file">http://download.iprox.org/IPX0000755000/IPX0000755002/ZY_UPS2_B1_Yeast_0_6ug.raw</field>
+        <field name="dataset_file">http://download.iprox.org/IPX0000755000/IPX0000755003/ZY_UPS2_B1_Mouse_0_6ug.raw</field>
+        <field name="dataset_file">http://download.iprox.org/IPX0000755000/IPX0000755002/ZY_UPS2_C3_Yeast_0_6ug.raw</field>
+        <field name="dataset_file">http://download.iprox.org/IPX0000755000/IPX0000755002/ZY_UPS2_C1_Yeast_0_6ug.raw</field>
+        <field name="dataset_file">http://download.iprox.org/IPX0000755000/IPX0000755003/ZY_UPS2_D3_Mouse_0_6ug.raw</field>
+        <field name="dataset_file">http://download.iprox.org/IPX0000755000/IPX0000755003/ZY_UPS2_B3_Mouse_0_6ug.raw</field>
+        <field name="dataset_file">http://download.iprox.org/IPX0000755000/IPX0000755002/ZY_UPS2_A1_Yeast_0_6ug.raw</field>
+        <field name="dataset_file">http://download.iprox.org/IPX0000755000/IPX0000755003/ZY_UPS2_A2_Mouse_0_6ug.raw</field>
+        <field name="dataset_file">http://download.iprox.org/IPX0000755000/IPX0000755002/ZY_UPS2_B3_Yeast_0_6ug.raw</field>
+        <field name="dataset_file">http://download.iprox.org/IPX0000755000/IPX0000755001/ZY_UPS2_D2_load.raw</field>
+        <field name="dataset_file">http://download.iprox.org/IPX0000755000/IPX0000755003/ZY_UPS2_D2_Mouse_0_6ug.raw</field>
+        <field name="dataset_file">http://download.iprox.org/IPX0000755000/IPX0000755003/ZY_UPS2_A1_Mouse_0_6ug.raw</field>
+        <field name="dataset_file">http://download.iprox.org/IPX0000755000/IPX0000755002/ZY_UPS2_D1_Yeast_0_6ug.raw</field>
+        <field name="dataset_file">http://download.iprox.org/IPX0000755000/IPX0000755001/ZY_UPS2_C1_load.raw</field>
+        <field name="dataset_file">http://download.iprox.org/IPX0000755000/IPX0000755001/ZY_UPS2_A3_load.raw</field>
+        <field name="dataset_file">http://download.iprox.org/IPX0000755000/IPX0000755001/ZY_UPS2_B2_load.raw</field>
+        <field name="dataset_file">http://download.iprox.org/IPX0000755000/IPX0000755002/ZY_UPS2_C2_Yeast_0_6ug.raw</field>
+        <field name="dataset_file">http://download.iprox.org/IPX0000755000/IPX0000755003/ZY_UPS2_C3_Mouse_0_6ug.raw</field>
+        <field name="submitter">Yunping Zhu</field>
+        <field name="submitter_email">zhuyunping@gmail.com</field>
+        <field name="submitter_affiliation">Beijing Proteome Research Center</field>
+      </additional_fields>
+    </entry>
+</entries>
+</database>
