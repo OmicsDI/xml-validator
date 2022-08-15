@@ -528,8 +528,8 @@ public class OmicsXMLFile {
             List<String> ids = reader.getEntryIds();
             // Retrive all the entries and retrieve the warning semantic validation
             for (String id : ids) {
-                Set<Tuple> error = Utils.validateSemantic(reader.getEntryById(id));
-                errors.addAll(error);
+                List<Tuple> datasetErrors = Utils.validateSemantic(reader.getEntryById(id));
+                errors.addAll(datasetErrors);
             }
             errors.addAll(dbErrors);
             reader.close();

@@ -29,9 +29,9 @@ public class Utils {
     private static final Logger LOGGER = LoggerFactory.getLogger(Utils.class);
 
 
-    public static Set<Tuple> validateSemantic(Entry entry) {
+    public static List<Tuple> validateSemantic(Entry entry) {
 
-        Set<Tuple> errors = new HashSet<Tuple>();
+        List<Tuple> errors = new ArrayList<Tuple>();
 
         if (entry.getId() == null || entry.getId().isEmpty()) {
             errors.add(new Tuple<>(ERROR, "[" + entry.getId() + "]" + COLON + REPORT_SPACE + "["+ ERROR+"]" + COLON + REPORT_SPACE + NOT_FOUND_MESSAGE +
@@ -98,7 +98,7 @@ public class Utils {
                 String errorCode = (field.getType() == FieldType.MANDATORY) ? ERROR : WARN;
                 boolean found = false;
                 for (uk.ac.ebi.ddi.xml.validator.parser.model.Field ref : entry.getAdditionalFields().getField()) {
-                    if (field.getName().equalsIgnoreCase(ref.getName()) && ref.getName() != null) {
+                    if (field.getName().equalsIgnoreCase(ref.getName()) && ref.getName() != null && !ref.getValue().isEmpty()) {
                         found = true;
                     }
                 }
