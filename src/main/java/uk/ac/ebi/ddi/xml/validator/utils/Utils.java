@@ -21,6 +21,7 @@ public class Utils {
     public static final String WARN = "Warning";
 
     public static final String NOT_FOUND_MESSAGE = "The entry does not contain:";
+    public static final String DATABASE_NOT_FOUND_MESSAGE="The database file does not contain:";
     public static final String NOT_FOUND_UPDATED = "The entry does not contain or is out of range:";
     public static final String ENTRY_NOT_FOUND = "Entry";
     public static final String REPORT_SPACE = " ";
@@ -136,27 +137,27 @@ public class Utils {
         Set<Tuple> errors = new HashSet<Tuple>();
 
         if (summaryDatabase.getName() == null || summaryDatabase.getName().isEmpty()) {
-            errors.add(new Tuple<>(ERROR, "["+ ERROR+"]" + COLON + REPORT_SPACE + NOT_FOUND_MESSAGE +
+            errors.add(new Tuple<>(ERROR, "["+ ERROR+"]" + COLON + REPORT_SPACE + DATABASE_NOT_FOUND_MESSAGE +
                     REPORT_SPACE + DBField.NAME.getFullName()));
         }
         if (summaryDatabase.getDescription() == null || summaryDatabase.getDescription().isEmpty()) {
-            errors.add(new Tuple<>(WARN, "["+ WARN+"]" + COLON + REPORT_SPACE + NOT_FOUND_MESSAGE +
+            errors.add(new Tuple<>(WARN, "["+ WARN+"]" + COLON + REPORT_SPACE + DATABASE_NOT_FOUND_MESSAGE +
                     REPORT_SPACE + DBField.DESCRIPTION.getFullName()));
         }
         if (summaryDatabase.getUrl() == null || summaryDatabase.getUrl().isEmpty()) {
-            errors.add(new Tuple<>(WARN, "["+ WARN+"]" + COLON + REPORT_SPACE + NOT_FOUND_MESSAGE +
+            errors.add(new Tuple<>(WARN, "["+ WARN+"]" + COLON + REPORT_SPACE + DATABASE_NOT_FOUND_MESSAGE +
                     REPORT_SPACE + DBField.URL.getFullName()));
         }
         if (summaryDatabase.getKeywords() == null || summaryDatabase.getKeywords().isEmpty()) {
-            errors.add(new Tuple<>(WARN, "["+ WARN+"]" + COLON + REPORT_SPACE + NOT_FOUND_MESSAGE +
+            errors.add(new Tuple<>(WARN, "["+ WARN+"]" + COLON + REPORT_SPACE + DATABASE_NOT_FOUND_MESSAGE +
                     REPORT_SPACE + DBField.KEYWORDS.getFullName()));
         }
         if (summaryDatabase.getEntryCount() == null || summaryDatabase.getEntryCount().equals(0)) {
-            errors.add(new Tuple<>(WARN, "["+ WARN+"]" + COLON + REPORT_SPACE + NOT_FOUND_MESSAGE +
+            errors.add(new Tuple<>(WARN, "["+ WARN+"]" + COLON + REPORT_SPACE + DATABASE_NOT_FOUND_MESSAGE +
                     REPORT_SPACE + DBField.ENTRY_COUNT.getFullName()));
         }
         if (summaryDatabase.getReleaseDate() == null || summaryDatabase.getReleaseDate().isEmpty()) {
-            errors.add(new Tuple<>(WARN, "["+ WARN+"]" + COLON + REPORT_SPACE + NOT_FOUND_MESSAGE +
+            errors.add(new Tuple<>(WARN, "["+ WARN+"]" + COLON + REPORT_SPACE + DATABASE_NOT_FOUND_MESSAGE +
                     REPORT_SPACE + DBField.RELEASE_DATE.getFullName()));
         }
         return errors;

@@ -526,12 +526,13 @@ public class OmicsXMLFile {
 
             Set<Tuple> dbErrors = Utils.validateDatabase(reader.database);
             List<String> ids = reader.getEntryIds();
+            errors.addAll(dbErrors);
             // Retrive all the entries and retrieve the warning semantic validation
             for (String id : ids) {
                 List<Tuple> datasetErrors = Utils.validateSemantic(reader.getEntryById(id));
                 errors.addAll(datasetErrors);
             }
-            errors.addAll(dbErrors);
+
             reader.close();
         } catch (DDIException e) {
             errors.add(new Tuple<>(Utils.ERROR, e.getMessage()));
