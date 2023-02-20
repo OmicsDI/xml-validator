@@ -1,5 +1,6 @@
 package uk.ac.ebi.ddi.xml.validator.utils;
 
+import com.sun.corba.se.impl.orbutil.ObjectUtility;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import uk.ac.ebi.ddi.ddidomaindb.dataset.*;
@@ -10,10 +11,8 @@ import uk.ac.ebi.ddi.xml.validator.parser.model.SummaryDatabase;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class Utils {
 
@@ -23,6 +22,9 @@ public class Utils {
     public static final String NOT_FOUND_MESSAGE = "The entry does not contain:";
     public static final String DATABASE_NOT_FOUND_MESSAGE="The database file does not contain:";
     public static final String NOT_FOUND_UPDATED = "The entry does not contain or is out of range:";
+
+    public static final String DATES_NOT_FOUND = "The entry should contain either of dates:";
+
     public static final String ENTRY_NOT_FOUND = "Entry";
     public static final String REPORT_SPACE = " ";
     public static final String COLON = ":";
@@ -49,25 +51,31 @@ public class Utils {
                             "["+ ERROR+"]" + COLON + REPORT_SPACE + NOT_FOUND_MESSAGE + REPORT_SPACE +
                             DSField.DESCRIPTION));
         }
-
-        if (entry.getDates() != null && !entry.getDates().isEmpty()) {
-            Field.getFields().add(DSField.Date.PUBLICATION);
-            List<Field> fields = Field.getValuesByCategory(FieldCategory.DATE, FieldType.UNKNOWN);
-            for (Field field : fields) {
-                String errorCode = (field.getType() == FieldType.MANDATORY) ? ERROR : WARN;
+        if (entry.getDates() != null) {
+            List<Field> dateFieldList = new ArrayList<Field>();
+            dateFieldList.add(DSField.Date.PUBLICATION);
+            dateFieldList.add(DSField.Date.PUBLICATION_UPDATED);
+            dateFieldList.add(DSField.Date.CREATION);
+            boolean isError = false;
+            if(entry.getDates().isEmpty() || entry.getDates().getDate().isEmpty()){
+                isError = true;
+            } else {
                 boolean found = false;
                 for (Date date : entry.getDates().getDate()) {
-                    if (field.getName().equalsIgnoreCase(date.getType()) && date.getValue() != null
-                            && validateDate(date.getValue())) {
+                    Optional<Field> dateFieldNames = dateFieldList.stream().filter(field -> field.getName().equals(date.getType())).findFirst();
+                    if(dateFieldNames.isPresent() && date.getValue() != null && validateDate(date.getValue())){
                         found = true;
                     }
                 }
                 if (!found) {
-                    errors.add(new Tuple<>(errorCode,
-                            ENTRY_NOT_FOUND + REPORT_SPACE + "[" + entry.getId() + "]" + COLON +REPORT_SPACE
-                                    + "["+ errorCode+"]" + COLON + REPORT_SPACE + NOT_FOUND_UPDATED + REPORT_SPACE +
-                                    field.getFullName()));
+                    isError = true;
                 }
+            }
+            if(isError){
+                errors.add(new Tuple<>(ERROR,
+                        ENTRY_NOT_FOUND + REPORT_SPACE + "[" + entry.getId() + "]" + COLON +REPORT_SPACE
+                                + "["+ ERROR+"]" + COLON + REPORT_SPACE + DATES_NOT_FOUND + REPORT_SPACE +
+                                dateFieldList.stream().map(fieldObj -> fieldObj.getName()).collect(Collectors.toList())));
             }
         }
 
