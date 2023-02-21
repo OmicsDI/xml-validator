@@ -52,17 +52,14 @@ public class Utils {
                             DSField.DESCRIPTION));
         }
         if (entry.getDates() != null) {
-            List<Field> dateFieldList = new ArrayList<Field>();
-            dateFieldList.add(DSField.Date.PUBLICATION);
-            dateFieldList.add(DSField.Date.PUBLICATION_UPDATED);
-            dateFieldList.add(DSField.Date.CREATION);
+            List<Field> dateFieldList = Arrays.asList(DSField.Date.PUBLICATION, DSField.Date.PUBLICATION_UPDATED, DSField.Date.CREATION, DSField.Date.SUBMISSION);
             boolean isError = false;
             if(entry.getDates().isEmpty() || entry.getDates().getDate().isEmpty()){
                 isError = true;
             } else {
                 boolean found = false;
                 for (Date date : entry.getDates().getDate()) {
-                    Optional<Field> dateFieldNames = dateFieldList.stream().filter(field -> field.getName().equals(date.getType())).findFirst();
+                    Optional<String> dateFieldNames = dateFieldList.stream().map(Field::getName).filter(n -> n.equals(date.getType())).findFirst();
                     if(dateFieldNames.isPresent() && date.getValue() != null && validateDate(date.getValue())){
                         found = true;
                     }
