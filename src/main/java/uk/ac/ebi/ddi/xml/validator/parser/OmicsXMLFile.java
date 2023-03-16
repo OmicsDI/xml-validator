@@ -6,7 +6,6 @@ import org.xml.sax.SAXException;
 import psidev.psi.tools.xxindex.StandardXpathAccess;
 import psidev.psi.tools.xxindex.index.IndexElement;
 import psidev.psi.tools.xxindex.index.XpathIndex;
-import uk.ac.ebi.ddi.ddidomaindb.dataset.DSField;
 import uk.ac.ebi.ddi.xml.validator.exception.DDIException;
 import uk.ac.ebi.ddi.xml.validator.parser.model.DataElement;
 import uk.ac.ebi.ddi.xml.validator.parser.model.Database;
@@ -279,8 +278,10 @@ public class OmicsXMLFile {
 
     public List<Entry> getAllEntries() throws DDIException {
         List<Entry> entries = new ArrayList<>();
-        for (String id : getEntryIds()) {
-            entries.add(getEntryById(id));
+        if(getEntryIds() != null){
+            for (String id : getEntryIds()) {
+                entries.add(getEntryById(id));
+            }
         }
         return entries;
     }
@@ -434,8 +435,8 @@ public class OmicsXMLFile {
             validator.validate(source);
             retval = true;
         } catch (SAXException ex) {
-            System.out.println(xmlFile.getName() + " is not valid because ");
-            System.out.println(ex.getMessage());
+            LOGGER.error(xmlFile.getName() + " is not valid because ");
+            LOGGER.error(ex.getMessage());
             retval = false;
         } catch (IOException e) {
             throw new IllegalStateException("Could not validate file because of file read problems for source: "
